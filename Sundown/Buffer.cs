@@ -1,3 +1,5 @@
+#define marshalcopy
+
 using System;
 using System.IO;
 using System.Text;
@@ -120,9 +122,17 @@ namespace Sundown
 
 		public override string ToString()
 		{
-			UnmanagedMemoryStream ums = new UnmanagedMemoryStream((byte *)cbuffer->str, cbuffer->size);
-			TextReader tr = new StreamReader(ums);
-			return tr.ReadToEnd();
+#if marshalcopy
+			byte[] bytes = new byte[cbuffer->size];
+			Marshal.Copy(new IntPtr(cbuffer->str), bytes, 0, bytes.Length);
+			return Encoding.GetString(bytes);
+#else
+			using (UnmanagedMemoryStream ums = new UnmanagedMemoryStream((byte *)cbuffer->str, cbuffer->size))
+			{
+				TextReader tr = new StreamReader(ums);
+				return tr.ReadToEnd();
+			}
+#endif
 		}
 
 		public static int CaseCompare(Buffer buffer1, Buffer buffer2)
