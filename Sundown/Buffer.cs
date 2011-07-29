@@ -122,6 +122,9 @@ namespace Sundown
 
 		public override string ToString()
 		{
+			if (cbuffer->size == 0) {
+				return string.Empty;
+			}
 #if marshalcopy
 			byte[] bytes = new byte[cbuffer->size];
 			Marshal.Copy(new IntPtr(cbuffer->str), bytes, 0, bytes.Length);
