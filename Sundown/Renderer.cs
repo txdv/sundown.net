@@ -35,8 +35,8 @@ namespace Sundown
 	delegate void mkd_renderer_doc_header(IntPtr ob, IntPtr opaque);
 	delegate void mkd_renderer_doc_footer(IntPtr ob, IntPtr opaque);
 
-    [StructLayout(LayoutKind.Sequential)]
-    internal struct mkd_renderer
+	[StructLayout(LayoutKind.Sequential)]
+	internal struct mkd_renderer
 	{
 		public mkd_renderer_blockcode  blockcode;
 		public mkd_renderer_blockquote blockquote;
