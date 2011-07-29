@@ -26,7 +26,7 @@ namespace Sundown
 			}
 		}
 
-		Buffer(IntPtr ptr)
+		internal Buffer(IntPtr ptr)
 		{
 			buf = ptr;
 			Encoding = Encoding.Default;
