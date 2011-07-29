@@ -84,6 +84,18 @@ namespace Sundown
 
 		public abstract void Markdown(Buffer outBuffer, Buffer inBuffer);
 
+		public string Markdown(string text, int bufferSize = 1024)
+		{
+			using (Buffer outBuffer = new Buffer(bufferSize))
+			using (Buffer inBuffer = new Buffer(bufferSize))
+			{
+				inBuffer.Puts(text);
+				Markdown(outBuffer, inBuffer);
+				return outBuffer.ToString();
+			}
+
+		}
+
 		internal void Markdown(Buffer outBuffer, Buffer inBuffer, ref mkd_renderer renderer)
 		{
 			uint i = 0;
