@@ -328,11 +328,17 @@ namespace Sundown
 	public class HtmlRenderer : Renderer, IDisposable
 	{
 		mkd_renderer renderer;
+		bool disposed;
 
 		public HtmlRenderer()
 		{
 			renderer = new mkd_renderer();
 			sdhtml_renderer(ref renderer, 0, IntPtr.Zero);
+		}
+
+		~HtmlRenderer()
+		{
+			Dispose(false);
 		}
 
 		public override void Markdown(Buffer outBuffer, Buffer inBuffer)
@@ -346,9 +352,12 @@ namespace Sundown
 			GC.SuppressFinalize(this);
 		}
 
-		public virtual void Dispose(bool dispose)
+		public virtual void Dispose(bool disposing)
 		{
-			sdhtml_free_renderer(ref renderer);
+			if (!disposed) {
+				sdhtml_free_renderer(ref renderer);
+			}
+			disposed = true;
 		}
 
 		[DllImport("sundown")]
