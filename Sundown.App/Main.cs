@@ -37,11 +37,11 @@ namespace Sundown.App
 
 				Console.Write(new char[] { });
 
-				Renderer r = new Renderer();
+				Renderer r = new HtmlRenderer();
 				using (Buffer output = new Buffer(bytes.Length))
 				{
-					string text = r.Markdown(output, buffer, bytes.Length).ToString();
-					Console.WriteLine(text);
+					r.Markdown(output, buffer);
+					Console.WriteLine(output.ToString());
 				}
 
 			}
