@@ -12,9 +12,9 @@ namespace Sundown
 		internal struct buffer
 		{
 			public byte *str;
-			public int size;
-			public int asize;
-			public int unit;
+			public IntPtr size;
+			public IntPtr asize;
+			public IntPtr unit;
 			public int refcount;
 		}
 
@@ -26,14 +26,19 @@ namespace Sundown
 			}
 		}
 
-		internal Buffer(IntPtr ptr)
+		internal Buffer(IntPtr size)
 		{
-			buf = ptr;
+			buf = bufnew(size);
 			Encoding = Encoding.Default;
 		}
 
 		public Buffer(int size)
-			: this(bufnew(size))
+			: this(new IntPtr(size))
+		{
+		}
+
+		public Buffer(long size)
+			: this(new IntPtr(size))
 		{
 		}
 
@@ -50,16 +55,31 @@ namespace Sundown
 
 		public int Size {
 			get {
-				return cbuffer->size;
+				return cbuffer->size.ToInt32();
 			}
 			set {
-				cbuffer->size = value;
+				cbuffer->size = new IntPtr(value);
+			}
+		}
+
+		public long LongSize {
+			get {
+				return cbuffer->size.ToInt64();
+			}
+			set {
+				cbuffer->size = new IntPtr(value);
 			}
 		}
 
 		public int AllocatedSize {
 			get {
-				return cbuffer->asize;
+				return cbuffer->asize.ToInt32();
+			}
+		}
+
+		public long LongAllocatedSize {
+			get {
+				return cbuffer->asize.ToInt64();
 			}
 		}
 
@@ -67,7 +87,7 @@ namespace Sundown
 
 		public void Put(byte[] bytes, int size)
 		{
-			bufput(buf, bytes, size);
+			bufput(buf, bytes, new IntPtr(size));
 		}
 
 		public void Put(byte[] bytes)
@@ -75,34 +95,24 @@ namespace Sundown
 			Put(bytes, bytes.Length);
 		}
 
+		public void Put(Encoding encoding, string str)
+		{
+			Put(encoding.GetBytes(str));
+		}
+
 		public void Put(string str)
 		{
-			Put(Encoding.GetBytes(str));
+			Put(Encoding, str);
+		}
+
+		public void Put(Encoding encoding, string str, params object[] param)
+		{
+			Put(encoding, string.Format(str, param));
 		}
 
 		public void Put(string str, params object[] param)
 		{
-			Put(string.Format(str, param));
-		}
-
-		public void Puts(byte[] bytes, int size)
-		{
-			bufputs(buf, bytes, size);
-		}
-
-		public void Puts(byte[] bytes)
-		{
-			Puts(bytes, bytes.Length);
-		}
-
-		public void Puts(string str)
-		{
-			Puts(Encoding.GetBytes(str));
-		}
-
-		public void Puts(string str, params object[] param)
-		{
-			Puts(string.Format(str, param));
+			Put(Encoding, str, param);
 		}
 
 		public void Putc(byte c)
@@ -111,6 +121,16 @@ namespace Sundown
 		}
 
 		public void Grow(int size)
+		{
+			Grow(new IntPtr(size));
+		}
+
+		public void Grow(long size)
+		{
+			Grow(new IntPtr(size));
+		}
+
+		public void Grow(IntPtr size)
 		{
 			bufgrow(buf, size);
 		}
@@ -122,15 +142,15 @@ namespace Sundown
 
 		public override string ToString()
 		{
-			if (cbuffer->size == 0) {
+			if (cbuffer->size == IntPtr.Zero) {
 				return string.Empty;
 			}
 #if marshalcopy
-			byte[] bytes = new byte[cbuffer->size];
+			byte[] bytes = new byte[Size];
 			Marshal.Copy(new IntPtr(cbuffer->str), bytes, 0, bytes.Length);
 			return Encoding.GetString(bytes);
 #else
-			using (UnmanagedMemoryStream ums = new UnmanagedMemoryStream((byte *)cbuffer->str, cbuffer->size))
+			using (UnmanagedMemoryStream ums = new UnmanagedMemoryStream((byte *)cbuffer->str, LongSize))
 			{
 				TextReader tr = new StreamReader(ums);
 				return tr.ReadToEnd();
@@ -170,17 +190,31 @@ namespace Sundown
 
 		public Buffer Duplicate(int size)
 		{
+			return Duplicate(new IntPtr(size));
+		}
+
+		public Buffer Duplicate(long size)
+		{
+			return Duplicate(new IntPtr(size));
+		}
+
+		public Buffer Duplicate(IntPtr size)
+		{
 			return new Buffer(bufdup(buf, size));
 		}
 
 		public Buffer Duplicate()
 		{
-			return Duplicate(cbuffer->size);
+			return Duplicate(Size);
 		}
 
 		void Release()
 		{
-			bufrelease(buf);
+			if (buf == IntPtr.Zero) {
+				bufrelease(buf);
+			} else {
+				buf = IntPtr.Zero;
+			}
 		}
 
 		public void Reset()
@@ -193,9 +227,19 @@ namespace Sundown
 			bufset(buf, buffer.buf);
 		}
 
-		public void Slurp(int size)
+		public void Slurp(IntPtr size)
 		{
 			bufslurp(buf, size);
+		}
+
+		public void Slurp(int size)
+		{
+			Slurp(new IntPtr(size));
+		}
+
+		public void Slurp(long size)
+		{
+			Slurp(new IntPtr(size));
 		}
 
 		[DllImport("sundown")]
@@ -211,22 +255,22 @@ namespace Sundown
 		private static extern int bufprefix(IntPtr buf1, byte[] prefix);
 
 		[DllImport("sundown")]
-		private static extern IntPtr bufnew(int size);
+		private static extern IntPtr bufnew(IntPtr size);
 
 		[DllImport("sundown")]
-		private static extern IntPtr bufdup(IntPtr buffer, int size);
+		private static extern IntPtr bufdup(IntPtr buffer, IntPtr size);
 
 		[DllImport("sundown")]
-		private static extern int bufgrow(IntPtr buf, int size);
+		private static extern int bufgrow(IntPtr buf, IntPtr size);
 
 		[DllImport("sundown")]
 		private static extern void bufnullterm(IntPtr buf);
 
 		[DllImport("sundown")]
-		private static extern void bufput(IntPtr buf, byte[] buffer, int size);
+		private static extern void bufput(IntPtr buf, byte[] buffer, IntPtr size);
 
 		[DllImport("sundown")]
-		private static extern void bufputs(IntPtr buf, byte[] buffer, int size);
+		private static extern void bufputs(IntPtr buf, IntPtr size);
 
 		[DllImport("sundown")]
 		private static extern void bufputc(IntPtr buf, byte c);
@@ -241,11 +285,11 @@ namespace Sundown
 		private static extern void bufset(IntPtr buf1, IntPtr buf2);
 
 		[DllImport("sundown")]
-		private static extern void bufslurp(IntPtr buf, int size);
+		private static extern void bufslurp(IntPtr buf, IntPtr size);
 
 		// TODO: implement this
 		[DllImport("sundown")]
-		private static extern int buftoi(IntPtr buf, int size, out int res);
+		private static extern int buftoi(IntPtr buf, IntPtr size, out IntPtr res);
 	}
 
 }

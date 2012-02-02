@@ -89,7 +89,7 @@ namespace Sundown
 			using (Buffer outBuffer = new Buffer(bufferSize))
 			using (Buffer inBuffer = new Buffer(bufferSize))
 			{
-				inBuffer.Puts(text);
+				inBuffer.Put(text);
 				Markdown(outBuffer, inBuffer);
 				return outBuffer.ToString();
 			}
