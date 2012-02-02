@@ -26,20 +26,28 @@ namespace Sundown
 			}
 		}
 
-		internal Buffer(IntPtr size)
+		bool release;
+
+		internal Buffer(IntPtr buffer, bool release = false)
 		{
-			buf = bufnew(size);
+			buf = buffer;
 			Encoding = Encoding.Default;
+			this.release = release;
 		}
 
 		public Buffer(int size)
-			: this(new IntPtr(size))
+			: this(bufnew(new IntPtr(size)), true)
 		{
 		}
 
 		public Buffer(long size)
-			: this(new IntPtr(size))
+			: this(bufnew(new IntPtr(size)), true)
 		{
+		}
+
+		~Buffer()
+		{
+			Dispose(false);
 		}
 
 		public void Dispose()
@@ -50,7 +58,10 @@ namespace Sundown
 
 		protected virtual void Dispose(bool disposing)
 		{
-			Release();
+			if (release) {
+				Release();
+				release = false;
+			}
 		}
 
 		public int Size {
@@ -210,9 +221,8 @@ namespace Sundown
 
 		void Release()
 		{
-			if (buf == IntPtr.Zero) {
+			if (buf != IntPtr.Zero) {
 				bufrelease(buf);
-			} else {
 				buf = IntPtr.Zero;
 			}
 		}
