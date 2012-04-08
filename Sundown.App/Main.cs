@@ -1,51 +1,77 @@
 using System;
 using System.IO;
+using System.Runtime.InteropServices;
 
 namespace Sundown.App
 {
 	class MainClass
 	{
+		static readonly int BufferSize = 1024;
+
 		public static void Main(string[] args)
 		{
-			byte[] bytes = new byte[512];
+			Method2(args);
+		}
+
+		static void Method1(string[] args)
+		{
+			if (args.Length < 1) {
+				Console.WriteLine("You have to provide a file as an argument");
+				return;
+			}
+
+			string inputfile = args[0];
+
+			byte[] bytes = new byte[BufferSize];
 
 			using (Buffer buffer = new Buffer(bytes.Length))
 			{
-				if (args[0].Length == 0) {
-					Console.WriteLine("You have to provide a file as an argument");
-				}
-
-				string inputfile = args[0];
 
 				try {
 					using (FileStream fs = File.OpenRead(inputfile))
-					{
-						for (int size = 0; (size = fs.Read(bytes, 0, bytes.Length)) != 0;) {
-							buffer.Grow(bytes.Length);
-							buffer.Put(bytes, size);
-						}
-						buffer.End();
+					for (int size = 0; (size = fs.Read(bytes, 0, bytes.Length)) != 0;) {
+						buffer.Grow(bytes.Length);
+						buffer.Put(bytes, size);
 					}
 				} catch (Exception exception) {
 					Console.WriteLine("Unable to open input file {0: {1}", inputfile, exception.Message);
 					return;
 				}
 
-				// Strangest bug ever, without printing something, it simply
-				// will stop executing at the next line
-				// puting this into the constructor doesn't work either...
-
-				Console.Write(new char[] { });
-
-				Renderer r = new HtmlRenderer();
-				using (Buffer output = new Buffer(bytes.Length))
+				using (Buffer output = new Buffer())
 				{
-					r.Markdown(output, buffer);
-					Console.WriteLine(output.ToString());
+					var md = new Markdown(new HtmlRenderer());
+					md.Render(output, buffer);
+					Console.WriteLine(output);
 				}
-
 			}
 		}
 
+		static void Method2(string[] args)
+		{
+			if (args.Length < 1) {
+				Console.WriteLine("You have to provide a file as an argument");
+				return;
+			}
+
+			string inputfile = args[0];
+
+			var md = new Markdown(new HtmlRenderer());
+
+			byte[] bytes = new byte[BufferSize];
+
+			using (Buffer buffer = new Buffer())
+			try {
+				using (FileStream fs = File.OpenRead(inputfile))
+				for (int size = 0; (size = fs.Read(bytes, 0, bytes.Length)) != 0;) {
+					md.Render(buffer, bytes, size);
+				}
+			} catch (Exception exception) {
+				Console.WriteLine("Unable to open input file {0: {1}", inputfile, exception.Message);
+				return;
+			} finally {
+				Console.WriteLine(buffer);
+			}
+		}
 	}
 }
