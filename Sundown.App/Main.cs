@@ -1,5 +1,6 @@
 using System;
 using System.IO;
+using System.Collections.Generic;
 using System.Runtime.InteropServices;
 using NDesk.Options;
 using Sundown;
@@ -17,16 +18,21 @@ namespace Sundown.App
 		public Options()
 		{
 			Renderer = RendererType.Html;
-			Extensions = new MarkdownExtensions();
-			HtmlRenderMode = new HtmlRenderMode();
+
 			MaxNesting = 16;
+			Extensions = new MarkdownExtensions();
+
+			HtmlRenderMode = new HtmlRenderMode();
+			BBCodeOptions = new BBCodeOptions();
 		}
 
 		public RendererType Renderer { get; set; }
 
-		public MarkdownExtensions Extensions { get; protected set; }
-		public HtmlRenderMode HtmlRenderMode { get; protected set; }
 		public int MaxNesting { get; set; }
+		public MarkdownExtensions Extensions { get; protected set; }
+
+		public HtmlRenderMode HtmlRenderMode { get; protected set; }
+		public BBCodeOptions BBCodeOptions { get; protected set; }
 	}
 
 	class MainClass
@@ -97,6 +103,21 @@ namespace Sundown.App
 					     (_) => options.HtmlRenderMode.Escape = true)
 					;
 
+			OptionSet bbRendererOptionSet = new OptionSet()
+				.Add("defaultheadersize=", "sets the default header size",
+				     (int size) => options.BBCodeOptions.DefaultHeaderSize = size)
+				.Add("headersizes=", "sets the header sizes starting with level 1 and increasing," +
+					"\"20,15,10\" will set the level 1 headers to the size 20, level 2 to 15, 3 to 10" +
+					"and the rest to defaultheadersize ",
+				     (string sizes) => {
+						var arr = sizes.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
+						options.BBCodeOptions.HeaderSizes = new Dictionary<int, int>();
+						for (int i = 0; i < arr.Length; i++) {
+							options.BBCodeOptions.HeaderSizes[i + 1] = int.Parse(arr[i]);
+						}
+					})
+					;
+
 			var files = markdownExtensionOptionSet.Parse(optionSet.Parse(args));
 			if (showHelp) {
 				Console.WriteLine("Usage: sundown [OPTIONS] file");
@@ -112,6 +133,8 @@ namespace Sundown.App
 
 			if (options.Renderer == RendererType.Html) {
 				files = htmlRendererModeOptionSet.Parse(files);
+			} else {
+				files = bbRendererOptionSet.Parse(files);
 			}
 
 			if (files.Count < 1) {
@@ -129,7 +152,7 @@ namespace Sundown.App
 				renderer = new HtmlRenderer(options.HtmlRenderMode);
 				break;
 			case RendererType.BBCode:
-				renderer = new BBCodeRenderer();
+				renderer = new BBCodeRenderer(options.BBCodeOptions);
 				break;
 			}
 

@@ -1,18 +1,58 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
 
 namespace Sundown.App
 {
+	class BBCodeOptions
+	{
+		public BBCodeOptions()
+		{
+			DefaultHeaderSize = 10;
+			HeaderSizes = new Dictionary<int, int>() {
+				{ 1, 16 },
+				{ 2, 14 },
+				{ 3, 12 },
+			};
+		}
+
+		public int DefaultHeaderSize { get; set; }
+		public Dictionary<int, int> HeaderSizes { get; set; }
+
+		internal int GetSize(int level)
+		{
+			int val;
+			if (HeaderSizes != null && HeaderSizes.TryGetValue(level, out val)) {
+				return val;
+			} else {
+				return DefaultHeaderSize;
+			}
+		}
+	}
+
 	class BBCodeRenderer : CustomRenderer
 	{
+		BBCodeOptions options;
+
+		public BBCodeRenderer()
+			: this(new BBCodeOptions())
+		{
+		}
+
+		public BBCodeRenderer(BBCodeOptions options)
+		{
+			this.options = options;
+		}
+
 		protected override void Paragraph (Buffer ob, Buffer text)
 		{
 			ob.Put("\n\n");
 			ob.Put(text);
 		}
+
 		protected override void Header(Buffer ob, Buffer text, int level)
 		{
-			ob.Put("\n\n\n[size={0}pt]{1}[/size]", 12, text);
+			ob.Put("\n\n\n[size={0}pt]{1}[/size]", options.GetSize(level), text);
 		}
 
 		protected override bool DoubleEmphasis(Buffer ob, Buffer text)
