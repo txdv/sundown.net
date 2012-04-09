@@ -71,6 +71,35 @@ namespace Sundown
 	public abstract class Renderer
 	{
 		internal sd_callbacks callbacks;
+		internal GCHandle gchandle;
+		internal int count = 0;
+		internal IntPtr opaque;
+
+		internal virtual void Initialize()
+		{
+		}
+
+		internal void Pin()
+		{
+			if (count == 0) {
+				gchandle = GCHandle.Alloc(this, GCHandleType.Pinned);
+				Initialize();
+			}
+			count++;
+		}
+
+		internal virtual void Deinitialize()
+		{
+		}
+
+		internal void Unpin()
+		{
+			count--;
+			if (count == 0) {
+				gchandle.Free();
+				Deinitialize();
+			}
+		}
 	}
 }
 

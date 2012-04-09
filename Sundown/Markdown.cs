@@ -18,29 +18,33 @@ namespace Sundown
 		}
 
 		IntPtr ptr;
+		Renderer renderer;
 
 		[DllImport("sundown")]
-		internal static extern IntPtr sd_markdown_new(uint extensions, IntPtr max_nesting, ref sd_callbacks callbacks, ref html_renderopt opaque);
+		internal static extern IntPtr sd_markdown_new(uint extensions, IntPtr max_nesting, ref sd_callbacks callbacks, IntPtr opaque);
 
-		public Markdown(HtmlRenderer renderer)
+		public Markdown(Renderer renderer)
 			: this(renderer, null)
 		{
 		}
 
-		public Markdown(HtmlRenderer renderer, MarkdownExtensions extensions)
+		public Markdown(Renderer renderer, MarkdownExtensions extensions)
 			: this(renderer, extensions, 16)
 		{
 		}
 
-		public Markdown(HtmlRenderer renderer, int maxNesting)
+		public Markdown(Renderer renderer, int maxNesting)
 			: this(renderer, null, maxNesting)
 		{
 		}
 
-		public Markdown(HtmlRenderer renderer, MarkdownExtensions extensions, int maxNesting)
+		public Markdown(Renderer renderer, MarkdownExtensions extensions, int maxNesting)
 		{
+			this.renderer = renderer;
+			renderer.Pin();
+
 			ptr = sd_markdown_new((extensions == null ? 0 : extensions.ToUInt()), (IntPtr)maxNesting,
-				ref renderer.callbacks, ref renderer.options);
+				ref renderer.callbacks, renderer.opaque);
 		}
 
 		~Markdown()
@@ -65,6 +69,11 @@ namespace Sundown
 			if (ptr != IntPtr.Zero) {
 				sd_markdown_free(ptr);
 				ptr = IntPtr.Zero;
+			}
+
+			if (renderer != null) {
+				renderer.Unpin();
+				renderer = null;
 			}
 		}
 

@@ -34,6 +34,14 @@ namespace Sundown
 
 		[DllImport("sundown")]
 		internal static extern void sdhtml_renderer(ref sd_callbacks callbacks, ref html_renderopt options, uint render_flags);
+
+
+		unsafe internal override void Initialize()
+		{
+			fixed (html_renderopt *ptr = &options) {
+				opaque = new IntPtr(ptr);
+			}
+		}
 	}
 }
 

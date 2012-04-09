@@ -6,6 +6,10 @@ namespace Sundown
 	{
 		public CustomRenderer()
 		{
+		}
+
+		internal override void Initialize ()
+		{
 			callbacks.blockcode  = mkd_renderer_blockcode;
 			callbacks.blockquote = mkd_renderer_blockquote;
 			callbacks.blockhtml  = mkd_renderer_blockhtml;
