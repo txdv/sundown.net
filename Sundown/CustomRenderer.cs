@@ -113,70 +113,70 @@ namespace Sundown
 
 		#region span level
 
-		protected virtual int Autolink(Buffer ob, Buffer link, int type) { return 0; }
+		protected virtual bool Autolink(Buffer ob, Buffer link, int type) { return false; }
 		int mkd_renderer_autolink(IntPtr ob, IntPtr link, int type, IntPtr opaque)
 		{
-			return Autolink(new Buffer(ob), new Buffer(link), type);
+			return Autolink(new Buffer(ob), new Buffer(link), type) ? 1 : 0;
 		}
 
-		protected virtual int Codespan(Buffer ob, Buffer text) { return 0; }
+		protected virtual bool Codespan(Buffer ob, Buffer text) { return false; }
 		int mkd_renderer_codespan(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return Codespan(new Buffer(ob), new Buffer(text));
+			return Codespan(new Buffer(ob), new Buffer(text)) ? 1 : 0;
 		}
 
-		protected virtual int DoubleEmphasis(Buffer ob, Buffer text) { return 0; }
+		protected virtual bool DoubleEmphasis(Buffer ob, Buffer text) { return false; }
 		int mkd_renderer_double_emphasis(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return DoubleEmphasis(new Buffer(ob), new Buffer(text));
+			return DoubleEmphasis(new Buffer(ob), new Buffer(text)) ? 1 : 0;
 		}
 
-		protected virtual int Emphasis(Buffer ob, Buffer text) { return 0; }
+		protected virtual bool Emphasis(Buffer ob, Buffer text) { return false; }
 		int mkd_renderer_emphasis(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return Emphasis(new Buffer(ob), new Buffer(text));
+			return Emphasis(new Buffer(ob), new Buffer(text)) ? 1 : 0;
 		}
 
-		protected virtual int Image(Buffer ob, Buffer link, Buffer title, Buffer alt) { return 0; }
+		protected virtual bool Image(Buffer ob, Buffer link, Buffer title, Buffer alt) { return false; }
 		int mkd_renderer_image(IntPtr ob, IntPtr link, IntPtr title, IntPtr alt, IntPtr opaque)
 		{
-			return Image(new Buffer(ob), new Buffer(link), new Buffer(title), new Buffer(alt));
+			return Image(new Buffer(ob), new Buffer(link), new Buffer(title), new Buffer(alt)) ? 1 : 0;
 		}
 
-		protected virtual int Linebreak(Buffer ob) { return 0; }
+		protected virtual bool Linebreak(Buffer ob) { return false; }
 		int mkd_renderer_linebreak(IntPtr ob, IntPtr opaque)
 		{
-			return Linebreak(new Buffer(ob));
+			return Linebreak(new Buffer(ob)) ? 1 : 0;
 		}
 
-		protected virtual int Link(Buffer ob, Buffer link, Buffer title, Buffer content) { return 0; }
+		protected virtual bool Link(Buffer ob, Buffer link, Buffer title, Buffer content) { return false; }
 		int mkd_renderer_link(IntPtr ob, IntPtr link, IntPtr title, IntPtr content, IntPtr opaque)
 		{
-			return Link(new Buffer(ob), new Buffer(link), new Buffer(title), new Buffer(content));
+			return Link(new Buffer(ob), new Buffer(link), new Buffer(title), new Buffer(content)) ? 1 : 0;
 		}
 
-		protected virtual int RawHtmlTag(Buffer ob, Buffer tag) { return 0; }
+		protected virtual bool RawHtmlTag(Buffer ob, Buffer tag) { return false; }
 		int mkd_renderer_raw_html_tag(IntPtr ob, IntPtr tag, IntPtr opaque)
 		{
-			return RawHtmlTag(new Buffer(ob), new Buffer(tag));
+			return RawHtmlTag(new Buffer(ob), new Buffer(tag)) ? 1 : 0;
 		}
 
-		protected virtual int TripleEmphasis(Buffer buf, Buffer text) { return 0; }
+		protected virtual bool TripleEmphasis(Buffer buf, Buffer text) { return false; }
 		int mkd_renderer_triple_emphasis(IntPtr buf, IntPtr text, IntPtr opaque)
 		{
-			return TripleEmphasis(new Buffer(buf), new Buffer(text));
+			return TripleEmphasis(new Buffer(buf), new Buffer(text)) ? 1 : 0;
 		}
 
-		protected virtual int Strikethrough(Buffer buf, Buffer text) { return 0; }
+		protected virtual bool Strikethrough(Buffer buf, Buffer text) { return false; }
 		int mkd_renderer_strikethrough(IntPtr buf, IntPtr text, IntPtr opaque)
 		{
-			return Strikethrough(new Buffer(buf), new Buffer(text));
+			return Strikethrough(new Buffer(buf), new Buffer(text)) ? 1 : 0;
 		}
 
-		protected virtual int Superscript(Buffer buf, Buffer text) { return 0; }
+		protected virtual bool Superscript(Buffer buf, Buffer text) { return false; }
 		int mkd_renderer_superscript(IntPtr buf, IntPtr buffer, IntPtr opaque)
 		{
-			return Superscript(new Buffer(buf), new Buffer(buffer));
+			return Superscript(new Buffer(buf), new Buffer(buffer)) ? 1 : 0;
 		}
 
 		#endregion
