@@ -49,30 +49,6 @@ namespace Sundown.App
 		{
 			ob.Put("\n[quote author={0}]{1}[/quote]\n", language, text);
 		}
-
-		static void Method3(string[] args)
-		{
-			if (args.Length < 1) {
-				Console.WriteLine("You have to provide a file as an argument");
-				return;
-			}
-
-			string inputfile = args[0];
-
-			var md = new Markdown(new BBCodeRenderer(), new MarkdownExtensions() { FencedCode = true });
-
-			using (Buffer buffer = new Buffer())
-			try {
-				using (var sr = new StreamReader(File.OpenRead(inputfile)))
-				md.Render(buffer, sr.ReadToEnd());
-			} catch (Exception exception) {
-				Console.WriteLine("Unable to open input file {0: {1}", inputfile, exception.Message);
-				return;
-			} finally {
-				Console.WriteLine(buffer);
-			}
-		}
 	}
-
 }
 
