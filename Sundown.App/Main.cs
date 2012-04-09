@@ -54,56 +54,66 @@ namespace Sundown.App
 				})
 				.Add("h|?|help", "show help",
 					     (_) => showHelp = true)
-				.Add("m|maxnesting=", "specify the maximum nesting level, default is 16, minimum is 1",
-					     (int i) => options.MaxNesting = Math.Max(1, i))
+				.Add("m|maxnesting=", "specify the maximum nesting level, default 16, minimum 1",
+					     (int i) => options.MaxNesting = Math.Max(1, i));
 
-					// Markdown Extensions
-				.Add("autolink", "enables autolink extension",
+			OptionSet markdownExtensionOptionSet = new OptionSet()
+				.Add("autolink", "enable autolinks",
 					     (_) => options.Extensions.Autolink = true)
-				.Add("tables", "enables table extension",
+				.Add("tables", "enable tables",
 					     (_) => options.Extensions.Tables = true)
-				.Add("fencedcode", "enables fenced code extension",
+				.Add("fencedcode", "enable fenced code",
 					     (_) => options.Extensions.FencedCode = true)
-				.Add("strikethrough", "enables strikethrough extension",
+				.Add("strikethrough", "enable strikethrough",
 					     (_) => options.Extensions.Strikethrough = true)
-				.Add("htmlblocks", "enables html block extension",
+				.Add("htmlblocks", "enable html blocks",
 					     (_) => options.Extensions.LaxHTMLBlocks = true)
-				.Add("spaceheaders", "enables spaceheaders extension",
+				.Add("spaceheaders", "enable spaceheaders",
 					     (_) => options.Extensions.SpaceHeaders = true)
-				.Add("superscript", "enables superscript extension",
+				.Add("superscript", "enable superscript",
 					     (_) => options.Extensions.SuperScript = true)
+					;
 
-					// html renderer options
-				.Add("skiphtml", "skips html in the html renderer",
+			OptionSet htmlRendererModeOptionSet = new OptionSet()
+				.Add("skiphtml", "skip html",
 					     (_) => options.HtmlRenderMode.SkipHtml = true)
-				.Add("skipstyle", "skips style in the html renderer",
+				.Add("skipstyle", "skip styles",
 					     (_) => options.HtmlRenderMode.SkipStyle = true)
-				.Add("skipimages", "skips images in the html renderer",
+				.Add("skipimages", "skip images",
 					     (_) => options.HtmlRenderMode.SkipImages = true)
-				.Add("skiplinks", "skips links in the html renderer",
+				.Add("skiplinks", "skip links",
 					     (_) => options.HtmlRenderMode.SkipLinks = true)
-				.Add("skipexpandtabs", "doesn't expand tabs in the html renderer",
+				.Add("skipexpandtabs", "don't expand tabs",
 					     (_) => options.HtmlRenderMode.SkipExpandTabs = true)
-				.Add("safelink", "uses the safe link mode html renderer, links are checked if they are save to use",
+				.Add("safelink", "check links if they are safe to use",
 					     (_) => options.HtmlRenderMode.SafeLink = true)
-				.Add("toc", "uses the toc rendering mode in the html renderer",
+				.Add("toc", "use the toc rendering mode",
 					     (_) => options.HtmlRenderMode.TOC = true)
-				.Add("hardwrap", "uses hard wrapping in the html renderer",
+				.Add("hardwrap", "use hard wrapping",
 					     (_) => options.HtmlRenderMode.HardWrap = true)
-				.Add("xhtml", "uses xhtml in the html renderer",
+				.Add("xhtml", "generate xhtml",
 					     (_) => options.HtmlRenderMode.UseXHTML = true)
 				.Add("escape", "",
 					     (_) => options.HtmlRenderMode.Escape = true)
 					;
 
-			var files = optionSet.Parse(args);
+			var files = markdownExtensionOptionSet.Parse(optionSet.Parse(args));
 			if (showHelp) {
 				Console.WriteLine("Usage: sundown [OPTIONS] file");
 				Console.WriteLine();
 				Console.WriteLine("Options:");
 				optionSet.WriteOptionDescriptions(Console.Out);
+				Console.WriteLine("\nMarkdown extension options:");
+				markdownExtensionOptionSet.WriteOptionDescriptions(Console.Out);
+				Console.WriteLine("\nHtml renderer options");
+				htmlRendererModeOptionSet.WriteOptionDescriptions(Console.Out);
 				return;
 			}
+
+			if (options.Renderer == RendererType.Html) {
+				files = htmlRendererModeOptionSet.Parse(files);
+			}
+
 			if (files.Count < 1) {
 				Console.WriteLine("You have to provide a filename as an argument");
 			} else {
