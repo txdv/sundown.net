@@ -2,6 +2,13 @@ using System;
 
 namespace Sundown
 {
+	public enum AutolinkType : uint
+	{
+		NotAutolink,
+		Normal,
+		Email
+	}
+
 	public abstract class CustomRenderer : Renderer
 	{
 		public CustomRenderer()
@@ -113,10 +120,10 @@ namespace Sundown
 
 		#region span level
 
-		protected virtual bool Autolink(Buffer ob, Buffer link, int type) { return false; }
+		protected virtual bool Autolink(Buffer ob, Buffer link, AutolinkType type) { return false; }
 		int mkd_renderer_autolink(IntPtr ob, IntPtr link, int type, IntPtr opaque)
 		{
-			return Autolink(new Buffer(ob), new Buffer(link), type) ? 1 : 0;
+			return Autolink(new Buffer(ob), new Buffer(link), (AutolinkType)type) ? 1 : 0;
 		}
 
 		protected virtual bool Codespan(Buffer ob, Buffer text) { return false; }
