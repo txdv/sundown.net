@@ -9,6 +9,14 @@ namespace Sundown
 		Email
 	}
 
+	public enum TableFlags : uint
+	{
+		AlignLeft,
+		AligntRight,
+		AlignCenter,
+		AlignHeader
+	}
+
 	public abstract class CustomRenderer : Renderer
 	{
 		public CustomRenderer()
@@ -110,10 +118,10 @@ namespace Sundown
 			TableRow(new Buffer(ob), new Buffer(text));
 		}
 
-		protected virtual void TableCell(Buffer ob, Buffer text, int flags) { }
+		protected virtual void TableCell(Buffer ob, Buffer text, TableFlags flags) { }
 		void mkd_renderer_table_cell(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
 		{
-			TableCell(new Buffer(ob), new Buffer(text), flags);
+			TableCell(new Buffer(ob), new Buffer(text), (TableFlags)flags);
 		}
 
 		#endregion
