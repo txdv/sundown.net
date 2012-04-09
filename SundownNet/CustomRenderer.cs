@@ -133,32 +133,32 @@ namespace Sundown
 
 		protected void Initialize()
 		{
-			if (IsOverriden("BlockCode")) callbacks.blockcode = Marshal.GetFunctionPointerForDelegate(blockcode);
+			if (IsOverriden("BlockCode"))  callbacks.blockcode  = Marshal.GetFunctionPointerForDelegate(blockcode);
 			if (IsOverriden("BlockQuote")) callbacks.blockquote = Marshal.GetFunctionPointerForDelegate(blockquote);
-			if (IsOverriden("BlockHtml")) callbacks.blockhtml = Marshal.GetFunctionPointerForDelegate(blockhtml);
-			if (IsOverriden("Header")) callbacks.header = Marshal.GetFunctionPointerForDelegate(header);
-			if (IsOverriden("HRule")) callbacks.hrule = Marshal.GetFunctionPointerForDelegate(hrule);
-			if (IsOverriden("List")) callbacks.list = Marshal.GetFunctionPointerForDelegate(list);
-			if (IsOverriden("ListItem")) callbacks.listitem = Marshal.GetFunctionPointerForDelegate(listitem);
-			if (IsOverriden("Paragraph")) callbacks.paragraph = Marshal.GetFunctionPointerForDelegate(paragraph);
-			if (IsOverriden("Table")) callbacks.table = Marshal.GetFunctionPointerForDelegate(table);
-			if (IsOverriden("TableRow")) callbacks.table_row = Marshal.GetFunctionPointerForDelegate(table_row);
-			if (IsOverriden("TableCell")) callbacks.table_cell = Marshal.GetFunctionPointerForDelegate(table_cell);
+			if (IsOverriden("BlockHtml"))  callbacks.blockhtml  = Marshal.GetFunctionPointerForDelegate(blockhtml);
+			if (IsOverriden("Header"))     callbacks.header     = Marshal.GetFunctionPointerForDelegate(header);
+			if (IsOverriden("HRule"))      callbacks.hrule      = Marshal.GetFunctionPointerForDelegate(hrule);
+			if (IsOverriden("List"))       callbacks.list       = Marshal.GetFunctionPointerForDelegate(list);
+			if (IsOverriden("ListItem"))   callbacks.listitem   = Marshal.GetFunctionPointerForDelegate(listitem);
+			if (IsOverriden("Paragraph"))  callbacks.paragraph  = Marshal.GetFunctionPointerForDelegate(paragraph);
+			if (IsOverriden("Table"))      callbacks.table      = Marshal.GetFunctionPointerForDelegate(table);
+			if (IsOverriden("TableRow"))   callbacks.table_row  = Marshal.GetFunctionPointerForDelegate(table_row);
+			if (IsOverriden("TableCell"))  callbacks.table_cell = Marshal.GetFunctionPointerForDelegate(table_cell);
 
-			if (IsOverriden("Autolink")) callbacks.autolink = Marshal.GetFunctionPointerForDelegate(autolink);
-			if (IsOverriden("Codespan")) callbacks.codespan = Marshal.GetFunctionPointerForDelegate(codespan);
+			if (IsOverriden("Autolink"))       callbacks.autolink        = Marshal.GetFunctionPointerForDelegate(autolink);
+			if (IsOverriden("Codespan"))       callbacks.codespan        = Marshal.GetFunctionPointerForDelegate(codespan);
 			if (IsOverriden("DoubleEmphasis")) callbacks.double_emphasis = Marshal.GetFunctionPointerForDelegate(double_emphasis);
-			if (IsOverriden("Emphasis")) callbacks.emphasis = Marshal.GetFunctionPointerForDelegate(emphasis);
-			if (IsOverriden("Image")) callbacks.image = Marshal.GetFunctionPointerForDelegate(image);
-			if (IsOverriden("Linebreak")) callbacks.linebreak = Marshal.GetFunctionPointerForDelegate(linebreak);
-			if (IsOverriden("Link")) callbacks.link = Marshal.GetFunctionPointerForDelegate(link);
-			if (IsOverriden("RawHtmlTag")) callbacks.raw_html_tag = Marshal.GetFunctionPointerForDelegate(raw_html_tag);
+			if (IsOverriden("Emphasis"))       callbacks.emphasis        = Marshal.GetFunctionPointerForDelegate(emphasis);
+			if (IsOverriden("Image"))          callbacks.image           = Marshal.GetFunctionPointerForDelegate(image);
+			if (IsOverriden("Linebreak"))      callbacks.linebreak       = Marshal.GetFunctionPointerForDelegate(linebreak);
+			if (IsOverriden("Link"))           callbacks.link            = Marshal.GetFunctionPointerForDelegate(link);
+			if (IsOverriden("RawHtmlTag"))     callbacks.raw_html_tag    = Marshal.GetFunctionPointerForDelegate(raw_html_tag);
 			if (IsOverriden("TripleEmphasis")) callbacks.triple_emphasis = Marshal.GetFunctionPointerForDelegate(triple_emphasis);
-			if (IsOverriden("Strikethrough")) callbacks.strikethrough = Marshal.GetFunctionPointerForDelegate(strikethrough);
-			if (IsOverriden("SuperScript")) callbacks.superscript = Marshal.GetFunctionPointerForDelegate(superscript);
+			if (IsOverriden("Strikethrough"))  callbacks.strikethrough   = Marshal.GetFunctionPointerForDelegate(strikethrough);
+			if (IsOverriden("SuperScript"))    callbacks.superscript     = Marshal.GetFunctionPointerForDelegate(superscript);
 
+			if (IsOverriden("Entity"))     callbacks.entity      = Marshal.GetFunctionPointerForDelegate(entity);
 			if (IsOverriden("NormalText")) callbacks.normal_text = Marshal.GetFunctionPointerForDelegate(normal_text);
-			if (IsOverriden("Entity")) callbacks.entity = Marshal.GetFunctionPointerForDelegate(entity);
 
 			if (IsOverriden("DocumentHeader")) callbacks.doc_header = Marshal.GetFunctionPointerForDelegate(doc_header);
 			if (IsOverriden("DocumentFooter")) callbacks.doc_footer = Marshal.GetFunctionPointerForDelegate(doc_footer);
