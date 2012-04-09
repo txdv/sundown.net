@@ -97,14 +97,41 @@ namespace Sundown
 
 		public Encoding Encoding { get; set; }
 
+		public void Put(IntPtr data, int size)
+		{
+			Put(data, (IntPtr)size);
+		}
+
+		public void Put(IntPtr data, long size)
+		{
+			Put(data, (IntPtr)size);
+		}
+
+		public void Put(IntPtr data, IntPtr size)
+		{
+			bufput(buf, data, size);
+		}
+
 		public void Put(byte[] bytes, int size)
 		{
-			bufput(buf, bytes, new IntPtr(size));
+			Put(bytes, (IntPtr)size);
+		}
+
+		public void Put(byte[] bytes, long size)
+		{
+			Put(bytes, (IntPtr)size);
+		}
+
+		public void Put(byte[] bytes, IntPtr size)
+		{
+			var gchandle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
+			Put(gchandle.AddrOfPinnedObject(), size);
+			gchandle.Free();
 		}
 
 		public void Put(byte[] bytes)
 		{
-			Put(bytes, bytes.Length);
+			Put(bytes, bytes.LongLength);
 		}
 
 		public void Put(Encoding encoding, string str)
@@ -125,6 +152,11 @@ namespace Sundown
 		public void Put(string str, params object[] param)
 		{
 			Put(Encoding, str, param);
+		}
+
+		public void Put(Buffer buffer)
+		{
+			Put(buffer.Data, buffer.Size);
 		}
 
 		public void Put(byte c)
@@ -219,7 +251,7 @@ namespace Sundown
 		private static extern int bufprefix(IntPtr buf, byte[] prefix);
 
 		[DllImport("sundown")]
-		private static extern void bufput(IntPtr buf, byte[] buffer, IntPtr size);
+		private static extern void bufput(IntPtr buf, IntPtr buffer, IntPtr size);
 
 		[DllImport("sundown")]
 		private static extern void bufputs(IntPtr buf, IntPtr size);

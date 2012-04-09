@@ -179,13 +179,13 @@ namespace Sundown
 
 		#region low level callbacks
 
-		public virtual void NormalText(Buffer ob, Buffer text) { ob.Put(text.ToString()); }
+		public virtual void NormalText(Buffer ob, Buffer text) { ob.Put(text); }
 		void mkd_renderer_normal_text(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
 			NormalText(new Buffer(ob), new Buffer(text));
 		}
 
-		public virtual void Entity(Buffer ob, Buffer entity) { ob.Put(entity.ToString()); }
+		public virtual void Entity(Buffer ob, Buffer entity) { ob.Put(entity); }
 		void mkd_renderer_entity(IntPtr ob, IntPtr entity, IntPtr opaque)
 		{
 			Entity(new Buffer(ob), new Buffer(entity));
