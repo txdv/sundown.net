@@ -26,7 +26,6 @@ namespace Sundown.App
 
 			using (Buffer buffer = new Buffer(bytes.Length))
 			{
-
 				try {
 					using (FileStream fs = File.OpenRead(inputfile))
 					for (int size = 0; (size = fs.Read(bytes, 0, bytes.Length)) != 0;) {
@@ -58,14 +57,10 @@ namespace Sundown.App
 
 			var md = new Markdown(new HtmlRenderer());
 
-			byte[] bytes = new byte[BufferSize];
-
 			using (Buffer buffer = new Buffer())
 			try {
-				using (FileStream fs = File.OpenRead(inputfile))
-				for (int size = 0; (size = fs.Read(bytes, 0, bytes.Length)) != 0;) {
-					md.Render(buffer, bytes, size);
-				}
+				using (var sr = new StreamReader(File.OpenRead(inputfile)))
+				md.Render(buffer, sr.ReadToEnd());
 			} catch (Exception exception) {
 				Console.WriteLine("Unable to open input file {0: {1}", inputfile, exception.Message);
 				return;
