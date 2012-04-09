@@ -1,4 +1,6 @@
 using System;
+using System.Runtime.InteropServices;
+using System.Reflection;
 
 namespace Sundown
 {
@@ -17,43 +19,151 @@ namespace Sundown
 		AlignHeader
 	}
 
+	delegate void mkd_renderer_blockcode (IntPtr ob, IntPtr text, IntPtr lang, IntPtr opaque);
+	delegate void mkd_renderer_blockquote(IntPtr ob, IntPtr text,              IntPtr opaque);
+	delegate void mkd_renderer_blockhtml (IntPtr ob, IntPtr text,              IntPtr opaque);
+	delegate void mkd_renderer_header    (IntPtr ob, IntPtr text, int level,   IntPtr opaque);
+	delegate void mkd_renderer_hrule     (IntPtr ob,                           IntPtr opaque);
+	delegate void mkd_renderer_list      (IntPtr ob, IntPtr text, int flags,   IntPtr opaque);
+	delegate void mkd_renderer_listitem  (IntPtr ob, IntPtr text, int flags,   IntPtr opaque);
+	delegate void mkd_renderer_paragraph (IntPtr ob, IntPtr text,              IntPtr opaque);
+	delegate void mkd_renderer_table     (IntPtr ob, IntPtr head, IntPtr body, IntPtr opaque);
+	delegate void mkd_renderer_table_row (IntPtr ob, IntPtr text,              IntPtr opaque);
+	delegate void mkd_renderer_table_cell(IntPtr ob, IntPtr text, int flags,   IntPtr opaque);
+
+	delegate int mkd_renderer_autolink       (IntPtr ob, IntPtr link, int type, IntPtr opaque);
+	delegate int mkd_renderer_codespan       (IntPtr ob, IntPtr text,           IntPtr opaque);
+	delegate int mkd_renderer_double_emphasis(IntPtr ob, IntPtr text,           IntPtr opaque);
+	delegate int mkd_renderer_emphasis       (IntPtr ob, IntPtr text,           IntPtr opaque);
+	delegate int mkd_renderer_image          (IntPtr ob, IntPtr link, IntPtr title, IntPtr alt, IntPtr opaque);
+	delegate int mkd_renderer_linebreak      (IntPtr ob,                        IntPtr opaque);
+	delegate int mkd_renderer_link           (IntPtr ob, IntPtr link, IntPtr title, IntPtr content, IntPtr opaque);
+	delegate int mkd_renderer_raw_html_tag   (IntPtr ob, IntPtr tag,            IntPtr opaque);
+	delegate int mkd_renderer_triple_emphasis(IntPtr ob, IntPtr text,           IntPtr opaque);
+	delegate int mkd_renderer_strikethrough  (IntPtr ob, IntPtr text,           IntPtr opaque);
+	delegate int mkd_renderer_superscript    (IntPtr ob, IntPtr text,           IntPtr opaque);
+
+	delegate void mkd_renderer_entity     (IntPtr ob, IntPtr entity, IntPtr opaque);
+	delegate void mkd_renderer_normal_text(IntPtr ob, IntPtr text,   IntPtr opaque);
+
+	delegate void mkd_renderer_doc_header(IntPtr ob, IntPtr opaque);
+	delegate void mkd_renderer_doc_footer(IntPtr ob, IntPtr opaque);
+
 	public abstract class CustomRenderer : Renderer
 	{
+		mkd_renderer_blockcode  blockcode;
+		mkd_renderer_blockquote blockquote;
+		mkd_renderer_blockhtml  blockhtml;
+		mkd_renderer_header     header;
+		mkd_renderer_hrule      hrule;
+		mkd_renderer_list       list;
+		mkd_renderer_listitem   listitem;
+		mkd_renderer_paragraph  paragraph;
+		mkd_renderer_table      table;
+		mkd_renderer_table_row  table_row;
+		mkd_renderer_table_cell table_cell;
+
+		mkd_renderer_autolink        autolink;
+		mkd_renderer_codespan        codespan;
+		mkd_renderer_double_emphasis double_emphasis;
+		mkd_renderer_emphasis        emphasis;
+		mkd_renderer_image           image;
+		mkd_renderer_linebreak       linebreak;
+		mkd_renderer_link            link;
+		mkd_renderer_raw_html_tag    raw_html_tag;
+		mkd_renderer_triple_emphasis triple_emphasis;
+		mkd_renderer_strikethrough   strikethrough;
+		mkd_renderer_superscript     superscript;
+
+		mkd_renderer_entity entity;
+		mkd_renderer_normal_text normal_text;
+
+		mkd_renderer_doc_header doc_header;
+		mkd_renderer_doc_footer doc_footer;
+
 		public CustomRenderer()
 		{
+			blockcode  = mkd_renderer_blockcode;
+			blockquote = mkd_renderer_blockquote;
+			blockhtml  = mkd_renderer_blockhtml;
+			header     = mkd_renderer_header;
+			hrule      = mkd_renderer_hrule;
+			list       = mkd_renderer_list;
+			listitem   = mkd_renderer_listitem;
+			paragraph  = mkd_renderer_paragraph;
+			table      = mkd_renderer_table;
+			table_row  = mkd_renderer_table_row;
+			table_cell = mkd_renderer_table_cell;
+
+			autolink        = mkd_renderer_autolink;
+			codespan        = mkd_renderer_codespan;
+			double_emphasis = mkd_renderer_double_emphasis;
+			emphasis        = mkd_renderer_emphasis;
+			image           = mkd_renderer_image;
+			linebreak       = mkd_renderer_linebreak;
+			link            = mkd_renderer_link;
+			raw_html_tag    = mkd_renderer_raw_html_tag;
+			triple_emphasis = mkd_renderer_triple_emphasis;
+			strikethrough   = mkd_renderer_strikethrough;
+			superscript     = mkd_renderer_superscript;
+
+			entity      = mkd_renderer_entity;
+			normal_text = mkd_renderer_normal_text;
+
+			doc_header = mkd_renderer_doc_header;
+			doc_footer = mkd_renderer_doc_footer;
+
+			Initialize();
 		}
 
-		internal override void Initialize ()
+		bool IsOverriden(string name)
 		{
-			callbacks.blockcode  = mkd_renderer_blockcode;
-			callbacks.blockquote = mkd_renderer_blockquote;
-			callbacks.blockhtml  = mkd_renderer_blockhtml;
-			callbacks.header     = mkd_renderer_header;
-			callbacks.hrule      = mkd_renderer_hrule;
-			callbacks.list       = mkd_renderer_list;
-			callbacks.listitem   = mkd_renderer_listitem;
-			callbacks.paragrah   = mkd_renderer_paragraph;
-			callbacks.table      = mkd_renderer_table;
-			callbacks.table_row  = mkd_renderer_table_row;
-			callbacks.table_cell = mkd_renderer_table_cell;
+			for (Type type = this.GetType(); type != typeof(CustomRenderer); type = type.BaseType) {
+				if (IsOverriden(type, name)) {
+					return true;
+				}
+			}
+			return false;
+		}
 
-			callbacks.autolink        = mkd_renderer_autolink;
-			callbacks.codespan        = mkd_renderer_codespan;
-			callbacks.double_emphasis = mkd_renderer_double_emphasis;
-			callbacks.emphasis        = mkd_renderer_emphasis;
-			callbacks.image           = mkd_renderer_image;
-			callbacks.linebreak       = mkd_renderer_linebreak;
-			callbacks.link            = mkd_renderer_link;
-			callbacks.raw_html_tag    = mkd_renderer_raw_html_tag;
-			callbacks.triple_emphasis = mkd_renderer_triple_emphasis;
-			callbacks.strikethrough   = mkd_renderer_strikethrough;
-			callbacks.superscript     = mkd_renderer_superscript;
+		bool IsOverriden(Type type, string name)
+		{
+			return type.GetMethod(name, BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.DeclaredOnly) != null;
+		}
 
-			callbacks.entity      = mkd_renderer_entity;
-			callbacks.normal_text = mkd_renderer_normal_text;
+		protected void Initialize()
+		{
+			if (IsOverriden("BlockCode")) callbacks.blockcode = Marshal.GetFunctionPointerForDelegate(blockcode);
+			if (IsOverriden("BlockQuote")) callbacks.blockquote = Marshal.GetFunctionPointerForDelegate(blockquote);
+			if (IsOverriden("BlockHtml")) callbacks.blockhtml = Marshal.GetFunctionPointerForDelegate(blockhtml);
+			if (IsOverriden("Header")) callbacks.header = Marshal.GetFunctionPointerForDelegate(header);
+			if (IsOverriden("HRule")) callbacks.hrule = Marshal.GetFunctionPointerForDelegate(hrule);
+			if (IsOverriden("List")) callbacks.list = Marshal.GetFunctionPointerForDelegate(list);
+			if (IsOverriden("ListItem")) callbacks.listitem = Marshal.GetFunctionPointerForDelegate(listitem);
+			if (IsOverriden("Paragraph")) callbacks.paragraph = Marshal.GetFunctionPointerForDelegate(paragraph);
+			if (IsOverriden("Table")) callbacks.table = Marshal.GetFunctionPointerForDelegate(table);
+			if (IsOverriden("TableRow")) callbacks.table_row = Marshal.GetFunctionPointerForDelegate(table_row);
+			if (IsOverriden("TableCell")) callbacks.table_cell = Marshal.GetFunctionPointerForDelegate(table_cell);
 
-			callbacks.doc_header = mkd_renderer_doc_header;
-			callbacks.doc_footer = mkd_renderer_doc_footer;
+			if (IsOverriden("Autolink")) callbacks.autolink = Marshal.GetFunctionPointerForDelegate(autolink);
+			if (IsOverriden("Codespan")) callbacks.codespan = Marshal.GetFunctionPointerForDelegate(codespan);
+			if (IsOverriden("DoubleEmphasis")) callbacks.double_emphasis = Marshal.GetFunctionPointerForDelegate(double_emphasis);
+			if (IsOverriden("Emphasis")) callbacks.emphasis = Marshal.GetFunctionPointerForDelegate(emphasis);
+			if (IsOverriden("Image")) callbacks.image = Marshal.GetFunctionPointerForDelegate(image);
+			if (IsOverriden("Linebreak")) callbacks.linebreak = Marshal.GetFunctionPointerForDelegate(linebreak);
+			if (IsOverriden("Link")) callbacks.link = Marshal.GetFunctionPointerForDelegate(link);
+			if (IsOverriden("RawHtmlTag")) callbacks.raw_html_tag = Marshal.GetFunctionPointerForDelegate(raw_html_tag);
+			if (IsOverriden("TripleEmphasis")) callbacks.triple_emphasis = Marshal.GetFunctionPointerForDelegate(triple_emphasis);
+			if (IsOverriden("Strikethrough")) callbacks.strikethrough = Marshal.GetFunctionPointerForDelegate(strikethrough);
+			if (IsOverriden("SuperScript")) callbacks.superscript = Marshal.GetFunctionPointerForDelegate(superscript);
+
+			if (IsOverriden("NormalText")) callbacks.normal_text = Marshal.GetFunctionPointerForDelegate(normal_text);
+			if (IsOverriden("Entity")) callbacks.entity = Marshal.GetFunctionPointerForDelegate(entity);
+
+			if (IsOverriden("DocumentHeader")) callbacks.doc_header = Marshal.GetFunctionPointerForDelegate(doc_header);
+			if (IsOverriden("DocumentFooter")) callbacks.doc_footer = Marshal.GetFunctionPointerForDelegate(doc_footer);
+
+			callbacksgchandle = GCHandle.Alloc(callbacks, GCHandleType.Pinned);
 		}
 
 		#region block level
@@ -188,10 +298,10 @@ namespace Sundown
 			return Strikethrough(new Buffer(buf), new Buffer(text)) ? 1 : 0;
 		}
 
-		protected virtual bool Superscript(Buffer buf, Buffer text) { return false; }
+		protected virtual bool SuperScript(Buffer buf, Buffer text) { return false; }
 		int mkd_renderer_superscript(IntPtr buf, IntPtr buffer, IntPtr opaque)
 		{
-			return Superscript(new Buffer(buf), new Buffer(buffer)) ? 1 : 0;
+			return SuperScript(new Buffer(buf), new Buffer(buffer)) ? 1 : 0;
 		}
 
 		#endregion
