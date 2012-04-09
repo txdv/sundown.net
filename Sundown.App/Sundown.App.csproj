@@ -41,9 +41,9 @@
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <ItemGroup>
-    <ProjectReference Include="..\Sundown\Sundown.csproj">
+    <ProjectReference Include="..\SundownNet\SundownNet.csproj">
       <Project>{38A72E24-6306-4EC0-8B7A-9207935A6F7E}</Project>
-      <Name>Sundown</Name>
+      <Name>SundownNet</Name>
     </ProjectReference>
   </ItemGroup>
 </Project>

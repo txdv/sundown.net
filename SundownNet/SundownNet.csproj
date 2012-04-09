@@ -8,7 +8,7 @@
     <ProjectGuid>{38A72E24-6306-4EC0-8B7A-9207935A6F7E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <RootNamespace>Sundown</RootNamespace>
-    <AssemblyName>Sundown</AssemblyName>
+    <AssemblyName>SundownNet</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

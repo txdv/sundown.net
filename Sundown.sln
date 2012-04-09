@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sundown", "Sundown\Sundown.csproj", "{38A72E24-6306-4EC0-8B7A-9207935A6F7E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SundownNet", "SundownNet\SundownNet.csproj", "{38A72E24-6306-4EC0-8B7A-9207935A6F7E}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sundown.App", "Sundown.App\Sundown.App.csproj", "{2F818065-9823-4A19-A9CD-FEF209AAC747}"
 EndProject
