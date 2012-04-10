@@ -514,13 +514,21 @@ namespace Sundown
 
 		#region low level callbacks
 
-		public virtual void NormalText(Buffer ob, Buffer text) { ob.Put(text); }
+		public virtual void NormalText(Buffer ob, Buffer text) {
+			if (base_callbacks.normal_text != null) {
+				base_callbacks.normal_text(ob.buf, text.buf, opaque);
+			}
+		}
 		void mkd_renderer_normal_text(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
 			NormalText(new Buffer(ob, false), new Buffer(text, false));
 		}
 
-		public virtual void Entity(Buffer ob, Buffer entity) { ob.Put(entity); }
+		public virtual void Entity(Buffer ob, Buffer entity) {
+			if (base_callbacks.entity != null) {
+				base_callbacks.entity(ob.buf, entity.buf, opaque);
+			}
+		}
 		void mkd_renderer_entity(IntPtr ob, IntPtr entity, IntPtr opaque)
 		{
 			Entity(new Buffer(ob, false), new Buffer(entity, false));
@@ -532,13 +540,21 @@ namespace Sundown
 
 		public virtual void DocumentHeader(Buffer buffer)
 		{
+			if (base_callbacks.doc_header != null) {
+				base_callbacks.doc_header(buffer.buf, opaque);
+			}
 		}
 		void mkd_renderer_doc_header(IntPtr ob, IntPtr opaque)
 		{
 			DocumentHeader(new Buffer(ob, false));
 		}
 
-		public virtual void DocumentFooter(Buffer buffer) { }
+		public virtual void DocumentFooter(Buffer buffer)
+		{
+			if (base_callbacks.doc_footer != null) {
+				base_callbacks.doc_footer(buffer.buf, opaque);
+			}
+		}
 		void mkd_renderer_doc_footer(IntPtr obj, IntPtr opaque)
 		{
 			DocumentFooter(new Buffer(obj, false));
