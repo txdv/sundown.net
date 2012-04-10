@@ -12,18 +12,16 @@ namespace Sundown
 		public IntPtr link_attributes;
 	}
 
-	public sealed class HtmlRenderer : Renderer
+	public class HtmlRenderer : Renderer
 	{
 		internal html_renderopt options = new html_renderopt();
 		internal GCHandle optionsgchandle;
+		internal uint flags;
 
 		HtmlRenderer(uint flags)
 		{
-			callbacksgchandle = GCHandle.Alloc(callbacks, GCHandleType.Pinned);
+			this.flags = flags;
 
-			optionsgchandle = GCHandle.Alloc(options, GCHandleType.Pinned);
-			opaque = optionsgchandle.AddrOfPinnedObject();
-			sdhtml_renderer(callbacksgchandle.AddrOfPinnedObject(), opaque, flags);
 		}
 
 		public HtmlRenderer()
@@ -44,7 +42,16 @@ namespace Sundown
 		}
 
 		[DllImport("sundown")]
-		internal static extern void sdhtml_renderer(IntPtr callbacks, IntPtr options, uint render_flags);
+		internal static extern void sdhtml_renderer(ref md_callbacks callbacks, IntPtr options, uint render_flags);
+
+		protected override void Initialize()
+		{
+			optionsgchandle = GCHandle.Alloc(options, GCHandleType.Pinned);
+			opaque = optionsgchandle.AddrOfPinnedObject();
+			sdhtml_renderer(ref callbacks, opaque, flags);
+
+			base.Initialize();
+		}
 	}
 }
 

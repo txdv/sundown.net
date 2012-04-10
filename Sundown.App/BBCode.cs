@@ -30,7 +30,7 @@ namespace Sundown.App
 		}
 	}
 
-	class BBCodeRenderer : CustomRenderer
+	class BBCodeRenderer : Renderer
 	{
 		BBCodeOptions options;
 

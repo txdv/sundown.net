@@ -9,7 +9,6 @@
     <OutputType>Library</OutputType>
     <RootNamespace>Sundown</RootNamespace>
     <AssemblyName>SundownNet</AssemblyName>
-    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -37,13 +36,12 @@
   <ItemGroup>
     <Compile Include="AssemblyInfo.cs" />
     <Compile Include="Version.cs" />
-    <Compile Include="Renderer.cs" />
     <Compile Include="Buffer.cs" />
     <Compile Include="MarkdownExtensions.cs" />
     <Compile Include="HtmlRenderMode.cs" />
     <Compile Include="HtmlRenderer.cs" />
     <Compile Include="Markdown.cs" />
-    <Compile Include="CustomRenderer.cs" />
+    <Compile Include="Renderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>
