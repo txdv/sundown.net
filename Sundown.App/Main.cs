@@ -110,9 +110,9 @@ namespace Sundown.App
 			OptionSet bbRendererOptionSet = new OptionSet()
 				.Add("defaultheadersize=", "sets the default header size",
 				     (int size) => options.BBCodeOptions.DefaultHeaderSize = size)
-				.Add("headersizes=", "sets the header sizes starting with level 1 and increasing," +
-					"\"20,15,10\" will set the level 1 headers to the size 20, level 2 to 15, 3 to 10" +
-					"and the rest to defaultheadersize ",
+				.Add("headersizes=", "sets the header sizes starting with level 1 and increasing, " +
+					"\"20,15,10\" will set the level 1 headers to the size 20, level 2 to 15, 3 to 10 " +
+					"and the rest to defaultheadersize.",
 				     (string sizes) => {
 						var arr = sizes.Split(new char[] { ',' }, StringSplitOptions.RemoveEmptyEntries);
 						options.BBCodeOptions.HeaderSizes = new Dictionary<int, int>();
@@ -132,6 +132,8 @@ namespace Sundown.App
 				markdownExtensionOptionSet.WriteOptionDescriptions(Console.Out);
 				Console.WriteLine("\nHtml renderer options");
 				htmlRendererModeOptionSet.WriteOptionDescriptions(Console.Out);
+				Console.WriteLine ("\nBBCode renderer options");
+				bbRendererOptionSet.WriteOptionDescriptions(Console.Out);
 				return;
 			} else if (showVersion) {
 				Console.WriteLine("sundown.net 0.1, sundown {0}", Markdown.Version);
