@@ -40,6 +40,7 @@ namespace Sundown.App
 		public static void Main(string[] args)
 		{
 			bool showHelp = false;
+			bool showVersion = false;
 			Options options = new Options();
 
 			OptionSet optionSet = new OptionSet()
@@ -61,7 +62,10 @@ namespace Sundown.App
 				.Add("h|?|help", "show help",
 					     (_) => showHelp = true)
 				.Add("m|maxnesting=", "specify the maximum nesting level, default 16, minimum 1",
-					     (int i) => options.MaxNesting = Math.Max(1, i));
+					     (int i) => options.MaxNesting = Math.Max(1, i))
+				.Add("v|version", "show version",
+					     (_) => showVersion = true)
+					;
 
 			OptionSet markdownExtensionOptionSet = new OptionSet()
 				.Add("autolink", "enable autolinks",
@@ -128,6 +132,9 @@ namespace Sundown.App
 				markdownExtensionOptionSet.WriteOptionDescriptions(Console.Out);
 				Console.WriteLine("\nHtml renderer options");
 				htmlRendererModeOptionSet.WriteOptionDescriptions(Console.Out);
+				return;
+			} else if (showVersion) {
+				Console.WriteLine("sundown.net 0.1, sundown {0}", Markdown.Version);
 				return;
 			}
 
