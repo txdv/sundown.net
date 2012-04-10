@@ -261,7 +261,7 @@ namespace Sundown
 		}
 		void mkd_renderer_blockcode(IntPtr ob, IntPtr text, IntPtr lang, IntPtr opaque)
 		{
-			BlockCode(new Buffer(ob), new Buffer(text), new Buffer(lang));
+			BlockCode(new Buffer(ob, false), new Buffer(text, false), new Buffer(lang, false));
 		}
 
 		protected virtual void BlockQuote(Buffer ob, Buffer text)
@@ -272,7 +272,7 @@ namespace Sundown
 		}
 		void mkd_renderer_blockquote(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			BlockQuote(new Buffer(ob), new Buffer(text));
+			BlockQuote(new Buffer(ob, false), new Buffer(text, false));
 		}
 
 		protected virtual void BlockHtml(Buffer ob, Buffer text)
@@ -283,7 +283,7 @@ namespace Sundown
 		}
 		void mkd_renderer_blockhtml(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			BlockHtml(new Buffer(ob), new Buffer(text));
+			BlockHtml(new Buffer(ob, false), new Buffer(text, false));
 		}
 
 		protected virtual void Header(Buffer ob, Buffer text, int level)
@@ -294,7 +294,7 @@ namespace Sundown
 		}
 		void mkd_renderer_header(IntPtr ob, IntPtr text, int level, IntPtr opaque)
 		{
-			Header(new Buffer(ob), new Buffer(text), level);
+			Header(new Buffer(ob, false), new Buffer(text, false), level);
 		}
 
 		protected virtual void HRule(Buffer ob)
@@ -305,7 +305,7 @@ namespace Sundown
 		}
 		void mkd_renderer_hrule(IntPtr ob, IntPtr opaque)
 		{
-			HRule(new Buffer(ob));
+			HRule(new Buffer(ob, false));
 		}
 
 		protected virtual void List(Buffer ob, Buffer text, int flags)
@@ -316,7 +316,7 @@ namespace Sundown
 		}
 		void mkd_renderer_list(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
 		{
-			List(new Buffer(ob), new Buffer(text), flags);
+			List(new Buffer(ob, false), new Buffer(text, false), flags);
 		}
 
 		protected virtual void ListItem(Buffer ob, Buffer text, int flags)
@@ -327,7 +327,7 @@ namespace Sundown
 		}
 		void mkd_renderer_listitem(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
 		{
-			ListItem(new Buffer(ob), new Buffer(text), flags);
+			ListItem(new Buffer(ob, false), new Buffer(text, false), flags);
 		}
 
 		protected virtual void Paragraph(Buffer ob, Buffer text)
@@ -338,7 +338,7 @@ namespace Sundown
 		}
 		void mkd_renderer_paragraph(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			Paragraph(new Buffer(ob), new Buffer(text));
+			Paragraph(new Buffer(ob, false), new Buffer(text, false));
 		}
 
 		protected virtual void Table(Buffer ob, Buffer header, Buffer body)
@@ -349,7 +349,7 @@ namespace Sundown
 		}
 		void mkd_renderer_table(IntPtr ob, IntPtr header, IntPtr body, IntPtr opaque)
 		{
-			Table(new Buffer(ob), new Buffer(header), new Buffer(body));
+			Table(new Buffer(ob, false), new Buffer(header, false), new Buffer(body, false));
 		}
 
 		protected virtual void TableRow(Buffer ob, Buffer text)
@@ -360,7 +360,7 @@ namespace Sundown
 		}
 		void mkd_renderer_table_row(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			TableRow(new Buffer(ob), new Buffer(text));
+			TableRow(new Buffer(ob, false), new Buffer(text, false));
 		}
 
 		protected virtual void TableCell(Buffer ob, Buffer text, TableFlags flags)
@@ -371,7 +371,7 @@ namespace Sundown
 		}
 		void mkd_renderer_table_cell(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
 		{
-			TableCell(new Buffer(ob), new Buffer(text), (TableFlags)flags);
+			TableCell(new Buffer(ob, false), new Buffer(text, false), (TableFlags)flags);
 		}
 
 		#endregion
@@ -387,7 +387,7 @@ namespace Sundown
 		}
 		int mkd_renderer_autolink(IntPtr ob, IntPtr link, int type, IntPtr opaque)
 		{
-			return Autolink(new Buffer(ob), new Buffer(link), (AutolinkType)type) ? 1 : 0;
+			return Autolink(new Buffer(ob, false), new Buffer(link, false), (AutolinkType)type) ? 1 : 0;
 		}
 
 		protected virtual bool Codespan(Buffer ob, Buffer text)
@@ -399,7 +399,7 @@ namespace Sundown
 		}
 		int mkd_renderer_codespan(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return Codespan(new Buffer(ob), new Buffer(text)) ? 1 : 0;
+			return Codespan(new Buffer(ob, false), new Buffer(text, false)) ? 1 : 0;
 		}
 
 		protected virtual bool DoubleEmphasis(Buffer ob, Buffer text)
@@ -411,7 +411,7 @@ namespace Sundown
 		}
 		int mkd_renderer_double_emphasis(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return DoubleEmphasis(new Buffer(ob), new Buffer(text)) ? 1 : 0;
+			return DoubleEmphasis(new Buffer(ob, false), new Buffer(text, false)) ? 1 : 0;
 		}
 
 		protected virtual bool Emphasis(Buffer ob, Buffer text)
@@ -423,7 +423,7 @@ namespace Sundown
 		}
 		int mkd_renderer_emphasis(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return Emphasis(new Buffer(ob), new Buffer(text)) ? 1 : 0;
+			return Emphasis(new Buffer(ob, false), new Buffer(text, false)) ? 1 : 0;
 		}
 
 		protected virtual bool Image(Buffer ob, Buffer link, Buffer title, Buffer alt)
@@ -435,7 +435,7 @@ namespace Sundown
 		}
 		int mkd_renderer_image(IntPtr ob, IntPtr link, IntPtr title, IntPtr alt, IntPtr opaque)
 		{
-			return Image(new Buffer(ob), new Buffer(link), new Buffer(title), new Buffer(alt)) ? 1 : 0;
+			return Image(new Buffer(ob, false), new Buffer(link, false), new Buffer(title, false), new Buffer(alt, false)) ? 1 : 0;
 		}
 
 		protected virtual bool Linebreak(Buffer ob)
@@ -447,7 +447,7 @@ namespace Sundown
 		}
 		int mkd_renderer_linebreak(IntPtr ob, IntPtr opaque)
 		{
-			return Linebreak(new Buffer(ob)) ? 1 : 0;
+			return Linebreak(new Buffer(ob, false)) ? 1 : 0;
 		}
 
 		protected virtual bool Link(Buffer ob, Buffer link, Buffer title, Buffer content)
@@ -459,7 +459,7 @@ namespace Sundown
 		}
 		int mkd_renderer_link(IntPtr ob, IntPtr link, IntPtr title, IntPtr content, IntPtr opaque)
 		{
-			return Link(new Buffer(ob), new Buffer(link), new Buffer(title), new Buffer(content)) ? 1 : 0;
+			return Link(new Buffer(ob, false), new Buffer(link, false), new Buffer(title, false), new Buffer(content, false)) ? 1 : 0;
 		}
 
 		protected virtual bool RawHtmlTag(Buffer ob, Buffer tag)
@@ -471,7 +471,7 @@ namespace Sundown
 		}
 		int mkd_renderer_raw_html_tag(IntPtr ob, IntPtr tag, IntPtr opaque)
 		{
-			return RawHtmlTag(new Buffer(ob), new Buffer(tag)) ? 1 : 0;
+			return RawHtmlTag(new Buffer(ob, false), new Buffer(tag, false)) ? 1 : 0;
 		}
 
 		protected virtual bool TripleEmphasis(Buffer ob, Buffer text)
@@ -483,7 +483,7 @@ namespace Sundown
 		}
 		int mkd_renderer_triple_emphasis(IntPtr buf, IntPtr text, IntPtr opaque)
 		{
-			return TripleEmphasis(new Buffer(buf), new Buffer(text)) ? 1 : 0;
+			return TripleEmphasis(new Buffer(buf, false), new Buffer(text, false)) ? 1 : 0;
 		}
 
 		protected virtual bool Strikethrough(Buffer ob, Buffer text)
@@ -495,7 +495,7 @@ namespace Sundown
 		}
 		int mkd_renderer_strikethrough(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			return Strikethrough(new Buffer(ob), new Buffer(text)) ? 1 : 0;
+			return Strikethrough(new Buffer(ob, false), new Buffer(text, false)) ? 1 : 0;
 		}
 
 		protected virtual bool SuperScript(Buffer ob, Buffer text)
@@ -507,7 +507,7 @@ namespace Sundown
 		}
 		int mkd_renderer_superscript(IntPtr ob, IntPtr buffer, IntPtr opaque)
 		{
-			return SuperScript(new Buffer(ob), new Buffer(buffer)) ? 1 : 0;
+			return SuperScript(new Buffer(ob, false), new Buffer(buffer, false)) ? 1 : 0;
 		}
 
 		#endregion
@@ -517,13 +517,13 @@ namespace Sundown
 		public virtual void NormalText(Buffer ob, Buffer text) { ob.Put(text); }
 		void mkd_renderer_normal_text(IntPtr ob, IntPtr text, IntPtr opaque)
 		{
-			NormalText(new Buffer(ob), new Buffer(text));
+			NormalText(new Buffer(ob, false), new Buffer(text, false));
 		}
 
 		public virtual void Entity(Buffer ob, Buffer entity) { ob.Put(entity); }
 		void mkd_renderer_entity(IntPtr ob, IntPtr entity, IntPtr opaque)
 		{
-			Entity(new Buffer(ob), new Buffer(entity));
+			Entity(new Buffer(ob, false), new Buffer(entity, false));
 		}
 
 		#endregion
@@ -535,13 +535,13 @@ namespace Sundown
 		}
 		void mkd_renderer_doc_header(IntPtr ob, IntPtr opaque)
 		{
-			DocumentHeader(new Buffer(ob));
+			DocumentHeader(new Buffer(ob, false));
 		}
 
 		public virtual void DocumentFooter(Buffer buffer) { }
 		void mkd_renderer_doc_footer(IntPtr obj, IntPtr opaque)
 		{
-			DocumentFooter(new Buffer(obj));
+			DocumentFooter(new Buffer(obj, false));
 		}
 
 		#endregion

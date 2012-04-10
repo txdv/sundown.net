@@ -1,4 +1,5 @@
 #define marshalcopy
+//#define clrbuffer
 
 using System;
 using System.IO;
@@ -9,30 +10,73 @@ namespace Sundown
 {
 	unsafe public class Buffer : IDisposable
 	{
+#if clrbuffer
+		Func<IntPtr, IntPtr> malloc;
+		Func<IntPtr, IntPtr, IntPtr> realloc;
+		Action<IntPtr> free;
+
+		IntPtr Malloc(IntPtr size)
+		{
+			bufhandle = GCHandle.Alloc(bufinstance, GCHandleType.Pinned);
+			return bufhandle.AddrOfPinnedObject();
+		}
+
+		public byte[] ByteArray {
+			get {
+				return bytearr;
+			}
+		}
+
+		internal byte[] bytearr;
+		internal GCHandle bytearrhandle;
+
+		IntPtr Realloc(IntPtr ptr, IntPtr size)
+		{
+			if (ptr == IntPtr.Zero) {
+				bytearr = new byte[size.ToInt64()];
+				bytearrhandle = GCHandle.Alloc(bytearr, GCHandleType.Pinned);
+				return bytearrhandle.AddrOfPinnedObject();
+			} else {
+				bytearrhandle.Free();
+				Array.Resize(ref bytearr, size.ToInt32());
+				bytearrhandle = GCHandle.Alloc(bytearr, GCHandleType.Pinned);
+				return bytearrhandle.AddrOfPinnedObject();
+			}
+		}
+
+		void Free(IntPtr ptr)
+		{
+			if (ptr == buf) {
+				bufhandle.Free();
+			} else {
+				bytearrhandle.Free();
+			}
+		}
+#endif
+
+		[StructLayout(LayoutKind.Sequential)]
 		internal struct buffer
 		{
 			public IntPtr data;
 			public IntPtr size;
 			public IntPtr asize;
 			public IntPtr unit;
+
+			public IntPtr realloc;
+			public IntPtr free;
 		}
 
+		buffer bufinstance = new buffer();
 		internal IntPtr buf;
+		internal GCHandle bufhandle;
 
 		internal buffer *cbuffer {
 			get {
-				return (buffer *)buf.ToPointer();
+				return (buffer *)buf;
 			}
 		}
 
 		bool release;
-
-		internal Buffer(IntPtr buffer, bool release = false)
-		{
-			buf = buffer;
-			Encoding = Encoding.Default;
-			this.release = release;
-		}
 
 		public Buffer()
 			: this(1024)
@@ -50,8 +94,31 @@ namespace Sundown
 		}
 
 		public Buffer(IntPtr size)
-			: this(bufnew(size), true)
+			: this(size, true)
 		{
+		}
+
+		internal Buffer(IntPtr size, bool alloc)
+		{
+			if (alloc) {
+#if clrbuffer
+				malloc = Malloc;
+				realloc = Realloc;
+				free = Free;
+
+				buf = bufnewcb(size,
+				               Marshal.GetFunctionPointerForDelegate(malloc),
+				               Marshal.GetFunctionPointerForDelegate(realloc),
+				               Marshal.GetFunctionPointerForDelegate(free));
+#else
+				buf = bufnew(size);
+#endif
+				release = true;
+			} else {
+				buf = size;
+			}
+			Encoding = Encoding.Default;
+			release = false;
 		}
 
 		~Buffer()
@@ -189,16 +256,20 @@ namespace Sundown
 			if (Size == IntPtr.Zero) {
 				return string.Empty;
 			}
+#if clrbuffer
+			return Encoding.GetString(ByteArray, 0, Size.ToInt32());
+#else
 #if marshalcopy
 			return Encoding.GetString(GetBytes());
 #else
 			return new StreamReader(GetStream()).ReadToEnd();
 #endif
+#endif
 		}
 
 		public Stream GetStream()
 		{
-			return new UnmanagedMemoryStream((byte *)Data.ToPointer(), Size.ToInt64());
+			return new UnmanagedMemoryStream((byte *)Data, Size.ToInt64());
 		}
 
 		public byte[] GetBytes()
@@ -251,6 +322,9 @@ namespace Sundown
 
 		[DllImport("sundown")]
 		private static extern IntPtr bufnew(IntPtr size);
+
+		[DllImport("sundown")]
+		private static extern IntPtr bufnewcb(IntPtr size, IntPtr malloc, IntPtr realloc, IntPtr free);
 
 		[DllImport("sundown")]
 		private static extern int bufprefix(IntPtr buf, byte[] prefix);
