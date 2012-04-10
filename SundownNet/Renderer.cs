@@ -123,69 +123,41 @@ namespace Sundown
 		internal GCHandle callbacksgchandle;
 		internal IntPtr opaque;
 
-		mkd_renderer_blockcode  blockcode;
-		mkd_renderer_blockquote blockquote;
-		mkd_renderer_blockhtml  blockhtml;
-		mkd_renderer_header     header;
-		mkd_renderer_hrule      hrule;
-		mkd_renderer_list       list;
-		mkd_renderer_listitem   listitem;
-		mkd_renderer_paragraph  paragraph;
-		mkd_renderer_table      table;
-		mkd_renderer_table_row  table_row;
-		mkd_renderer_table_cell table_cell;
-
-		mkd_renderer_autolink        autolink;
-		mkd_renderer_codespan        codespan;
-		mkd_renderer_double_emphasis double_emphasis;
-		mkd_renderer_emphasis        emphasis;
-		mkd_renderer_image           image;
-		mkd_renderer_linebreak       linebreak;
-		mkd_renderer_link            link;
-		mkd_renderer_raw_html_tag    raw_html_tag;
-		mkd_renderer_triple_emphasis triple_emphasis;
-		mkd_renderer_strikethrough   strikethrough;
-		mkd_renderer_superscript     superscript;
-
-		mkd_renderer_entity entity;
-		mkd_renderer_normal_text normal_text;
-
-		mkd_renderer_doc_header doc_header;
-		mkd_renderer_doc_footer doc_footer;
+		md_sharpcallbacks this_callbacks;
 
 		md_sharpcallbacks base_callbacks;
 
 		public Renderer()
 		{
-			blockcode  = mkd_renderer_blockcode;
-			blockquote = mkd_renderer_blockquote;
-			blockhtml  = mkd_renderer_blockhtml;
-			header     = mkd_renderer_header;
-			hrule      = mkd_renderer_hrule;
-			list       = mkd_renderer_list;
-			listitem   = mkd_renderer_listitem;
-			paragraph  = mkd_renderer_paragraph;
-			table      = mkd_renderer_table;
-			table_row  = mkd_renderer_table_row;
-			table_cell = mkd_renderer_table_cell;
+			this_callbacks.blockcode  = mkd_renderer_blockcode;
+			this_callbacks.blockquote = mkd_renderer_blockquote;
+			this_callbacks.blockhtml  = mkd_renderer_blockhtml;
+			this_callbacks.header     = mkd_renderer_header;
+			this_callbacks.hrule      = mkd_renderer_hrule;
+			this_callbacks.list       = mkd_renderer_list;
+			this_callbacks.listitem   = mkd_renderer_listitem;
+			this_callbacks.paragraph  = mkd_renderer_paragraph;
+			this_callbacks.table      = mkd_renderer_table;
+			this_callbacks.table_row  = mkd_renderer_table_row;
+			this_callbacks.table_cell = mkd_renderer_table_cell;
 
-			autolink        = mkd_renderer_autolink;
-			codespan        = mkd_renderer_codespan;
-			double_emphasis = mkd_renderer_double_emphasis;
-			emphasis        = mkd_renderer_emphasis;
-			image           = mkd_renderer_image;
-			linebreak       = mkd_renderer_linebreak;
-			link            = mkd_renderer_link;
-			raw_html_tag    = mkd_renderer_raw_html_tag;
-			triple_emphasis = mkd_renderer_triple_emphasis;
-			strikethrough   = mkd_renderer_strikethrough;
-			superscript     = mkd_renderer_superscript;
+			this_callbacks.autolink        = mkd_renderer_autolink;
+			this_callbacks.codespan        = mkd_renderer_codespan;
+			this_callbacks.double_emphasis = mkd_renderer_double_emphasis;
+			this_callbacks.emphasis        = mkd_renderer_emphasis;
+			this_callbacks.image           = mkd_renderer_image;
+			this_callbacks.linebreak       = mkd_renderer_linebreak;
+			this_callbacks.link            = mkd_renderer_link;
+			this_callbacks.raw_html_tag    = mkd_renderer_raw_html_tag;
+			this_callbacks.triple_emphasis = mkd_renderer_triple_emphasis;
+			this_callbacks.strikethrough   = mkd_renderer_strikethrough;
+			this_callbacks.superscript     = mkd_renderer_superscript;
 
-			entity      = mkd_renderer_entity;
-			normal_text = mkd_renderer_normal_text;
+			this_callbacks.entity      = mkd_renderer_entity;
+			this_callbacks.normal_text = mkd_renderer_normal_text;
 
-			doc_header = mkd_renderer_doc_header;
-			doc_footer = mkd_renderer_doc_footer;
+			this_callbacks.doc_header = mkd_renderer_doc_header;
+			this_callbacks.doc_footer = mkd_renderer_doc_footer;
 
 			Initialize();
 		}
@@ -246,35 +218,35 @@ namespace Sundown
 			if (callbacks.doc_footer != IntPtr.Zero) base_callbacks.doc_footer = Marshal.GetDelegateForFunctionPointer(callbacks.doc_footer, typeof(mkd_renderer_doc_footer)) as mkd_renderer_doc_footer;
 
 			// override if we have overriden functions
-			if (IsOverriden("BlockCode"))  callbacks.blockcode  = Marshal.GetFunctionPointerForDelegate(blockcode);
-			if (IsOverriden("BlockQuote")) callbacks.blockquote = Marshal.GetFunctionPointerForDelegate(blockquote);
-			if (IsOverriden("BlockHtml"))  callbacks.blockhtml  = Marshal.GetFunctionPointerForDelegate(blockhtml);
-			if (IsOverriden("Header"))     callbacks.header     = Marshal.GetFunctionPointerForDelegate(header);
-			if (IsOverriden("HRule"))      callbacks.hrule      = Marshal.GetFunctionPointerForDelegate(hrule);
-			if (IsOverriden("List"))       callbacks.list       = Marshal.GetFunctionPointerForDelegate(list);
-			if (IsOverriden("ListItem"))   callbacks.listitem   = Marshal.GetFunctionPointerForDelegate(listitem);
-			if (IsOverriden("Paragraph"))  callbacks.paragraph  = Marshal.GetFunctionPointerForDelegate(paragraph);
-			if (IsOverriden("Table"))      callbacks.table      = Marshal.GetFunctionPointerForDelegate(table);
-			if (IsOverriden("TableRow"))   callbacks.table_row  = Marshal.GetFunctionPointerForDelegate(table_row);
-			if (IsOverriden("TableCell"))  callbacks.table_cell = Marshal.GetFunctionPointerForDelegate(table_cell);
+			if (IsOverriden("BlockCode"))  callbacks.blockcode  = Marshal.GetFunctionPointerForDelegate(this_callbacks.blockcode);
+			if (IsOverriden("BlockQuote")) callbacks.blockquote = Marshal.GetFunctionPointerForDelegate(this_callbacks.blockquote);
+			if (IsOverriden("BlockHtml"))  callbacks.blockhtml  = Marshal.GetFunctionPointerForDelegate(this_callbacks.blockhtml);
+			if (IsOverriden("Header"))     callbacks.header     = Marshal.GetFunctionPointerForDelegate(this_callbacks.header);
+			if (IsOverriden("HRule"))      callbacks.hrule      = Marshal.GetFunctionPointerForDelegate(this_callbacks.hrule);
+			if (IsOverriden("List"))       callbacks.list       = Marshal.GetFunctionPointerForDelegate(this_callbacks.list);
+			if (IsOverriden("ListItem"))   callbacks.listitem   = Marshal.GetFunctionPointerForDelegate(this_callbacks.listitem);
+			if (IsOverriden("Paragraph"))  callbacks.paragraph  = Marshal.GetFunctionPointerForDelegate(this_callbacks.paragraph);
+			if (IsOverriden("Table"))      callbacks.table      = Marshal.GetFunctionPointerForDelegate(this_callbacks.table);
+			if (IsOverriden("TableRow"))   callbacks.table_row  = Marshal.GetFunctionPointerForDelegate(this_callbacks.table_row);
+			if (IsOverriden("TableCell"))  callbacks.table_cell = Marshal.GetFunctionPointerForDelegate(this_callbacks.table_cell);
 
-			if (IsOverriden("Autolink"))       callbacks.autolink        = Marshal.GetFunctionPointerForDelegate(autolink);
-			if (IsOverriden("Codespan"))       callbacks.codespan        = Marshal.GetFunctionPointerForDelegate(codespan);
-			if (IsOverriden("DoubleEmphasis")) callbacks.double_emphasis = Marshal.GetFunctionPointerForDelegate(double_emphasis);
-			if (IsOverriden("Emphasis"))       callbacks.emphasis        = Marshal.GetFunctionPointerForDelegate(emphasis);
-			if (IsOverriden("Image"))          callbacks.image           = Marshal.GetFunctionPointerForDelegate(image);
-			if (IsOverriden("Linebreak"))      callbacks.linebreak       = Marshal.GetFunctionPointerForDelegate(linebreak);
-			if (IsOverriden("Link"))           callbacks.link            = Marshal.GetFunctionPointerForDelegate(link);
-			if (IsOverriden("RawHtmlTag"))     callbacks.raw_html_tag    = Marshal.GetFunctionPointerForDelegate(raw_html_tag);
-			if (IsOverriden("TripleEmphasis")) callbacks.triple_emphasis = Marshal.GetFunctionPointerForDelegate(triple_emphasis);
-			if (IsOverriden("Strikethrough"))  callbacks.strikethrough   = Marshal.GetFunctionPointerForDelegate(strikethrough);
-			if (IsOverriden("SuperScript"))    callbacks.superscript     = Marshal.GetFunctionPointerForDelegate(superscript);
+			if (IsOverriden("Autolink"))       callbacks.autolink        = Marshal.GetFunctionPointerForDelegate(this_callbacks.autolink);
+			if (IsOverriden("Codespan"))       callbacks.codespan        = Marshal.GetFunctionPointerForDelegate(this_callbacks.codespan);
+			if (IsOverriden("DoubleEmphasis")) callbacks.double_emphasis = Marshal.GetFunctionPointerForDelegate(this_callbacks.double_emphasis);
+			if (IsOverriden("Emphasis"))       callbacks.emphasis        = Marshal.GetFunctionPointerForDelegate(this_callbacks.emphasis);
+			if (IsOverriden("Image"))          callbacks.image           = Marshal.GetFunctionPointerForDelegate(this_callbacks.image);
+			if (IsOverriden("Linebreak"))      callbacks.linebreak       = Marshal.GetFunctionPointerForDelegate(this_callbacks.linebreak);
+			if (IsOverriden("Link"))           callbacks.link            = Marshal.GetFunctionPointerForDelegate(this_callbacks.link);
+			if (IsOverriden("RawHtmlTag"))     callbacks.raw_html_tag    = Marshal.GetFunctionPointerForDelegate(this_callbacks.raw_html_tag);
+			if (IsOverriden("TripleEmphasis")) callbacks.triple_emphasis = Marshal.GetFunctionPointerForDelegate(this_callbacks.triple_emphasis);
+			if (IsOverriden("Strikethrough"))  callbacks.strikethrough   = Marshal.GetFunctionPointerForDelegate(this_callbacks.strikethrough);
+			if (IsOverriden("SuperScript"))    callbacks.superscript     = Marshal.GetFunctionPointerForDelegate(this_callbacks.superscript);
 
-			if (IsOverriden("Entity"))     callbacks.entity      = Marshal.GetFunctionPointerForDelegate(entity);
-			if (IsOverriden("NormalText")) callbacks.normal_text = Marshal.GetFunctionPointerForDelegate(normal_text);
+			if (IsOverriden("Entity"))     callbacks.entity      = Marshal.GetFunctionPointerForDelegate(this_callbacks.entity);
+			if (IsOverriden("NormalText")) callbacks.normal_text = Marshal.GetFunctionPointerForDelegate(this_callbacks.normal_text);
 
-			if (IsOverriden("DocumentHeader")) callbacks.doc_header = Marshal.GetFunctionPointerForDelegate(doc_header);
-			if (IsOverriden("DocumentFooter")) callbacks.doc_footer = Marshal.GetFunctionPointerForDelegate(doc_footer);
+			if (IsOverriden("DocumentHeader")) callbacks.doc_header = Marshal.GetFunctionPointerForDelegate(this_callbacks.doc_header);
+			if (IsOverriden("DocumentFooter")) callbacks.doc_footer = Marshal.GetFunctionPointerForDelegate(this_callbacks.doc_footer);
 
 			callbacksgchandle = GCHandle.Alloc(callbacks, GCHandleType.Pinned);
 		}
