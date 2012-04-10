@@ -40,12 +40,12 @@ namespace Sundown
 		}
 
 		public Buffer(int size)
-			: this((IntPtr)size, true)
+			: this((IntPtr)size)
 		{
 		}
 
 		public Buffer(long size)
-			: this((IntPtr)size, true)
+			: this((IntPtr)size)
 		{
 		}
 
