@@ -14,16 +14,12 @@ namespace Benchmark
 
 		public override string Transform(string str)
 		{
-			var buf = new Sundown.Buffer();
-			md.Render(buf, str);
-			return buf.ToString();
+			return md.Transform(str);
 		}
 
 		public override byte[] Transform(byte[] arr)
 		{
-			var buf = new Sundown.Buffer();
-			md.Render(buf, arr);
-			return buf.GetBytes();
+			return md.Transform(arr);
 		}
 	}
 }

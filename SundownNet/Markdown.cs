@@ -113,6 +113,29 @@ namespace Sundown
 			handle.Free();
 		}
 
+		public byte[] Transform(byte[] data)
+		{
+			using (var buffer = new Buffer()) {
+				Render(buffer, data);
+				return buffer.GetBytes();
+			}
+		}
+
+		public string Transform(string str)
+		{
+			using (var buffer = new Buffer()) {
+				Render(buffer, str);
+				return buffer.ToString();
+			}
+		}
+
+		public Buffer Transform(Buffer @in)
+		{
+			var buffer = new Buffer();
+			Render(buffer, @in);
+			return buffer;
+		}
+
 		#region SmartyPants
 
 		public static void SmartyPants(Buffer @out, string str)
