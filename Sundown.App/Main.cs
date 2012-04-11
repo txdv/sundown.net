@@ -175,7 +175,7 @@ namespace Sundown.App
 				Console.WriteLine("Unable to open input file {0}: {1}", inputfile, exception.Message);
 				return;
 			} finally {
-				Console.WriteLine(buffer);
+				Console.Write(buffer);
 			}
 		}
 	}
