@@ -172,7 +172,7 @@ namespace Sundown.App
 				using (var sr = new StreamReader(File.OpenRead(inputfile)))
 				md.Render(buffer, sr.ReadToEnd());
 			} catch (Exception exception) {
-				Console.WriteLine("Unable to open input file {0: {1}", inputfile, exception.Message);
+				Console.WriteLine("Unable to open input file {0}: {1}", inputfile, exception.Message);
 				return;
 			} finally {
 				Console.WriteLine(buffer);
