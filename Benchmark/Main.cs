@@ -11,12 +11,19 @@ namespace Benchmark
 		public static void Main(string[] args)
 		{
 			int n = 1000;
+			bool help = false;
 			OptionSet options = new OptionSet()
 				.Add("i|iterations=", "number of iteration, default 1000",
 				    (int iterations) => n = Math.Max(iterations, 1))
+				.Add("h|?|help", "show help", (_) => help = true)
 					;
 
 			var files = options.Parse(args);
+			if (help) {
+				Console.WriteLine("benchmark MarkdownSharp, MarkdownDeep and SundownNet on specific files!");
+				options.WriteOptionDescriptions(Console.Out);
+				return;
+			}
 			if (files.Count < 1) {
 				Console.WriteLine ("You have to specify a file on which to benchmark");
 				return;
