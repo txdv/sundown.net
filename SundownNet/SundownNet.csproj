@@ -43,6 +43,7 @@
     <Compile Include="Markdown.cs" />
     <Compile Include="Renderer.cs" />
     <Compile Include="BufferStream.cs" />
+    <Compile Include="BBCode.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

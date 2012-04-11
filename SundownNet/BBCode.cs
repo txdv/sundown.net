@@ -2,9 +2,9 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 
-namespace Sundown.App
+namespace Sundown
 {
-	class BBCodeOptions
+	public class BBCodeOptions
 	{
 		public BBCodeOptions()
 		{
@@ -30,7 +30,7 @@ namespace Sundown.App
 		}
 	}
 
-	class BBCodeRenderer : Renderer
+	public class BBCodeRenderer : Renderer
 	{
 		BBCodeOptions options;
 
