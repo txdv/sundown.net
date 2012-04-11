@@ -1,12 +1,27 @@
 using System;
-using System.IO;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.IO;
+using System.Text;
 using System.Runtime.InteropServices;
 using NDesk.Options;
 using Sundown;
 
 namespace Sundown.App
 {
+	public class ModifiedHtmlRenderer : HtmlRenderer
+	{
+		public ModifiedHtmlRenderer(HtmlRenderMode mode)
+			: base(mode)
+		{
+		}
+
+		protected override void Header (Buffer ob, Buffer text, int level)
+		{
+			base.Header(ob, text, level);
+		}
+	}
+
 	enum RendererType
 	{
 		Html,
@@ -33,6 +48,8 @@ namespace Sundown.App
 
 		public HtmlRenderMode HtmlRenderMode { get; protected set; }
 		public BBCodeOptions BBCodeOptions { get; protected set; }
+
+		public long Iterations { get; set; }
 	}
 
 	class MainClass
@@ -65,7 +82,10 @@ namespace Sundown.App
 					     (int i) => options.MaxNesting = Math.Max(1, i))
 				.Add("v|version", "show version",
 					     (_) => showVersion = true)
+				.Add("b|benchmark=", "enables benchmark mode, specify the number of iterations you want to test",
+					     (long i) => options.Iterations = i)
 					;
+
 
 			OptionSet markdownExtensionOptionSet = new OptionSet()
 				.Add("autolink", "enable autolinks",
@@ -166,6 +186,39 @@ namespace Sundown.App
 			}
 
 			var md = new Markdown(renderer, options.Extensions, options.MaxNesting);
+
+			if (options.Iterations > 0) {
+				try {
+					using (var sr = new StreamReader(File.OpenRead(inputfile))) {
+						var text = sr.ReadToEnd();
+						var bytetext = Encoding.ASCII.GetBytes(text);
+						long text2text;
+						long byte2byte;
+
+						Stopwatch s = new Stopwatch();
+						s.Start();
+						for (long i = 0; i < options.Iterations; i++) {
+							md.Transform(text);
+						}
+						text2text = s.ElapsedMilliseconds;
+						s.Stop();
+						s.Reset();
+						s.Start();
+						for (long i = 0; i < options.Iterations; i++) {
+							md.Transform(bytetext);
+						}
+						byte2byte = s.ElapsedMilliseconds;
+						s.Stop();
+						Console.WriteLine("{0} iterations", options.Iterations);
+						Console.WriteLine("text2text: {0}", text2text);
+						Console.WriteLine("byte2byte: {0}", byte2byte);
+					}
+				} catch (Exception exception) {
+					Console.WriteLine("Unable to open input file {0}: {1}", inputfile, exception.Message);
+					return;
+				}
+				return;
+			}
 
 			using (Buffer buffer = new Buffer())
 			try {
