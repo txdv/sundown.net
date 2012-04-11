@@ -42,6 +42,7 @@
     <Compile Include="HtmlRenderer.cs" />
     <Compile Include="Markdown.cs" />
     <Compile Include="Renderer.cs" />
+    <Compile Include="BufferStream.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -201,6 +201,23 @@ namespace Sundown
 			gchandle.Free();
 		}
 
+		public void Put(byte[] bytes, int offset, int count)
+		{
+			Put(bytes, (IntPtr)offset, (IntPtr)count);
+		}
+
+		public void Put(byte[] bytes, long offset, long count)
+		{
+			Put(bytes, (IntPtr)offset, (IntPtr)count);
+		}
+
+		public void Put(byte[] bytes, IntPtr offset, IntPtr count)
+		{
+			var gchandle = GCHandle.Alloc(bytes, GCHandleType.Pinned);
+			Put(new IntPtr(gchandle.AddrOfPinnedObject().ToInt64() + offset.ToInt64()), count);
+			gchandle.Free();
+		}
+
 		public void Put(byte[] bytes)
 		{
 			Put(bytes, bytes.LongLength);
@@ -265,6 +282,11 @@ namespace Sundown
 			return new StreamReader(GetStream()).ReadToEnd();
 #endif
 #endif
+		}
+
+		public BufferStream GetBufferStream()
+		{
+			return new BufferStream(this);
 		}
 
 		public Stream GetStream()
