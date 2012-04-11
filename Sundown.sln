@@ -5,12 +5,18 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SundownNet", "SundownNet\Su
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sundown.App", "Sundown.App\Sundown.App.csproj", "{2F818065-9823-4A19-A9CD-FEF209AAC747}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Benchmark", "Benchmark\Benchmark.csproj", "{04EA7448-B69A-4AF1-B353-8DF04A806DBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{04EA7448-B69A-4AF1-B353-8DF04A806DBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{04EA7448-B69A-4AF1-B353-8DF04A806DBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{04EA7448-B69A-4AF1-B353-8DF04A806DBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{04EA7448-B69A-4AF1-B353-8DF04A806DBA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{2F818065-9823-4A19-A9CD-FEF209AAC747}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{2F818065-9823-4A19-A9CD-FEF209AAC747}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2F818065-9823-4A19-A9CD-FEF209AAC747}.Release|Any CPU.ActiveCfg = Release|Any CPU
