@@ -9,19 +9,6 @@ using Sundown;
 
 namespace Sundown.App
 {
-	public class ModifiedHtmlRenderer : HtmlRenderer
-	{
-		public ModifiedHtmlRenderer(HtmlRenderMode mode)
-			: base(mode)
-		{
-		}
-
-		protected override void Header (Buffer ob, Buffer text, int level)
-		{
-			base.Header(ob, text, level);
-		}
-	}
-
 	enum RendererType
 	{
 		Html,
