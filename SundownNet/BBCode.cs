@@ -46,13 +46,15 @@ namespace Sundown
 
 		protected override void Paragraph (Buffer ob, Buffer text)
 		{
-			ob.Put("\n\n");
+			ob.Put("\n");
 			ob.Put(text);
+			ob.Put("\n");
+			ob.Put("\n");
 		}
 
 		protected override void Header(Buffer ob, Buffer text, int level)
 		{
-			ob.Put("\n\n\n[size={0}pt]{1}[/size]", options.GetSize(level), text);
+			ob.Put("[size={0}pt]{1}[/size]\n", options.GetSize(level), text);
 		}
 
 		protected override bool DoubleEmphasis(Buffer ob, Buffer text)
