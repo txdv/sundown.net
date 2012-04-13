@@ -19,9 +19,10 @@ namespace Sundown
 		internal uint flags;
 
 		HtmlRenderer(uint flags)
+			: base(false)
 		{
 			this.flags = flags;
-
+			Initialize();
 		}
 
 		public HtmlRenderer()

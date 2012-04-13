@@ -127,7 +127,7 @@ namespace Sundown
 
 		md_sharpcallbacks base_callbacks;
 
-		public Renderer()
+		internal Renderer(bool initialize = false)
 		{
 			this_callbacks.blockcode  = mkd_renderer_blockcode;
 			this_callbacks.blockquote = mkd_renderer_blockquote;
@@ -159,7 +159,14 @@ namespace Sundown
 			this_callbacks.doc_header = mkd_renderer_doc_header;
 			this_callbacks.doc_footer = mkd_renderer_doc_footer;
 
-			Initialize();
+			if (initialize) {
+				Initialize();
+			}
+		}
+
+		public Renderer()
+			: this(true)
+		{
 		}
 
 		~Renderer()
