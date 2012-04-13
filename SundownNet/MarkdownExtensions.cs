@@ -9,9 +9,9 @@ namespace Sundown
 		MKDEXT_FENCED_CODE       = (1 << 2),
 		MKDEXT_AUTOLINK          = (1 << 3),
 		MKDEXT_STRIKETHROUGH     = (1 << 4),
-		MKDEXT_LAX_HTML_BLOCKS   = (1 << 5),
 		MKDEXT_SPACE_HEADERS     = (1 << 6),
 		MKDEXT_SUPERSCRIPT       = (1 << 7),
+		MKDEXT_LAX_SPACING       = (1 << 8),
 	}
 
 	public class MarkdownExtensions
@@ -21,9 +21,9 @@ namespace Sundown
 		public bool FencedCode      { get; set; }
 		public bool Autolink        { get; set; }
 		public bool Strikethrough   { get; set; }
-		public bool LaxHTMLBlocks   { get; set; }
 		public bool SpaceHeaders    { get; set; }
 		public bool SuperScript     { get; set; }
+		public bool LaxSpacing      { get; set; }
 
 		internal uint ToUInt()
 		{
@@ -34,9 +34,9 @@ namespace Sundown
 			if (FencedCode)      ret |= (uint)mkd_extensions.MKDEXT_FENCED_CODE;
 			if (Autolink)        ret |= (uint)mkd_extensions.MKDEXT_AUTOLINK;
 			if (Strikethrough)   ret |= (uint)mkd_extensions.MKDEXT_STRIKETHROUGH;
-			if (LaxHTMLBlocks)   ret |= (uint)mkd_extensions.MKDEXT_LAX_HTML_BLOCKS;
 			if (SpaceHeaders)    ret |= (uint)mkd_extensions.MKDEXT_SPACE_HEADERS;
 			if (SuperScript)     ret |= (uint)mkd_extensions.MKDEXT_SUPERSCRIPT;
+			if (LaxSpacing)      ret |= (uint)mkd_extensions.MKDEXT_LAX_SPACING;
 
 			return ret;
 		}

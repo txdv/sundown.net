@@ -101,12 +101,12 @@ namespace Sundown.App
 					     (_) => options.Extensions.FencedCode = true)
 				.Add("strikethrough", "enable strikethrough",
 					     (_) => options.Extensions.Strikethrough = true)
-				.Add("htmlblocks", "enable html blocks",
-					     (_) => options.Extensions.LaxHTMLBlocks = true)
 				.Add("spaceheaders", "enable spaceheaders",
 					     (_) => options.Extensions.SpaceHeaders = true)
 				.Add("superscript", "enable superscript",
 					     (_) => options.Extensions.SuperScript = true)
+				.Add("laxspacing", "enable lax spacing",
+					     (_) => options.Extensions.LaxSpacing = true)
 					;
 
 			OptionSet htmlRendererModeOptionSet = new OptionSet()
