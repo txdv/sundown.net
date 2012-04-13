@@ -17,6 +17,8 @@ namespace Sundown
 			}
 		}
 
+		Buffer buffer = new Buffer();
+
 		IntPtr ptr;
 		Renderer renderer;
 
@@ -115,23 +117,21 @@ namespace Sundown
 
 		public byte[] Transform(byte[] data)
 		{
-			using (var buffer = new Buffer()) {
-				Render(buffer, data);
-				return buffer.GetBytes();
-			}
+			buffer.Reset();
+			Render(buffer, data);
+			return buffer.GetBytes();
 		}
 
 		public string Transform(string str)
 		{
-			using (var buffer = new Buffer()) {
-				Render(buffer, str);
-				return buffer.ToString();
-			}
+			buffer.Reset();
+			Render(buffer, str);
+			return buffer.ToString();
 		}
 
 		public Buffer Transform(Buffer @in)
 		{
-			var buffer = new Buffer();
+			buffer.Reset();
 			Render(buffer, @in);
 			return buffer;
 		}
