@@ -44,6 +44,7 @@
     <Compile Include="Renderer.cs" />
     <Compile Include="BufferStream.cs" />
     <Compile Include="BBCode.cs" />
+    <Compile Include="TableOfContentRenderer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

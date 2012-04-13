@@ -25,7 +25,8 @@ namespace Sundown.App
 	enum RendererType
 	{
 		Html,
-		BBCode
+		BBCode,
+		TableOfContent,
 	}
 
 	class Options
@@ -61,7 +62,8 @@ namespace Sundown.App
 			Options options = new Options();
 
 			OptionSet optionSet = new OptionSet()
-				.Add("r|renderer=", (string renderer) => {
+				.Add("r|renderer=", "choose a renderer: html, bbcode, toc",
+				    (string renderer) => {
 					switch (renderer) {
 					case "html":
 						options.Renderer = RendererType.Html;
@@ -69,6 +71,9 @@ namespace Sundown.App
 					case "bb":
 					case "bbcode":
 						options.Renderer = RendererType.BBCode;
+						break;
+					case "toc":
+						options.Renderer = RendererType.TableOfContent;
 						break;
 					default:
 						Console.WriteLine("no such renderer");
@@ -182,6 +187,9 @@ namespace Sundown.App
 				break;
 			case RendererType.BBCode:
 				renderer = new BBCodeRenderer(options.BBCodeOptions);
+				break;
+			case RendererType.TableOfContent:
+				renderer = new TableOfContentRenderer();
 				break;
 			}
 
