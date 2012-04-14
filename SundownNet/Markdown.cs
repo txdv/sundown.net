@@ -117,21 +117,21 @@ namespace Sundown
 
 		public byte[] Transform(byte[] data)
 		{
-			buffer.Reset();
+			buffer.Size = IntPtr.Zero;
 			Render(buffer, data);
 			return buffer.GetBytes();
 		}
 
 		public string Transform(string str)
 		{
-			buffer.Reset();
+			buffer.Size = IntPtr.Zero;
 			Render(buffer, str);
 			return buffer.ToString();
 		}
 
 		public Buffer Transform(Buffer @in)
 		{
-			buffer.Reset();
+			buffer.Size = IntPtr.Zero;
 			Render(buffer, @in);
 			return buffer;
 		}
