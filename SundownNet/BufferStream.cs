@@ -7,16 +7,6 @@ namespace Sundown
 	{
 		public Buffer Buffer { get; protected set; }
 
-		public BufferStream()
-			: this(new Buffer())
-		{
-		}
-
-		public BufferStream(int unit)
-			: this(new Buffer(unit))
-		{
-		}
-
 		public BufferStream(Buffer buffer)
 		{
 			Buffer = buffer;

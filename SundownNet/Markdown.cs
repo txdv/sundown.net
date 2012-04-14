@@ -17,7 +17,7 @@ namespace Sundown
 			}
 		}
 
-		Buffer buffer = new Buffer();
+		Buffer buffer = Buffer.Create();
 
 		IntPtr ptr;
 		Renderer renderer;

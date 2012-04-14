@@ -45,6 +45,8 @@
     <Compile Include="BufferStream.cs" />
     <Compile Include="BBCode.cs" />
     <Compile Include="TableOfContentRenderer.cs" />
+    <Compile Include="NativeBuffer.cs" />
+    <Compile Include="ClrBuffer.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
 </Project>

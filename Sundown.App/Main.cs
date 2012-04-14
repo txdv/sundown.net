@@ -215,7 +215,7 @@ namespace Sundown.App
 				return;
 			}
 
-			using (Buffer buffer = new Buffer())
+			using (Buffer buffer = Buffer.Create())
 			try {
 				using (var sr = new StreamReader(File.OpenRead(inputfile)))
 				md.Render(buffer, sr.ReadToEnd());
