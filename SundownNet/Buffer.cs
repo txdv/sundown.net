@@ -21,12 +21,6 @@ namespace Sundown
 			return bufhandle.AddrOfPinnedObject();
 		}
 
-		public byte[] ByteArray {
-			get {
-				return bytearr;
-			}
-		}
-
 		internal byte[] bytearr;
 		internal GCHandle bytearrhandle;
 
@@ -274,7 +268,7 @@ namespace Sundown
 				return string.Empty;
 			}
 #if clrbuffer
-			return Encoding.GetString(ByteArray, 0, Size.ToInt32());
+			return Encoding.GetString(bytearr, 0, Size.ToInt32());
 #else
 #if marshalcopy
 			return Encoding.GetString(GetBytes());
