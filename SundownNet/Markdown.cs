@@ -72,6 +72,10 @@ namespace Sundown
 				ptr = IntPtr.Zero;
 			}
 
+			if (buffer != null) {
+				buffer.Dispose();
+			}
+
 			renderer = null;
 		}
 
