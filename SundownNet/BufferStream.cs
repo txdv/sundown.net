@@ -19,17 +19,17 @@ namespace Sundown
 
 		public override int Read(byte[] buffer, int offset, int count)
 		{
-			throw new System.NotImplementedException ();
+			throw new System.NotImplementedException();
 		}
 
 		public override long Seek(long offset, SeekOrigin origin)
 		{
-			throw new System.NotImplementedException ();
+			throw new System.NotImplementedException();
 		}
 
 		public override void SetLength(long value)
 		{
-			throw new System.NotImplementedException ();
+			throw new System.NotImplementedException();
 		}
 
 		public override void Write(byte[] buffer, int offset, int count)
@@ -66,7 +66,7 @@ namespace Sundown
 				return Buffer.Size.ToInt64();
 			}
 			set {
-				throw new System.NotImplementedException ();
+				throw new System.NotImplementedException();
 			}
 		}
 		#endregion

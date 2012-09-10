@@ -44,7 +44,7 @@ namespace Sundown
 			this.options = options;
 		}
 
-		protected override void Paragraph (Buffer ob, Buffer text)
+		protected override void Paragraph(Buffer ob, Buffer text)
 		{
 			ob.Put("\n");
 			ob.Put(text);
@@ -63,7 +63,7 @@ namespace Sundown
 			return true;
 		}
 
-		protected override bool Emphasis (Buffer ob, Buffer text)
+		protected override bool Emphasis(Buffer ob, Buffer text)
 		{
 			ob.Put("[u]{0}[/u]", text);
 			return true;
@@ -82,7 +82,7 @@ namespace Sundown
 			ob.Put("[/list]");
 		}
 
-		protected override void ListItem (Buffer ob, Buffer text, int flags)
+		protected override void ListItem(Buffer ob, Buffer text, int flags)
 		{
 			ob.Put("[li]{0}[/li]\n", text);
 		}

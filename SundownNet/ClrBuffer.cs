@@ -85,7 +85,7 @@ namespace Sundown
 			               Marshal.GetFunctionPointerForDelegate(free));
 		}
 
-		public override string ToString ()
+		public override string ToString()
 		{
 			return Encoding.GetString(bytearr, 0, Size.ToInt32());
 		}
