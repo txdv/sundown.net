@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8' />
+    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
+    <meta name="description" content="Sundown.net : A .NET wrapper of the nice sundown markdown library." />
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>Sundown.net</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/txdv/sundown.net">View on GitHub</a>
+
+          <h1 id="project_title">Sundown.net</h1>
+          <h2 id="project_tagline">A .NET wrapper of the nice sundown markdown library.</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/txdv/sundown.net/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/txdv/sundown.net/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h3>Other generators</h3>
+
+<p>There are a lot of markdown generators out there, many written in C# while utilizing regex and other handy utilities. While the language and these utilities make the code easier to understand and easier to handle, it comes at a high performance penalty.</p>
+
+<h3>The native approach</h3>
+
+<p>Sundown is a library written in pure C utilizing the fastest possible ways to parse and generate markdown. It has a nice extensible API interface to create backends that output something else than html. Using those interfaces is actually a painful experience to the normal C# developer, but I have done all the hard work to expose the ugly C interfaces in a beautiful C# OOP style.</p>
+
+<h3>Speed</h3>
+
+<p>I won't post the results of the benchmarks, since the outcome is dependent on the machine specs, but you can just checkout the project and run the benchmarks for yourself to compare. My experience was that when already having a decent sized buffer, the execution speed is twice as fast compared to the fastest .NET implementation. The downside is that it is not 'pure clr' and the native library needs to be compiled exclusively on every platform.</p>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">Sundown.net maintained by <a href="https://github.com/txdv">txdv</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
