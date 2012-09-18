@@ -1,0 +1,230 @@
+<Type Name="BBCodeRenderer" FullName="Sundown.BBCodeRenderer">
+  <TypeSignature Language="C#" Value="public class BBCodeRenderer : Sundown.Renderer" />
+  <TypeSignature Language="ILAsm" Value=".class public auto ansi beforefieldinit BBCodeRenderer extends Sundown.Renderer" />
+  <AssemblyInfo>
+    <AssemblyName>SundownNet</AssemblyName>
+    <AssemblyVersion>1.15.12.0</AssemblyVersion>
+  </AssemblyInfo>
+  <Base>
+    <BaseTypeName>Sundown.Renderer</BaseTypeName>
+  </Base>
+  <Interfaces />
+  <Docs>
+    <summary>To be added.</summary>
+    <remarks>To be added.</remarks>
+  </Docs>
+  <Members>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BBCodeRenderer ();" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor() cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters />
+      <Docs>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName=".ctor">
+      <MemberSignature Language="C#" Value="public BBCodeRenderer (Sundown.BBCodeOptions options);" />
+      <MemberSignature Language="ILAsm" Value=".method public hidebysig specialname rtspecialname instance void .ctor(class Sundown.BBCodeOptions options) cil managed" />
+      <MemberType>Constructor</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <Parameters>
+        <Parameter Name="options" Type="Sundown.BBCodeOptions" />
+      </Parameters>
+      <Docs>
+        <param name="options">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="BlockCode">
+      <MemberSignature Language="C#" Value="protected override void BlockCode (Sundown.Buffer ob, Sundown.Buffer text, Sundown.Buffer language);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void BlockCode(class Sundown.Buffer ob, class Sundown.Buffer text, class Sundown.Buffer language) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+        <Parameter Name="language" Type="Sundown.Buffer" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <param name="language">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="DoubleEmphasis">
+      <MemberSignature Language="C#" Value="protected override bool DoubleEmphasis (Sundown.Buffer ob, Sundown.Buffer text);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool DoubleEmphasis(class Sundown.Buffer ob, class Sundown.Buffer text) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Emphasis">
+      <MemberSignature Language="C#" Value="protected override bool Emphasis (Sundown.Buffer ob, Sundown.Buffer text);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool Emphasis(class Sundown.Buffer ob, class Sundown.Buffer text) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Header">
+      <MemberSignature Language="C#" Value="protected override void Header (Sundown.Buffer ob, Sundown.Buffer text, int level);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Header(class Sundown.Buffer ob, class Sundown.Buffer text, int32 level) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+        <Parameter Name="level" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <param name="level">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Link">
+      <MemberSignature Language="C#" Value="protected override bool Link (Sundown.Buffer ob, Sundown.Buffer link, Sundown.Buffer title, Sundown.Buffer content);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance bool Link(class Sundown.Buffer ob, class Sundown.Buffer link, class Sundown.Buffer title, class Sundown.Buffer content) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Boolean</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="link" Type="Sundown.Buffer" />
+        <Parameter Name="title" Type="Sundown.Buffer" />
+        <Parameter Name="content" Type="Sundown.Buffer" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="link">To be added.</param>
+        <param name="title">To be added.</param>
+        <param name="content">To be added.</param>
+        <summary>To be added.</summary>
+        <returns>To be added.</returns>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="List">
+      <MemberSignature Language="C#" Value="protected override void List (Sundown.Buffer ob, Sundown.Buffer text, int flags);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void List(class Sundown.Buffer ob, class Sundown.Buffer text, int32 flags) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+        <Parameter Name="flags" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <param name="flags">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="ListItem">
+      <MemberSignature Language="C#" Value="protected override void ListItem (Sundown.Buffer ob, Sundown.Buffer text, int flags);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void ListItem(class Sundown.Buffer ob, class Sundown.Buffer text, int32 flags) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+        <Parameter Name="flags" Type="System.Int32" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <param name="flags">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="Paragraph">
+      <MemberSignature Language="C#" Value="protected override void Paragraph (Sundown.Buffer ob, Sundown.Buffer text);" />
+      <MemberSignature Language="ILAsm" Value=".method familyhidebysig virtual instance void Paragraph(class Sundown.Buffer ob, class Sundown.Buffer text) cil managed" />
+      <MemberType>Method</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.Void</ReturnType>
+      </ReturnValue>
+      <Parameters>
+        <Parameter Name="ob" Type="Sundown.Buffer" />
+        <Parameter Name="text" Type="Sundown.Buffer" />
+      </Parameters>
+      <Docs>
+        <param name="ob">To be added.</param>
+        <param name="text">To be added.</param>
+        <summary>To be added.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+  </Members>
+</Type>

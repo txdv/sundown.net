@@ -1,0 +1,55 @@
+<Overview>
+  <Assemblies>
+    <Assembly Name="SundownNet" Version="1.15.12.0">
+      <Attributes>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCompany("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyConfiguration("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyCopyright("bentkus")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyDescription("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyProduct("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTitle("Sundown")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Reflection.AssemblyTrademark("")</AttributeName>
+        </Attribute>
+        <Attribute>
+          <AttributeName>System.Runtime.CompilerServices.RuntimeCompatibility(WrapNonExceptionThrows=true)</AttributeName>
+        </Attribute>
+      </Attributes>
+    </Assembly>
+  </Assemblies>
+  <Remarks>To be added.</Remarks>
+  <Copyright>To be added.</Copyright>
+  <Types>
+    <Namespace Name="Sundown">
+      <Type Name="AutolinkType" Kind="Enumeration" />
+      <Type Name="BBCodeOptions" Kind="Class" />
+      <Type Name="BBCodeRenderer" Kind="Class" />
+      <Type Name="Buffer" Kind="Class" />
+      <Type Name="Buffer+buffer" Kind="Structure" />
+      <Type Name="BufferStream" Kind="Class" />
+      <Type Name="ClrBuffer" Kind="Class" />
+      <Type Name="HtmlRenderer" Kind="Class" />
+      <Type Name="HtmlRenderMode" Kind="Class" />
+      <Type Name="Markdown" Kind="Class" />
+      <Type Name="MarkdownExtensions" Kind="Class" />
+      <Type Name="NativeBuffer" Kind="Class" />
+      <Type Name="Renderer" Kind="Class" />
+      <Type Name="TableFlags" Kind="Enumeration" />
+      <Type Name="TableOfContentRenderer" Kind="Class" />
+      <Type Name="Version" Kind="Class" />
+    </Namespace>
+  </Types>
+  <Title>SundownNet</Title>
+</Overview>
