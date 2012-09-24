@@ -1,0 +1,1692 @@
+---
+layout: docs
+title:  Sundown.Buffer
+---
+
+<div id="header_wrap" class="outer">
+  <header class="inner">
+    <a id="forkme_banner" href="https://github.com/txdv/sundown.net">View on GitHub</a>
+    <h1 id="project_title">Buffer  Class</h1>
+    <h2 id="project_tagline">
+      <p class="Summary" id="T:Sundown.Buffer:Summary">Abstracts the NativeBuffer and the ClrBuffer.</p>
+    </h2>
+  </header>
+</div>
+<div id="main_content_wrap" class="outer">
+  <section id="main_content" class="inner">
+    <div class="CollectionTitle">
+      <a href="../index.html">SundownNet</a> : <a href="index.html">Sundown Namespace</a></div>
+    <div>
+      <h2>Syntax</h2>
+      <div class="Signature" id="T:Sundown.Buffer:Signature">public abstract class  <b>Buffer</b> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IDisposable">IDisposable</a></div>
+    </div>
+    <div class="Remarks" id="T:Sundown.Buffer:Docs">
+      <h2 class="Section">Remarks</h2>
+      <div class="SectionBox" id="T:Sundown.Buffer:Docs:Remarks">In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer. </div>
+      <h2 class="Section">Requirements</h2>
+      <div class="SectionBox" id="T:Sundown.Buffer:Docs:Version Information">
+        <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+      <h2 class="Section" id="Members">Members</h2>
+      <div class="SectionBox" id="_Members">
+        <p>
+								See Also: Inherited members from
+								<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>.
+							</p>
+        <h2 class="Section">Protected Constructors</h2>
+        <div class="SectionBox" id="Protected Constructors">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <div>
+                    <b>
+                      <a href="#C:Sundown.Buffer(System.IntPtr,System.Boolean)">Buffer</a>
+                    </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)</div>
+                </td>
+                <td>
+                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+                </td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Fields</h2>
+        <div class="SectionBox" id="Public Fields">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static readonly </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#F:Sundown.Buffer.DefaultUnitSize">DefaultUnitSize</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Properties</h2>
+        <div class="SectionBox" id="Public Properties">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:Sundown.Buffer.AllocatedSize">AllocatedSize</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:Sundown.Buffer.Data">Data</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:Sundown.Buffer.Encoding">Encoding</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:Sundown.Buffer.NativeHandle">NativeHandle</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td>
+                  <b>
+                    <a href="#P:Sundown.Buffer.Size">Size</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+              <tr valign="top">
+                <td>[read-only]<div></div></td>
+                <td>
+                  <b>
+                    <a href="#P:Sundown.Buffer.UnitSize">UnitSize</a>
+                  </b>
+                </td>
+                <td>
+                  <i>
+                    <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
+                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Public Methods</h2>
+        <div class="SectionBox" id="Public Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Create()">Create</a>
+                  </b>()<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Create(System.Int32)">Create</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Create(System.Int64)">Create</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Create(System.IntPtr)">Create</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Dispose()">Dispose</a>
+                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Finalize()">Finalize</a>
+                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>static </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.From(System.IntPtr)">From</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.GetBufferStream()">GetBufferStream</a>
+                  </b>()<nobr> : <a href="../Sundown/BufferStream.html">BufferStream</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.GetBytes()">GetBytes</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[]</nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.GetStream()">GetStream</a>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Grow(System.Int32)">Grow</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote>Grow the buffer size.</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Grow(System.Int64)">Grow</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote>Grow the buffer size.</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Grow(System.IntPtr)">Grow</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote>Grow the buffer size.</blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(Sundown.Buffer)">Put</a>
+                  </b>(<a href="../Sundown/Buffer.html">Buffer</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[])">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[])<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.String)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[],System.Int32)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[],System.Int64)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[],System.IntPtr)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.IntPtr,System.Int32)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.IntPtr,System.Int64)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.IntPtr,System.IntPtr)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.String,System.Object[])">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Text.Encoding,System.String)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[],System.Int32,System.Int32)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[],System.Int64,System.Int64)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Byte[],System.IntPtr,System.IntPtr)">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[], <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Put(System.Text.Encoding,System.String,System.Object[])">Put</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a>, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[])<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Reset()">Reset</a>
+                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Slurp(System.Int32)">Slurp</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Slurp(System.Int64)">Slurp</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Slurp(System.IntPtr)">Slurp</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+        <h2 class="Section">Protected Methods</h2>
+        <div class="SectionBox" id="Protected Methods">
+          <div class="SubsectionBox">
+            <table class="TypeMembers">
+              <tr valign="top">
+                <td>
+                  <div>abstract </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Alloc(System.IntPtr)">Alloc</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+              <tr valign="top">
+                <td>
+                  <div>
+                  </div>
+                </td>
+                <td colspan="2">
+                  <b>
+                    <a href="#M:Sundown.Buffer.Dispose(System.Boolean)">Dispose</a>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+              </tr>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="Members" id="T:Sundown.Buffer:Members">
+      <h2 class="Section" id="MemberDetails">Member Details</h2>
+      <div class="SectionBox" id="_MemberDetails">
+        <h3 id="C:Sundown.Buffer(System.IntPtr,System.Boolean)">Buffer Constructor</h3>
+        <blockquote id="C:Sundown.Buffer(System.IntPtr,System.Boolean):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">protected  <b>Buffer</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> alloc)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="C:Sundown.Buffer(System.IntPtr,System.Boolean):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>alloc</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="C:Sundown.Buffer(System.IntPtr,System.Boolean):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="C:Sundown.Buffer(System.IntPtr,System.Boolean):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Alloc(System.IntPtr)">Alloc Method</h3>
+        <blockquote id="M:Sundown.Buffer.Alloc(System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">protected abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Alloc</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Alloc(System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Alloc(System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Alloc(System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:Sundown.Buffer.AllocatedSize">AllocatedSize Property</h3>
+        <blockquote id="P:Sundown.Buffer.AllocatedSize:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>AllocatedSize</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.AllocatedSize:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.AllocatedSize:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.AllocatedSize:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Create()">Create Method</h3>
+        <blockquote id="M:Sundown.Buffer.Create():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Create(System.Int32)">Create Method</h3>
+        <blockquote id="M:Sundown.Buffer.Create(System.Int32):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int32):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int32):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Create(System.Int64)">Create Method</h3>
+        <blockquote id="M:Sundown.Buffer.Create(System.Int64):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int64):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int64):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int64):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int64):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Create(System.IntPtr)">Create Method</h3>
+        <blockquote id="M:Sundown.Buffer.Create(System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:Sundown.Buffer.Data">Data Property</h3>
+        <blockquote id="P:Sundown.Buffer.Data:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>Data</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.Data:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.Data:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.Data:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="F:Sundown.Buffer.DefaultUnitSize">DefaultUnitSize Field</h3>
+        <blockquote id="F:Sundown.Buffer.DefaultUnitSize:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public static readonly <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>DefaultUnitSize</b> </div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="F:Sundown.Buffer.DefaultUnitSize:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="F:Sundown.Buffer.DefaultUnitSize:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Dispose()">Dispose Method</h3>
+        <blockquote id="M:Sundown.Buffer.Dispose():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Dispose</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Dispose():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Dispose():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Dispose(System.Boolean)">Dispose Method</h3>
+        <blockquote id="M:Sundown.Buffer.Dispose(System.Boolean):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">protected virtual <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Dispose</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> disposing)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Dispose(System.Boolean):Parameters">
+            <dl>
+              <dt>
+                <i>disposing</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Dispose(System.Boolean):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Dispose(System.Boolean):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:Sundown.Buffer.Encoding">Encoding Property</h3>
+        <blockquote id="P:Sundown.Buffer.Encoding:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a> <b>Encoding</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.Encoding:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.Encoding:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.Encoding:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Finalize()">Finalize Method</h3>
+        <blockquote id="M:Sundown.Buffer.Finalize():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">
+            <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Finalize</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Finalize():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Finalize():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.From(System.IntPtr)">From Method</h3>
+        <blockquote id="M:Sundown.Buffer.From(System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>From</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> ptr)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>ptr</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.GetBufferStream()">GetBufferStream Method</h3>
+        <blockquote id="M:Sundown.Buffer.GetBufferStream():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="../Sundown/BufferStream.html">BufferStream</a> <b>GetBufferStream</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetBufferStream():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetBufferStream():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetBufferStream():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.GetBytes()">GetBytes Method</h3>
+        <blockquote id="M:Sundown.Buffer.GetBytes():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] <b>GetBytes</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetBytes():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetBytes():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetBytes():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.GetStream()">GetStream Method</h3>
+        <blockquote id="M:Sundown.Buffer.GetStream():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a> <b>GetStream</b> ()</div>
+          <h4 class="Subsection">Returns</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetStream():Returns">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetStream():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetStream():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Grow(System.Int32)">Grow Method</h3>
+        <blockquote id="M:Sundown.Buffer.Grow(System.Int32):member">
+          <p class="Summary">Grow the buffer size.</p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Grow</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Grow(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int32):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Grow(System.Int64)">Grow Method</h3>
+        <blockquote id="M:Sundown.Buffer.Grow(System.Int64):member">
+          <p class="Summary">Grow the buffer size.</p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Grow</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Grow(System.Int64):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int64):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int64):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Grow(System.IntPtr)">Grow Method</h3>
+        <blockquote id="M:Sundown.Buffer.Grow(System.IntPtr):member">
+          <p class="Summary">Grow the buffer size.</p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Grow</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Grow(System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:Sundown.Buffer.NativeHandle">NativeHandle Property</h3>
+        <blockquote id="P:Sundown.Buffer.NativeHandle:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>NativeHandle</b>  { get; protected set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.NativeHandle:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.NativeHandle:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.NativeHandle:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(Sundown.Buffer)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(Sundown.Buffer):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="../Sundown/Buffer.html">Buffer</a> buffer)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(Sundown.Buffer):Parameters">
+            <dl>
+              <dt>
+                <i>buffer</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(Sundown.Buffer):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(Sundown.Buffer):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a> c)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte):Parameters">
+            <dl>
+              <dt>
+                <i>c</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[])">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[]):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[]):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[]):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.String)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.String):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> str)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.String):Parameters">
+            <dl>
+              <dt>
+                <i>str</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.String):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[],System.Int32)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[],System.Int32):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int32):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[],System.Int64)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[],System.Int64):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int64):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int64):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int64):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.IntPtr,System.Int32)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.IntPtr,System.Int32):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> data, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>data</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.Int32):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.IntPtr,System.Int64)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.IntPtr,System.Int64):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> data, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.Int64):Parameters">
+            <dl>
+              <dt>
+                <i>data</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.Int64):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.Int64):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.IntPtr,System.IntPtr)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.IntPtr,System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> data, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>data</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.IntPtr,System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.String,System.Object[])">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.String,System.Object[]):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> str, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] param)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>str</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>param</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.String,System.Object[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a> encoding, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> str)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String):Parameters">
+            <dl>
+              <dt>
+                <i>encoding</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>str</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[],System.Int32,System.Int32)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[],System.Int32,System.Int32):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> offset, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> count)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int32,System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>offset</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>count</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int32,System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int32,System.Int32):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[],System.Int64,System.Int64)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[],System.Int64,System.Int64):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> offset, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> count)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int64,System.Int64):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>offset</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>count</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int64,System.Int64):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.Int64,System.Int64):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr,System.IntPtr)">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr,System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] bytes, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> offset, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> count)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr,System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>bytes</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>offset</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>count</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr,System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Byte[],System.IntPtr,System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String,System.Object[])">Put Method</h3>
+        <blockquote id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String,System.Object[]):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Put</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a> encoding, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.String">string</a> str, <b>params</b> <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Object">object</a>[] param)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String,System.Object[]):Parameters">
+            <dl>
+              <dt>
+                <i>encoding</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>str</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+              <dt>
+                <i>param</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String,System.Object[]):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Put(System.Text.Encoding,System.String,System.Object[]):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Reset()">Reset Method</h3>
+        <blockquote id="M:Sundown.Buffer.Reset():member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Reset</b> ()</div>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Reset():Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Reset():Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:Sundown.Buffer.Size">Size Property</h3>
+        <blockquote id="P:Sundown.Buffer.Size:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>Size</b>  { get; set; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.Size:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.Size:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.Size:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Slurp(System.Int32)">Slurp Method</h3>
+        <blockquote id="M:Sundown.Buffer.Slurp(System.Int32):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Slurp</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Slurp(System.Int32):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Slurp(System.Int32):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Slurp(System.Int32):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Slurp(System.Int64)">Slurp Method</h3>
+        <blockquote id="M:Sundown.Buffer.Slurp(System.Int64):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Slurp</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Slurp(System.Int64):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Slurp(System.Int64):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Slurp(System.Int64):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="M:Sundown.Buffer.Slurp(System.IntPtr)">Slurp Method</h3>
+        <blockquote id="M:Sundown.Buffer.Slurp(System.IntPtr):member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Slurp</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
+          <h4 class="Subsection">Parameters</h4>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Slurp(System.IntPtr):Parameters">
+            <dl>
+              <dt>
+                <i>size</i>
+              </dt>
+              <dd>
+                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+              </dd>
+            </dl>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Slurp(System.IntPtr):Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="M:Sundown.Buffer.Slurp(System.IntPtr):Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+        <h3 id="P:Sundown.Buffer.UnitSize">UnitSize Property</h3>
+        <blockquote id="P:Sundown.Buffer.UnitSize:member">
+          <p class="Summary">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </p>
+          <h2>Syntax</h2>
+          <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>UnitSize</b>  { get; }</div>
+          <h4 class="Subsection">Value</h4>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.UnitSize:Value">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </blockquote>
+          <h2 class="Section">Remarks</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.UnitSize:Remarks">
+            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
+          </div>
+          <h2 class="Section">Requirements</h2>
+          <div class="SectionBox" id="P:Sundown.Buffer.UnitSize:Version Information">
+            <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
+          <hr size="1" />
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</div>
