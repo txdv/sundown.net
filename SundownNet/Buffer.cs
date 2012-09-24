@@ -10,7 +10,7 @@ namespace Sundown
 		public static readonly int DefaultUnitSize = 1024;
 
 		[StructLayout(LayoutKind.Sequential)]
-		protected struct buffer
+		internal struct buffer
 		{
 			public IntPtr data;
 			public IntPtr size;
@@ -24,7 +24,7 @@ namespace Sundown
 		internal IntPtr buf;
 		internal bool release;
 
-		protected buffer *cbuffer {
+		internal buffer *cbuffer {
 			get {
 				return (buffer *)buf;
 			}
