@@ -39,7 +39,7 @@ namespace Sundown
 
 		protected override void Alloc(IntPtr size)
 		{
-			buf = bufnew(size);
+			NativeHandle = bufnew(size);
 		}
 
 		public override string ToString()

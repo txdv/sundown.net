@@ -21,18 +21,17 @@ namespace Sundown
 			public IntPtr free;
 		}
 
-		internal IntPtr buf;
 		internal bool release;
 
 		internal buffer *cbuffer {
 			get {
-				return (buffer *)buf;
+				return (buffer *)NativeHandle;
 			}
 		}
 
 		public IntPtr Data {
 			get {
-				return Marshal.ReadIntPtr(buf);
+				return Marshal.ReadIntPtr(NativeHandle);
 			}
 		}
 
@@ -56,14 +55,17 @@ namespace Sundown
 				return cbuffer->unit;
 			}
 		}
+
 		public Encoding Encoding { get; set; }
+
+		public IntPtr NativeHandle { get; protected set; }
 
 		protected Buffer(IntPtr size, bool alloc)
 		{
 			if (alloc) {
 				Alloc(size);
 			} else {
-				buf = size;
+				NativeHandle = size;
 			}
 			Encoding = Encoding.Default;
 			release = false;
@@ -146,7 +148,7 @@ namespace Sundown
 
 		public void Put(IntPtr data, IntPtr size)
 		{
-			bufput(buf, data, size);
+			bufput(NativeHandle, data, size);
 		}
 
 		public void Put(byte[] bytes, int size)
@@ -215,7 +217,7 @@ namespace Sundown
 
 		public void Put(byte c)
 		{
-			bufputc(buf, c);
+			bufputc(NativeHandle, c);
 		}
 
 		[DllImport("sundown")]
@@ -242,7 +244,7 @@ namespace Sundown
 
 		public void Grow(IntPtr size)
 		{
-			bufgrow(buf, size);
+			bufgrow(NativeHandle, size);
 		}
 
 		[DllImport("sundown")]
@@ -252,7 +254,7 @@ namespace Sundown
 		#region Reset
 		public void Reset()
 		{
-			bufreset(buf);
+			bufreset(NativeHandle);
 		}
 
 		[DllImport("sundown")]
@@ -262,9 +264,9 @@ namespace Sundown
 		#region Release
 		void Release()
 		{
-			if (buf != IntPtr.Zero) {
-				bufrelease(buf);
-				buf = IntPtr.Zero;
+			if (NativeHandle != IntPtr.Zero) {
+				bufrelease(NativeHandle);
+				NativeHandle = IntPtr.Zero;
 			}
 		}
 
@@ -275,7 +277,7 @@ namespace Sundown
 		#region Slurp
 		public void Slurp(IntPtr size)
 		{
-			bufslurp(buf, size);
+			bufslurp(NativeHandle, size);
 		}
 
 		public void Slurp(int size)

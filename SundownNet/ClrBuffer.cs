@@ -39,7 +39,7 @@ namespace Sundown
 
 		void Free(IntPtr ptr)
 		{
-			if (ptr == buf) {
+			if (ptr == NativeHandle) {
 				bufhandle.Free();
 			} else {
 				bytearrhandle.Free();
@@ -80,10 +80,10 @@ namespace Sundown
 			realloc = Realloc;
 			free = Free;
 
-			buf = bufnewcb(size,
-			               Marshal.GetFunctionPointerForDelegate(malloc),
-			               Marshal.GetFunctionPointerForDelegate(realloc),
-			               Marshal.GetFunctionPointerForDelegate(free));
+			NativeHandle = bufnewcb(size,
+				Marshal.GetFunctionPointerForDelegate(malloc),
+				Marshal.GetFunctionPointerForDelegate(realloc),
+				Marshal.GetFunctionPointerForDelegate(free));
 		}
 
 		public override string ToString()

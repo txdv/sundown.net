@@ -91,7 +91,7 @@ namespace Sundown
 
 		public void Render(Buffer @out, Buffer @in)
 		{
-			sd_markdown_render(@out.buf, @in.Data, @in.Size, ptr);
+			sd_markdown_render(@out.NativeHandle, @in.Data, @in.Size, ptr);
 		}
 
 		public void Render(Buffer @out, byte[] array)
@@ -115,7 +115,7 @@ namespace Sundown
 		public void Render(Buffer @out, byte[] array, IntPtr length)
 		{
 			var handle = GCHandle.Alloc(array, GCHandleType.Pinned);
-			sd_markdown_render(@out.buf, handle.AddrOfPinnedObject(), length, ptr);
+			sd_markdown_render(@out.NativeHandle, handle.AddrOfPinnedObject(), length, ptr);
 			handle.Free();
 		}
 
@@ -173,7 +173,7 @@ namespace Sundown
 		public static void SmartyPants(Buffer @out, byte[] array, IntPtr length)
 		{
 			var handle = GCHandle.Alloc(array, GCHandleType.Pinned);
-			sdhtml_smartypants(@out.buf, handle.AddrOfPinnedObject(), (IntPtr)length);
+			sdhtml_smartypants(@out.NativeHandle, handle.AddrOfPinnedObject(), (IntPtr)length);
 			handle.Free();
 		}
 

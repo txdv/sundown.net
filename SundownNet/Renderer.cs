@@ -263,7 +263,7 @@ namespace Sundown
 		protected virtual void BlockCode(Buffer ob, Buffer text, Buffer language)
 		{
 			if (base_callbacks.blockcode != null) {
-				base_callbacks.blockcode(ob.buf, text.buf, language.buf, opaque);
+				base_callbacks.blockcode(ob.NativeHandle, text.NativeHandle, language.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_blockcode(IntPtr ob, IntPtr text, IntPtr lang, IntPtr opaque)
@@ -274,7 +274,7 @@ namespace Sundown
 		protected virtual void BlockQuote(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.blockquote != null) {
-				base_callbacks.blockquote(ob.buf, text.buf, opaque);
+				base_callbacks.blockquote(ob.NativeHandle, text.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_blockquote(IntPtr ob, IntPtr text, IntPtr opaque)
@@ -285,7 +285,7 @@ namespace Sundown
 		protected virtual void BlockHtml(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.blockhtml != null) {
-				base_callbacks.blockhtml(ob.buf, text.buf, opaque);
+				base_callbacks.blockhtml(ob.NativeHandle, text.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_blockhtml(IntPtr ob, IntPtr text, IntPtr opaque)
@@ -296,7 +296,7 @@ namespace Sundown
 		protected virtual void Header(Buffer ob, Buffer text, int level)
 		{
 			if (base_callbacks.header != null) {
-				base_callbacks.header(ob.buf, text.buf, level, opaque);
+				base_callbacks.header(ob.NativeHandle, text.NativeHandle, level, opaque);
 			}
 		}
 		void mkd_renderer_header(IntPtr ob, IntPtr text, int level, IntPtr opaque)
@@ -307,7 +307,7 @@ namespace Sundown
 		protected virtual void HRule(Buffer ob)
 		{
 			if (base_callbacks.hrule != null) {
-				base_callbacks.hrule(ob.buf, opaque);
+				base_callbacks.hrule(ob.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_hrule(IntPtr ob, IntPtr opaque)
@@ -318,7 +318,7 @@ namespace Sundown
 		protected virtual void List(Buffer ob, Buffer text, int flags)
 		{
 			if (base_callbacks.list != null) {
-				base_callbacks.list(ob.buf, text.buf, flags, opaque);
+				base_callbacks.list(ob.NativeHandle, text.NativeHandle, flags, opaque);
 			}
 		}
 		void mkd_renderer_list(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
@@ -329,7 +329,7 @@ namespace Sundown
 		protected virtual void ListItem(Buffer ob, Buffer text, int flags)
 		{
 			if (base_callbacks.listitem != null) {
-				base_callbacks.listitem(ob.buf, text.buf, flags, opaque);
+				base_callbacks.listitem(ob.NativeHandle, text.NativeHandle, flags, opaque);
 			}
 		}
 		void mkd_renderer_listitem(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
@@ -340,7 +340,7 @@ namespace Sundown
 		protected virtual void Paragraph(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.paragraph != null) {
-				base_callbacks.paragraph(ob.buf, text.buf, opaque);
+				base_callbacks.paragraph(ob.NativeHandle, text.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_paragraph(IntPtr ob, IntPtr text, IntPtr opaque)
@@ -351,7 +351,7 @@ namespace Sundown
 		protected virtual void Table(Buffer ob, Buffer header, Buffer body)
 		{
 			if (base_callbacks.table != null) {
-				base_callbacks.table(ob.buf, header.buf, body.buf, opaque);
+				base_callbacks.table(ob.NativeHandle, header.NativeHandle, body.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_table(IntPtr ob, IntPtr header, IntPtr body, IntPtr opaque)
@@ -362,7 +362,7 @@ namespace Sundown
 		protected virtual void TableRow(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.table_row != null) {
-				base_callbacks.table_row(ob.buf, text.buf, opaque);
+				base_callbacks.table_row(ob.NativeHandle, text.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_table_row(IntPtr ob, IntPtr text, IntPtr opaque)
@@ -373,7 +373,7 @@ namespace Sundown
 		protected virtual void TableCell(Buffer ob, Buffer text, TableFlags flags)
 		{
 			if (base_callbacks.table_cell != null) {
-				base_callbacks.table_cell(ob.buf, text.buf, (int)flags, opaque);
+				base_callbacks.table_cell(ob.NativeHandle, text.NativeHandle, (int)flags, opaque);
 			}
 		}
 		void mkd_renderer_table_cell(IntPtr ob, IntPtr text, int flags, IntPtr opaque)
@@ -388,7 +388,7 @@ namespace Sundown
 		protected virtual bool Autolink(Buffer ob, Buffer link, AutolinkType type)
 		{
 			if (base_callbacks.autolink != null) {
-				return base_callbacks.autolink(ob.buf, link.buf, (int)type, opaque) != 0;
+				return base_callbacks.autolink(ob.NativeHandle, link.NativeHandle, (int)type, opaque) != 0;
 			}
 			return false;
 		}
@@ -400,7 +400,7 @@ namespace Sundown
 		protected virtual bool Codespan(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.codespan != null) {
-				return base_callbacks.codespan(ob.buf, text.buf, opaque) != 0;
+				return base_callbacks.codespan(ob.NativeHandle, text.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -412,7 +412,7 @@ namespace Sundown
 		protected virtual bool DoubleEmphasis(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.double_emphasis != null) {
-				return base_callbacks.double_emphasis(ob.buf, text.buf, opaque) != 0;
+				return base_callbacks.double_emphasis(ob.NativeHandle, text.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -424,7 +424,7 @@ namespace Sundown
 		protected virtual bool Emphasis(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.emphasis != null) {
-				return base_callbacks.emphasis(ob.buf, text.buf, opaque) != 0;
+				return base_callbacks.emphasis(ob.NativeHandle, text.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -436,7 +436,7 @@ namespace Sundown
 		protected virtual bool Image(Buffer ob, Buffer link, Buffer title, Buffer alt)
 		{
 			if (base_callbacks.image != null) {
-				return base_callbacks.image(ob.buf, link.buf, title.buf, alt.buf, opaque) != 0;
+				return base_callbacks.image(ob.NativeHandle, link.NativeHandle, title.NativeHandle, alt.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -448,7 +448,7 @@ namespace Sundown
 		protected virtual bool Linebreak(Buffer ob)
 		{
 			if (base_callbacks.linebreak != null) {
-				return base_callbacks.linebreak(ob.buf, opaque) != 0;
+				return base_callbacks.linebreak(ob.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -460,7 +460,7 @@ namespace Sundown
 		protected virtual bool Link(Buffer ob, Buffer link, Buffer title, Buffer content)
 		{
 			if (base_callbacks.link != null) {
-				return base_callbacks.link(ob.buf, link.buf, title.buf, content.buf, opaque) != 0;
+				return base_callbacks.link(ob.NativeHandle, link.NativeHandle, title.NativeHandle, content.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -472,7 +472,7 @@ namespace Sundown
 		protected virtual bool RawHtmlTag(Buffer ob, Buffer tag)
 		{
 			if (base_callbacks.raw_html_tag != null) {
-				return base_callbacks.raw_html_tag(ob.buf, tag.buf, opaque) != 0;
+				return base_callbacks.raw_html_tag(ob.NativeHandle, tag.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -484,7 +484,7 @@ namespace Sundown
 		protected virtual bool TripleEmphasis(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.triple_emphasis != null) {
-				return base_callbacks.triple_emphasis(ob.buf, text.buf, opaque) != 0;
+				return base_callbacks.triple_emphasis(ob.NativeHandle, text.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -496,7 +496,7 @@ namespace Sundown
 		protected virtual bool Strikethrough(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.strikethrough != null) {
-				return base_callbacks.strikethrough(ob.buf, text.buf, opaque) != 0;
+				return base_callbacks.strikethrough(ob.NativeHandle, text.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -508,7 +508,7 @@ namespace Sundown
 		protected virtual bool SuperScript(Buffer ob, Buffer text)
 		{
 			if (base_callbacks.superscript != null) {
-				return base_callbacks.superscript(ob.buf, text.buf, opaque) != 0;
+				return base_callbacks.superscript(ob.NativeHandle, text.NativeHandle, opaque) != 0;
 			}
 			return false;
 		}
@@ -523,7 +523,7 @@ namespace Sundown
 
 		public virtual void NormalText(Buffer ob, Buffer text) {
 			if (base_callbacks.normal_text != null) {
-				base_callbacks.normal_text(ob.buf, text.buf, opaque);
+				base_callbacks.normal_text(ob.NativeHandle, text.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_normal_text(IntPtr ob, IntPtr text, IntPtr opaque)
@@ -533,7 +533,7 @@ namespace Sundown
 
 		public virtual void Entity(Buffer ob, Buffer entity) {
 			if (base_callbacks.entity != null) {
-				base_callbacks.entity(ob.buf, entity.buf, opaque);
+				base_callbacks.entity(ob.NativeHandle, entity.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_entity(IntPtr ob, IntPtr entity, IntPtr opaque)
@@ -548,7 +548,7 @@ namespace Sundown
 		public virtual void DocumentHeader(Buffer buffer)
 		{
 			if (base_callbacks.doc_header != null) {
-				base_callbacks.doc_header(buffer.buf, opaque);
+				base_callbacks.doc_header(buffer.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_doc_header(IntPtr ob, IntPtr opaque)
@@ -559,7 +559,7 @@ namespace Sundown
 		public virtual void DocumentFooter(Buffer buffer)
 		{
 			if (base_callbacks.doc_footer != null) {
-				base_callbacks.doc_footer(buffer.buf, opaque);
+				base_callbacks.doc_footer(buffer.NativeHandle, opaque);
 			}
 		}
 		void mkd_renderer_doc_footer(IntPtr obj, IntPtr opaque)
