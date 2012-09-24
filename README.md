@@ -10,6 +10,8 @@ quickly (simple API).
 
 It is ridicolously fast compared to pure .NET/Regex implementations.
 
+More information on the [official website](http://txdv.github.com/sundown.net).
+
 License
 =======
 The wrapper is available under the [MIT license](http://en.wikipedia.org/wiki/MIT_License).
