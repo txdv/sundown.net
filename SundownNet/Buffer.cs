@@ -21,7 +21,6 @@ namespace Sundown
 			public IntPtr free;
 		}
 
-		protected buffer bufinstance = new buffer();
 		internal IntPtr buf;
 		internal bool release;
 

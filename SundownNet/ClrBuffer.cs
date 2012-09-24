@@ -7,6 +7,7 @@ namespace Sundown
 {
 	public class ClrBuffer : Buffer
 	{
+		buffer bufinstance = new buffer();
 		GCHandle bufhandle;
 
 		Func<IntPtr, IntPtr> malloc;
