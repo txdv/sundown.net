@@ -37,7 +37,6 @@
       <Type Name="BBCodeOptions" Kind="Class" />
       <Type Name="BBCodeRenderer" Kind="Class" />
       <Type Name="Buffer" Kind="Class" />
-      <Type Name="Buffer+buffer" Kind="Structure" />
       <Type Name="BufferStream" Kind="Class" />
       <Type Name="ClrBuffer" Kind="Class" />
       <Type Name="HtmlRenderer" Kind="Class" />

@@ -71,37 +71,6 @@
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
-    <Member MemberName="bufinstance">
-      <MemberSignature Language="C#" Value="protected Sundown.Buffer.buffer bufinstance;" />
-      <MemberSignature Language="ILAsm" Value=".field family valuetype Sundown.Buffer/buffer bufinstance" />
-      <MemberType>Field</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.15.12.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Sundown.Buffer+buffer</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
-    <Member MemberName="cbuffer">
-      <MemberSignature Language="C#" Value="protected Sundown.Buffer.buffer* cbuffer { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property instance valuetype Sundown.Buffer/buffer* cbuffer" />
-      <MemberType>Property</MemberType>
-      <AssemblyInfo>
-        <AssemblyVersion>1.15.12.0</AssemblyVersion>
-      </AssemblyInfo>
-      <ReturnValue>
-        <ReturnType>Sundown.Buffer+buffer*</ReturnType>
-      </ReturnValue>
-      <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
-      </Docs>
-    </Member>
     <Member MemberName="Create">
       <MemberSignature Language="C#" Value="public static Sundown.Buffer Create ();" />
       <MemberSignature Language="ILAsm" Value=".method public static hidebysig class Sundown.Buffer Create() cil managed" />
@@ -402,6 +371,22 @@
       <Docs>
         <param name="size">To be added.</param>
         <summary>Grow the buffer size.</summary>
+        <remarks>To be added.</remarks>
+      </Docs>
+    </Member>
+    <Member MemberName="NativeHandle">
+      <MemberSignature Language="C#" Value="public IntPtr NativeHandle { get; protected set; }" />
+      <MemberSignature Language="ILAsm" Value=".property instance native int NativeHandle" />
+      <MemberType>Property</MemberType>
+      <AssemblyInfo>
+        <AssemblyVersion>1.15.12.0</AssemblyVersion>
+      </AssemblyInfo>
+      <ReturnValue>
+        <ReturnType>System.IntPtr</ReturnType>
+      </ReturnValue>
+      <Docs>
+        <summary>To be added.</summary>
+        <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
