@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>BBCodeRenderer Option class.</summary>
+    <remarks>This class is used by BBCodeRenderer to specify options.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -23,8 +23,33 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>The only constructor of the Options class.</summary>
+        <remarks>It will initialize the class with default values.
+
+<example>
+  <code lang="C#">
+DefaultHeaderSize = 10;
+HeaderSize = new Dictionary&lt;int, int&gt;() {
+  { 1, 16 },
+  { 2, 14 },
+  { 3, 12 },
+};
+  </code>
+</example>
+Custom option setting is possible like this:
+<example>
+  <code lang="C#">
+DefaultHeaderSize = 10;
+var options = new BBCodeOptions() {
+  DefaultHeaderSize = 16,
+  HeaderSize = new Dictionary&lt;int, int&gt;() {
+    { 1, 22 },
+    { 2, 20 },
+  }
+}
+  </code>
+</example>
+</remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultHeaderSize">
@@ -38,9 +63,10 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>The default size of the headers.
+</summary>
+        <value>An integer representing the header size.</value>
+        <remarks>This is the default header size value used if <see cref="T:Sundown.BBCodeOptions.HeaderSizes" /> doesn't contain the specific size.</remarks>
       </Docs>
     </Member>
     <Member MemberName="HeaderSizes">
@@ -54,9 +80,9 @@
         <ReturnType>System.Collections.Generic.Dictionary&lt;System.Int32,System.Int32&gt;</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <summary>BBCode pixel sizes for headers.</summary>
+        <value>A hashtable which keys represent the indententation in markdown and the values represent the bbcode pixel sizes.</value>
+        <remarks>The key for #header is 1, for ##header is 2 and so on.</remarks>
       </Docs>
     </Member>
   </Members>

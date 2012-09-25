@@ -23,8 +23,8 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>The default constructor of BBCodeRenderer.</summary>
+        <remarks>Will use the default values in <see cref="T:Sundown.BBCodeOptions" />.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -38,8 +38,8 @@
         <Parameter Name="options" Type="Sundown.BBCodeOptions" />
       </Parameters>
       <Docs>
-        <param name="options">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="options">An instance of <see cref="T:Sundown.BBCodeOptions" /> which the user specify the sizes of the different headers.</param>
+        <summary>The constructor taking a instance object of the class <see cref="T:Sundown.BBCodeOptions" />.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
