@@ -22,9 +22,13 @@ title:  Sundown.ClrBuffer
     </div>
     <div class="Remarks" id="T:Sundown.ClrBuffer:Docs">
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:Sundown.ClrBuffer:Docs:Remarks">
+      <div class="SectionBox" id="T:Sundown.ClrBuffer:Docs:Remarks">The byte array which is used by the clr buffer is pinned down, in order for the guarantee interop safety with the sundown library.
+
+<p>
 Growing the buffer is slower than compared to the NativeBuffer, but if no buffer growing is needed, the ClrBuffer will achieve superior performance.
-</div>
+</p><p>
+Doesn't work without a modified sundown version.
+</p></div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:Sundown.ClrBuffer:Docs:Version Information">
         <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -130,7 +134,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
+                  </i>. The allocated size of the buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
@@ -153,7 +157,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
+                  </i>. Buffer allocation pointer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -168,7 +172,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
+                  </i>. Default encoding to use for when serializing between strings and the buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -183,7 +187,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
+                  </i>. The native buffer handle which is used by the sundown library. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -198,7 +202,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
+                  </i>. The currently used size of the buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
@@ -210,7 +214,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
+                  </i>. The unit size of the particular buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</td>
               </tr>
             </table>
           </div>
@@ -227,7 +231,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Dispose()">Dispose</a>
-                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>()<blockquote>Releases the allocated buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -247,7 +251,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.GetBufferStream()">GetBufferStream</a>
-                  </b>()<nobr> : <a href="../Sundown/BufferStream.html">BufferStream</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>()<nobr> : <a href="../Sundown/BufferStream.html">BufferStream</a></nobr><blockquote>Wraps the current Buffer in a BufferStream. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -257,7 +261,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.GetBytes()">GetBytes</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[]</nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[]</nobr><blockquote>Copies the content of the buffer into a newly allocated clr array. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -267,7 +271,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.GetStream()">GetStream</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a></nobr><blockquote>Creates an UnmanagedStream. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -467,7 +471,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Reset()">Reset</a>
-                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>()<blockquote>Clears the buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -477,7 +481,8 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Slurp(System.Int32)">Slurp</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote>Removes a given number of bytes from the head of the buffer.
+ (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -487,7 +492,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Slurp(System.Int64)">Slurp</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote>Removes a given number of bytes from the head of the buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -497,7 +502,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Slurp(System.IntPtr)">Slurp</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote>Removes a given number of bytes from the head of the buffer. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -522,7 +527,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.ClrBuffer.Alloc(System.IntPtr)">Alloc</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote>Creates a native clr byte array.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -531,7 +536,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Alloc(System.IntPtr)">Alloc</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote>Allocates the NativeHandle. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -541,7 +546,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
                 <td colspan="2">
                   <b>
                     <a href="../Sundown/Buffer.html#M:Sundown.Buffer.Dispose(System.Boolean)">Dispose</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span> (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<blockquote>The Dispose(bool) pattern. (<i>Inherited from <a href="../Sundown/Buffer.html">Buffer</a>.</i>)</blockquote></td>
               </tr>
             </table>
           </div>
@@ -683,9 +688,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
         </blockquote>
         <h3 id="M:Sundown.ClrBuffer.Alloc(System.IntPtr)">Alloc Method</h3>
         <blockquote id="M:Sundown.ClrBuffer.Alloc(System.IntPtr):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates a native clr byte array.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">protected override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Alloc</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -700,9 +703,7 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.ClrBuffer.Alloc(System.IntPtr):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.ClrBuffer.Alloc(System.IntPtr):Remarks">Doesn't work without a modified sundown version.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.ClrBuffer.Alloc(System.IntPtr):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>

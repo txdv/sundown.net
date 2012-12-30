@@ -8,7 +8,8 @@ title:  Sundown.Buffer
     <a id="forkme_banner" href="https://github.com/txdv/sundown.net">View on GitHub</a>
     <h1 id="project_title">Buffer  Class</h1>
     <h2 id="project_tagline">
-      <p class="Summary" id="T:Sundown.Buffer:Summary">Abstracts the NativeBuffer and the ClrBuffer.</p>
+      <p class="Summary" id="T:Sundown.Buffer:Summary">Abstracts the NativeBuffer and the ClrBuffer.
+</p>
     </h2>
   </header>
 </div>
@@ -22,7 +23,12 @@ title:  Sundown.Buffer
     </div>
     <div class="Remarks" id="T:Sundown.Buffer:Docs">
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:Sundown.Buffer:Docs:Remarks">In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer. </div>
+      <div class="SectionBox" id="T:Sundown.Buffer:Docs:Remarks">
+        <ul>
+          <li>This class should be subclassed only with caution, it allows to change the behaviour of buffer allocations, this functionality should be used only by people who know exactly what they are doing.</li>
+          <li>In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer.</li>
+        </ul>
+      </div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:Sundown.Buffer:Docs:Version Information">
         <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -47,9 +53,7 @@ title:  Sundown.Buffer
                       <a href="#C:Sundown.Buffer(System.IntPtr,System.Boolean)">Buffer</a>
                     </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)</div>
                 </td>
-                <td>
-                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-                </td>
+                <td>Allocates a new buffer or reuses an existing one.</td>
               </tr>
             </table>
           </div>
@@ -70,7 +74,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. The default unit size.</td>
               </tr>
             </table>
           </div>
@@ -89,7 +93,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. The allocated size of the buffer.</td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
@@ -101,7 +105,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. Buffer allocation pointer.</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -116,7 +120,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. Default encoding to use for when serializing between strings and the buffer.</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -131,7 +135,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. The native buffer handle which is used by the sundown library.</td>
               </tr>
               <tr valign="top">
                 <td>
@@ -146,7 +150,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. The currently used size of the buffer.</td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div></div></td>
@@ -158,7 +162,7 @@ title:  Sundown.Buffer
                 <td>
                   <i>
                     <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. The unit size of the particular buffer.</td>
               </tr>
             </table>
           </div>
@@ -174,7 +178,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Create()">Create</a>
-                  </b>()<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote>Creates a buffer using the default buffer implementation.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -183,7 +187,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Create(System.Int32)">Create</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote>Creates a buffer using the default buffer implementation.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -192,7 +196,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Create(System.Int64)">Create</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote>Creates a buffer using the default buffer implementation.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -201,7 +205,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Create(System.IntPtr)">Create</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote>Creates a buffer using the default buffer implementation.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -211,7 +215,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Dispose()">Dispose</a>
-                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<blockquote>Releases the allocated buffer.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -230,7 +234,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.From(System.IntPtr)">From</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<nobr> : <a href="../Sundown/Buffer.html">Buffer</a></nobr><blockquote>Creates an instance of the default buffer implementation from a pointer pointing to a buf handle.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -240,7 +244,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.GetBufferStream()">GetBufferStream</a>
-                  </b>()<nobr> : <a href="../Sundown/BufferStream.html">BufferStream</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<nobr> : <a href="../Sundown/BufferStream.html">BufferStream</a></nobr><blockquote>Wraps the current Buffer in a BufferStream.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -250,7 +254,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.GetBytes()">GetBytes</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[]</nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[]</nobr><blockquote>Copies the content of the buffer into a newly allocated clr array.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -260,7 +264,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.GetStream()">GetStream</a>
-                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a></nobr><blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<nobr> : <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a></nobr><blockquote>Creates an UnmanagedStream.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -460,7 +464,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Reset()">Reset</a>
-                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<blockquote>Clears the buffer.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -470,7 +474,8 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Slurp(System.Int32)">Slurp</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a>)<blockquote>Removes a given number of bytes from the head of the buffer.
+</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -480,7 +485,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Slurp(System.Int64)">Slurp</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a>)<blockquote>Removes a given number of bytes from the head of the buffer.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -490,7 +495,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Slurp(System.IntPtr)">Slurp</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote>Removes a given number of bytes from the head of the buffer.</blockquote></td>
               </tr>
             </table>
           </div>
@@ -506,7 +511,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Alloc(System.IntPtr)">Alloc</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a>)<blockquote>Allocates the NativeHandle.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -516,7 +521,7 @@ title:  Sundown.Buffer
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.Buffer.Dispose(System.Boolean)">Dispose</a>
-                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>(<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a>)<blockquote>The Dispose(bool) pattern.</blockquote></td>
               </tr>
             </table>
           </div>
@@ -528,9 +533,7 @@ title:  Sundown.Buffer
       <div class="SectionBox" id="_MemberDetails">
         <h3 id="C:Sundown.Buffer(System.IntPtr,System.Boolean)">Buffer Constructor</h3>
         <blockquote id="C:Sundown.Buffer(System.IntPtr,System.Boolean):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Allocates a new buffer or reuses an existing one.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">protected  <b>Buffer</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size, <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> alloc)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -539,21 +542,16 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Allocates a buffer of the size saved in the variable if the second argument alloc is true.
+If alloc is false, it will just use the value inside size as a pointer to the allocated buffer. </dd>
               <dt>
                 <i>alloc</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Determines how to treat the first argument IntPtr size of the constructor. If alloc is true, it will allocate a new buffer with the size saved in the 'IntPtr size' argument, if false, it will use the value in size as a pointer to the buffer.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="C:Sundown.Buffer(System.IntPtr,System.Boolean):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="C:Sundown.Buffer(System.IntPtr,System.Boolean):Remarks">This class is a wrapper of the buf functionality provided sundown (a collection of methods dealing with a buffer struct). The class is unsafe, in the sense that it uses pointer aritmethic and c functions.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="C:Sundown.Buffer(System.IntPtr,System.Boolean):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -561,9 +559,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Alloc(System.IntPtr)">Alloc Method</h3>
         <blockquote id="M:Sundown.Buffer.Alloc(System.IntPtr):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Allocates the NativeHandle.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">protected abstract <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Alloc</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -572,15 +568,11 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The size of the allocated buffer.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Alloc(System.IntPtr):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Alloc(System.IntPtr):Remarks">bufnewcb should be called from the sundown library in order to use custom allocators.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Alloc(System.IntPtr):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -588,15 +580,11 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="P:Sundown.Buffer.AllocatedSize">AllocatedSize Property</h3>
         <blockquote id="P:Sundown.Buffer.AllocatedSize:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The allocated size of the buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>AllocatedSize</b>  { get; }</div>
           <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.AllocatedSize:Value">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.AllocatedSize:Value">The size of the allocated buffer.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="P:Sundown.Buffer.AllocatedSize:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
@@ -608,19 +596,13 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Create()">Create Method</h3>
         <blockquote id="M:Sundown.Buffer.Create():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates a buffer using the default buffer implementation.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> ()</div>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create():Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create():Returns">A new instance of the default buffer implementation.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Create():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create():Remarks">Creates a buffer with the size of DefaultUnitSize(1024), which can lead to suboptimal behaviour, if the input is know to be bigger.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Create():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -628,9 +610,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Create(System.Int32)">Create Method</h3>
         <blockquote id="M:Sundown.Buffer.Create(System.Int32):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates a buffer using the default buffer implementation.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -639,15 +619,11 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The initial size of the buffer.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int32):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int32):Returns">A new instance of the default buffer implementation.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int32):Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
@@ -659,9 +635,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Create(System.Int64)">Create Method</h3>
         <blockquote id="M:Sundown.Buffer.Create(System.Int64):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates a buffer using the default buffer implementation.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -670,19 +644,13 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The initial size of the buffer.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int64):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.Int64):Returns">A new instance of the default buffer implementation.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int64):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int64):Remarks">Using values greater than 32bit on 32bit machines will result in errorneous program behaviour.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Create(System.Int64):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -690,9 +658,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Create(System.IntPtr)">Create Method</h3>
         <blockquote id="M:Sundown.Buffer.Create(System.IntPtr):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates a buffer using the default buffer implementation.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>Create</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -701,19 +667,13 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The initial size of the buffer.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Returns">A new instance of the default buffer implementation.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Remarks">Using values greater than 32bit on 32bit machines will result in errorneous program behaviour.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Create(System.IntPtr):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -721,15 +681,11 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="P:Sundown.Buffer.Data">Data Property</h3>
         <blockquote id="P:Sundown.Buffer.Data:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Buffer allocation pointer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>Data</b>  { get; }</div>
           <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.Data:Value">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.Data:Value">A pointer to the allocated buffer.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="P:Sundown.Buffer.Data:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
@@ -741,9 +697,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="F:Sundown.Buffer.DefaultUnitSize">DefaultUnitSize Field</h3>
         <blockquote id="F:Sundown.Buffer.DefaultUnitSize:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The default unit size.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public static readonly <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> <b>DefaultUnitSize</b> </div>
           <h2 class="Section">Remarks</h2>
@@ -757,15 +711,11 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Dispose()">Dispose Method</h3>
         <blockquote id="M:Sundown.Buffer.Dispose():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Releases the allocated buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Dispose</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Dispose():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Dispose():Remarks">Using this on NativeBuffer will release the allocated memory immediately, while on ClrBuffer it will just release the pinhandle and wait for the byte array to be collected by the GC.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Dispose():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -773,9 +723,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Dispose(System.Boolean)">Dispose Method</h3>
         <blockquote id="M:Sundown.Buffer.Dispose(System.Boolean):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The Dispose(bool) pattern.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">protected virtual <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Dispose</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Boolean">bool</a> disposing)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -784,15 +732,11 @@ title:  Sundown.Buffer
               <dt>
                 <i>disposing</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>true if the user called Dispose, false if the garbage collector initiated the dispose method.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Dispose(System.Boolean):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Dispose(System.Boolean):Remarks">Override this in your sublcasses if you want to have specific release behaviour.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Dispose(System.Boolean):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -800,9 +744,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="P:Sundown.Buffer.Encoding">Encoding Property</h3>
         <blockquote id="P:Sundown.Buffer.Encoding:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Default encoding to use for when serializing between strings and the buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Text.Encoding">System.Text.Encoding</a> <b>Encoding</b>  { get; set; }</div>
           <h4 class="Subsection">Value</h4>
@@ -837,9 +779,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.From(System.IntPtr)">From Method</h3>
         <blockquote id="M:Sundown.Buffer.From(System.IntPtr):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates an instance of the default buffer implementation from a pointer pointing to a buf handle.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public static <a href="../Sundown/Buffer.html">Buffer</a> <b>From</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> ptr)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -848,19 +788,13 @@ title:  Sundown.Buffer
               <dt>
                 <i>ptr</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Pointer pointing to the buf handle.</dd>
             </dl>
           </blockquote>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Returns">A new instance of the default buffer implementation.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Remarks">Don't cross over ClrBuffer buf handles and NativeBuffer handles, because the allocated memory is allocated by GCHandle/byte[] and malloc accordingly.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.From(System.IntPtr):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -868,19 +802,13 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.GetBufferStream()">GetBufferStream Method</h3>
         <blockquote id="M:Sundown.Buffer.GetBufferStream():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Wraps the current Buffer in a BufferStream.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="../Sundown/BufferStream.html">BufferStream</a> <b>GetBufferStream</b> ()</div>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetBufferStream():Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetBufferStream():Returns">A BufferStream which wraps the current Buffer.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.GetBufferStream():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetBufferStream():Remarks">The BufferStream let's you only write.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.GetBufferStream():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -888,19 +816,13 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.GetBytes()">GetBytes Method</h3>
         <blockquote id="M:Sundown.Buffer.GetBytes():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Copies the content of the buffer into a newly allocated clr array.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Byte">byte</a>[] <b>GetBytes</b> ()</div>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetBytes():Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetBytes():Returns">A CLR byte array containing all the information of the buffer.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.GetBytes():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetBytes():Remarks">The size is equal to the content size and not the buffer size. The entire content of the buffer gets copied and not just reused.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.GetBytes():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -908,19 +830,14 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.GetStream()">GetStream Method</h3>
         <blockquote id="M:Sundown.Buffer.GetStream():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates an UnmanagedStream.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IO.Stream">System.IO.Stream</a> <b>GetStream</b> ()</div>
           <h4 class="Subsection">Returns</h4>
-          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetStream():Returns">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="M:Sundown.Buffer.GetStream():Returns">An UnmanagedStream pointing to the allocated buffer memory.</blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.GetStream():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.GetStream():Remarks">If you call this method and then call Grow on the buffer, the pointer to which the UnamangedStream is pointing might become invalid.
+Always drop the last Stream you got with this function if you are doing operations on the buffer which might increase the buffer(resize/realloc the memory).</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.GetStream():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -937,15 +854,11 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The amount of bytes which to grow.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int32):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int32):Remarks">Growing passed 16MB will result in OutOfMemoryException. This is a sundown limitation.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int32):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -962,15 +875,11 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The amount of bytes which to grow.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int64):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int64):Remarks">Growing passed 16MB will result in OutOfMemoryException. This is a sundown limitation.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.Int64):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -987,15 +896,11 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The amount of bytes which to grow.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.IntPtr):Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.IntPtr):Remarks">Growing passed 16MB will result in OutOfMemoryException. This is a sundown limitation.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Grow(System.IntPtr):Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -1003,15 +908,11 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="P:Sundown.Buffer.NativeHandle">NativeHandle Property</h3>
         <blockquote id="P:Sundown.Buffer.NativeHandle:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The native buffer handle which is used by the sundown library.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>NativeHandle</b>  { get; protected set; }</div>
           <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.NativeHandle:Value">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="P:Sundown.Buffer.NativeHandle:Value">Pointer to the native buffer handle.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="P:Sundown.Buffer.NativeHandle:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
@@ -1551,15 +1452,11 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Reset()">Reset Method</h3>
         <blockquote id="M:Sundown.Buffer.Reset():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Clears the buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Reset</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.Buffer.Reset():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.Buffer.Reset():Remarks">Doesn't release the memory, it only sets the seek pointer to 0.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.Buffer.Reset():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -1567,9 +1464,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="P:Sundown.Buffer.Size">Size Property</h3>
         <blockquote id="P:Sundown.Buffer.Size:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The currently used size of the buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>Size</b>  { get; set; }</div>
           <h4 class="Subsection">Value</h4>
@@ -1577,9 +1472,7 @@ title:  Sundown.Buffer
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:Sundown.Buffer.Size:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="P:Sundown.Buffer.Size:Remarks">This returns how much content the buffer contains.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:Sundown.Buffer.Size:Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -1587,9 +1480,8 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Slurp(System.Int32)">Slurp Method</h3>
         <blockquote id="M:Sundown.Buffer.Slurp(System.Int32):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Removes a given number of bytes from the head of the buffer.
+</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Slurp</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int32">int</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -1598,9 +1490,7 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Number of bytes to remove.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
@@ -1614,9 +1504,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Slurp(System.Int64)">Slurp Method</h3>
         <blockquote id="M:Sundown.Buffer.Slurp(System.Int64):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Removes a given number of bytes from the head of the buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Slurp</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Int64">long</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -1625,9 +1513,7 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Number of bytes to remove.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
@@ -1641,9 +1527,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="M:Sundown.Buffer.Slurp(System.IntPtr)">Slurp Method</h3>
         <blockquote id="M:Sundown.Buffer.Slurp(System.IntPtr):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Removes a given number of bytes from the head of the buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Slurp</b> (<a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> size)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -1652,9 +1536,7 @@ title:  Sundown.Buffer
               <dt>
                 <i>size</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>Number of bytes to remove.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
@@ -1668,9 +1550,7 @@ title:  Sundown.Buffer
         </blockquote>
         <h3 id="P:Sundown.Buffer.UnitSize">UnitSize Property</h3>
         <blockquote id="P:Sundown.Buffer.UnitSize:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The unit size of the particular buffer.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.IntPtr">IntPtr</a> <b>UnitSize</b>  { get; }</div>
           <h4 class="Subsection">Value</h4>
@@ -1678,9 +1558,8 @@ title:  Sundown.Buffer
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
           </blockquote>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="P:Sundown.Buffer.UnitSize:Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="P:Sundown.Buffer.UnitSize:Remarks">The bigger the default unit size is the more memory is allocated when growing the buffer when the size is not sufficient to hold the entire content, but less allocations are needed.
+The best way is to allocate immediately a sufficiently big enough buffer.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="P:Sundown.Buffer.UnitSize:Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>

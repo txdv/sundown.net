@@ -22,7 +22,7 @@ title:  Sundown.BufferStream
     </div>
     <div class="Remarks" id="T:Sundown.BufferStream:Docs">
       <h2 class="Section">Remarks</h2>
-      <div class="SectionBox" id="T:Sundown.BufferStream:Docs:Remarks">This class enables the developer to use  buffers as Streams utilizing various other tools to fill the Buffers with data.</div>
+      <div class="SectionBox" id="T:Sundown.BufferStream:Docs:Remarks">This class enables the developer to use buffers as Streams utilizing various other tools to fill the Buffers with data. Only writing is supported.</div>
       <h2 class="Section">Requirements</h2>
       <div class="SectionBox" id="T:Sundown.BufferStream:Docs:Version Information">
         <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
@@ -47,9 +47,7 @@ title:  Sundown.BufferStream
                       <a href="#C:Sundown.BufferStream(Sundown.Buffer)">BufferStream</a>
                     </b>(<a href="../Sundown/Buffer.html">Buffer</a>)</div>
                 </td>
-                <td>
-                  <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-                </td>
+                <td>Creates a new buffer stream.</td>
               </tr>
             </table>
           </div>
@@ -71,7 +69,7 @@ title:  Sundown.BufferStream
                 <td>
                   <i>
                     <a href="../Sundown/Buffer.html">Buffer</a>
-                  </i>. <span class="NotEntered">Documentation for this section has not yet been entered.</span></td>
+                  </i>. The buffer which was supplied with the constructor.</td>
               </tr>
               <tr valign="top">
                 <td>[read-only]<div>override </div></td>
@@ -149,7 +147,7 @@ title:  Sundown.BufferStream
                 <td colspan="2">
                   <b>
                     <a href="#M:Sundown.BufferStream.Flush()">Flush</a>
-                  </b>()<blockquote><span class="NotEntered">Documentation for this section has not yet been entered.</span></blockquote></td>
+                  </b>()<blockquote>Flushes the stream.</blockquote></td>
               </tr>
               <tr valign="top">
                 <td>
@@ -197,9 +195,7 @@ title:  Sundown.BufferStream
       <div class="SectionBox" id="_MemberDetails">
         <h3 id="C:Sundown.BufferStream(Sundown.Buffer)">BufferStream Constructor</h3>
         <blockquote id="C:Sundown.BufferStream(Sundown.Buffer):member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Creates a new buffer stream.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public  <b>BufferStream</b> (<a href="../Sundown/Buffer.html">Buffer</a> buffer)</div>
           <h4 class="Subsection">Parameters</h4>
@@ -208,9 +204,7 @@ title:  Sundown.BufferStream
               <dt>
                 <i>buffer</i>
               </dt>
-              <dd>
-                <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-              </dd>
+              <dd>The Buffer to use to create a new buffer stream.</dd>
             </dl>
           </blockquote>
           <h2 class="Section">Remarks</h2>
@@ -224,15 +218,11 @@ title:  Sundown.BufferStream
         </blockquote>
         <h3 id="P:Sundown.BufferStream.Buffer">Buffer Property</h3>
         <blockquote id="P:Sundown.BufferStream.Buffer:member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">The buffer which was supplied with the constructor.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public <a href="../Sundown/Buffer.html">Buffer</a> <b>Buffer</b>  { get; protected set; }</div>
           <h4 class="Subsection">Value</h4>
-          <blockquote class="SubsectionBox" id="P:Sundown.BufferStream.Buffer:Value">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </blockquote>
+          <blockquote class="SubsectionBox" id="P:Sundown.BufferStream.Buffer:Value">Returns the buffer which is used.</blockquote>
           <h2 class="Section">Remarks</h2>
           <div class="SectionBox" id="P:Sundown.BufferStream.Buffer:Remarks">
             <span class="NotEntered">Documentation for this section has not yet been entered.</span>
@@ -304,15 +294,11 @@ title:  Sundown.BufferStream
         </blockquote>
         <h3 id="M:Sundown.BufferStream.Flush()">Flush Method</h3>
         <blockquote id="M:Sundown.BufferStream.Flush():member">
-          <p class="Summary">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </p>
+          <p class="Summary">Flushes the stream.</p>
           <h2>Syntax</h2>
           <div class="Signature" id="">public override <a href="http://www.go-mono.com/docs/monodoc.ashx?link=T:System.Void">void</a> <b>Flush</b> ()</div>
           <h2 class="Section">Remarks</h2>
-          <div class="SectionBox" id="M:Sundown.BufferStream.Flush():Remarks">
-            <span class="NotEntered">Documentation for this section has not yet been entered.</span>
-          </div>
+          <div class="SectionBox" id="M:Sundown.BufferStream.Flush():Remarks">Is a no op, because everything get's written immediately to the memory.</div>
           <h2 class="Section">Requirements</h2>
           <div class="SectionBox" id="M:Sundown.BufferStream.Flush():Version Information">
             <b>Namespace: </b>Sundown<br /><b>Assembly: </b>SundownNet (in SundownNet.dll)<br /><b>Assembly Versions: </b>1.15.12.0</div>
