@@ -15,9 +15,7 @@
 
 <para>
 Growing the buffer is slower than compared to the NativeBuffer, but if no buffer growing is needed, the ClrBuffer will achieve superior performance.
-</para>
-
-<para>
+</para><para>
 Doesn't work without a modified sundown version.
 </para></remarks>
   </Docs>

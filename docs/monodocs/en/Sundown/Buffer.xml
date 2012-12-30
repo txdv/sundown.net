@@ -17,12 +17,15 @@
     <summary>Abstracts the NativeBuffer and the ClrBuffer.
 </summary>
     <remarks>
-<list type="bullet">
-  <item><term>This class should be subclassed only with caution, it allows to change the behaviour of buffer allocations, this functionality should be used only by people who know exactly what they are doing.</term></item>
-  <item><term>In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer.</term></item>
-</list>
-
- </remarks>
+      <list type="bullet">
+        <item>
+          <term>This class should be subclassed only with caution, it allows to change the behaviour of buffer allocations, this functionality should be used only by people who know exactly what they are doing.</term>
+        </item>
+        <item>
+          <term>In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer.</term>
+        </item>
+      </list>
+    </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
