@@ -25,13 +25,13 @@ title:   Sundown.net
     <p>Sundown.net is a wrapper of the <a href="https://github.com/vmg/sundown">sundown</a> library. It is a very robust c library written in C.</p>
 
     <h3>Other generators</h3>
-    <p>There are a lot of markdown generators out there, many written in C# while regex and other handy utilities. While the language and these utilities make the code easier to understand and easier to handle, it comes at a high performance penalty.</p>
+    <p>There are a lot of markdown generators out there, many written in C# while using regex, operating on strings instead of byte arrays or using other handy utilities that come with a speed penalty. While the language and these utilities make the code easier to understand and easier to handle, it comes at a high performance penalty.</p>
 
     <h3>The native approach wrapped in candy</h3>
-    <p>Sundown is a library written in pure C utilizing the fastest possible ways to parse and generate markdown. It has a nice extensible API to create backends that output something else than html. Using those interfaces is actually a painful experience to the normal C# developer, but I have done all the hard work to expose the ugly C interfaces in a beautiful C# OOP style. A <a href="https://github.com/txdv/sundown.net/blob/master/SundownNet/BBCode.cs">showcase of a BBCode generator for markdown</a> reveals how easy it is to use the C# API. </p>
+    <p>Sundown is a library written in pure C utilizing the fastest possible ways to parse and generate markdown. It has a nice extensible API to create backends that output something else than html. Using those C interfaces is actually a painful experience to the normal C# developer, but I have done all the hard work to expose the ugly C interfaces in a beautiful C# API. A <a href="https://github.com/txdv/sundown.net/blob/master/SundownNet/BBCode.cs">showcase of a BBCode generator for markdown</a> reveals how easy it is to use the interface. </p>
 
     <h3>Speed</h3>
-    <p>I won't post the results of the benchmarks, since the outcome is dependent on the machine specs, but you can just checkout the project and run the benchmarks for yourself to compare. My experience was that when already having a decent sized buffer, the execution speed is twice as fast compared to the fastest .NET implementation. The downside is that it is not 'pure clr' and the native library needs to be compiled exclusively on every platform.</p>
+    <p>I won't post the results of the benchmarks, since the outcome is dependent on the machine specs, but you can just checkout the project and run the benchmarks for yourself to compare (There is a benchmark project in the solution, so it is really easy to do so). However, my experience was that when already having a decent sized buffer, the execution speed is twice as fast compared to the fastest .NET implementation. The downside is that it is not 'pure clr' and the native library needs to be compiled exclusively on every platform.</p>
 
   <a href="Sundown/index.html">Check out the documentation</a>
   </section>
