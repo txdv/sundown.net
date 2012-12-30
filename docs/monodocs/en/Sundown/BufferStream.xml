@@ -11,7 +11,7 @@
   <Interfaces />
   <Docs>
     <summary>A wrapper of the Buffer exposing the functionality as a Stream.</summary>
-    <remarks>This class enables the developer to use  buffers as Streams utilizing various other tools to fill the Buffers with data.</remarks>
+    <remarks>This class enables the developer to use buffers as Streams utilizing various other tools to fill the Buffers with data. Only writing is supported.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -25,8 +25,8 @@
         <Parameter Name="buffer" Type="Sundown.Buffer" />
       </Parameters>
       <Docs>
-        <param name="buffer">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="buffer">The Buffer to use to create a new buffer stream.</param>
+        <summary>Creates a new buffer stream.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -41,8 +41,8 @@
         <ReturnType>Sundown.Buffer</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>The buffer which was supplied with the constructor.</summary>
+        <value>Returns the buffer which is used.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -106,8 +106,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Flushes the stream.</summary>
+        <remarks>Is a no op, because everything get's written immediately to the memory.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Length">

@@ -10,8 +10,8 @@
   </Base>
   <Interfaces />
   <Docs>
-    <summary>To be added.</summary>
-    <remarks>To be added.</remarks>
+    <summary>Build in markdown html renderer.</summary>
+    <remarks>Uses the default conventions. Can be overriden and behaviour can be modified.</remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -23,8 +23,8 @@
       </AssemblyInfo>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates an instance of the HtmlRenderer with default option settings.</summary>
+        <remarks>Uses the default html generation settings.</remarks>
       </Docs>
     </Member>
     <Member MemberName=".ctor">
@@ -39,7 +39,7 @@
       </Parameters>
       <Docs>
         <param name="mode">To be added.</param>
-        <summary>To be added.</summary>
+        <summary>Creates an instance of the HtmlRenderer.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>

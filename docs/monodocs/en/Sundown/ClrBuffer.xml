@@ -15,6 +15,10 @@
 
 <para>
 Growing the buffer is slower than compared to the NativeBuffer, but if no buffer growing is needed, the ClrBuffer will achieve superior performance.
+</para>
+
+<para>
+Doesn't work without a modified sundown version.
 </para></remarks>
   </Docs>
   <Members>
@@ -112,8 +116,8 @@ Growing the buffer is slower than compared to the NativeBuffer, but if no buffer
       </Parameters>
       <Docs>
         <param name="size">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Creates a native clr byte array.</summary>
+        <remarks>Doesn't work without a modified sundown version.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Buffer">

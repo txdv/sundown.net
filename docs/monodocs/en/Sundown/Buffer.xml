@@ -14,8 +14,15 @@
     </Interface>
   </Interfaces>
   <Docs>
-    <summary>Abstracts the NativeBuffer and the ClrBuffer.</summary>
-    <remarks>In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer. </remarks>
+    <summary>Abstracts the NativeBuffer and the ClrBuffer.
+</summary>
+    <remarks>
+<list type="bullet">
+  <item><term>This class should be subclassed only with caution, it allows to change the behaviour of buffer allocations, this functionality should be used only by people who know exactly what they are doing.</term></item>
+  <item><term>In order to achieve faster performance, the buffer should be allocated immediately with a decent size, so the renderer won't have to grow the buffer.</term></item>
+</list>
+
+ </remarks>
   </Docs>
   <Members>
     <Member MemberName=".ctor">
@@ -30,10 +37,11 @@
         <Parameter Name="alloc" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <param name="alloc">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="size">Allocates a buffer of the size saved in the variable if the second argument alloc is true.
+If alloc is false, it will just use the value inside size as a pointer to the allocated buffer. </param>
+        <param name="alloc">Determines how to treat the first argument IntPtr size of the constructor. If alloc is true, it will allocate a new buffer with the size saved in the 'IntPtr size' argument, if false, it will use the value in size as a pointer to the buffer.</param>
+        <summary>Allocates a new buffer or reuses an existing one.</summary>
+        <remarks>This class is a wrapper of the buf functionality provided sundown (a collection of methods dealing with a buffer struct). The class is unsafe, in the sense that it uses pointer aritmethic and c functions.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Alloc">
@@ -50,9 +58,9 @@
         <Parameter Name="size" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="size">The size of the allocated buffer.</param>
+        <summary>Allocates the NativeHandle.</summary>
+        <remarks>bufnewcb should be called from the sundown library in order to use custom allocators.</remarks>
       </Docs>
     </Member>
     <Member MemberName="AllocatedSize">
@@ -66,8 +74,8 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>The allocated size of the buffer.</summary>
+        <value>The size of the allocated buffer.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -83,9 +91,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Creates a buffer using the default buffer implementation.</summary>
+        <returns>A new instance of the default buffer implementation.</returns>
+        <remarks>Creates a buffer with the size of DefaultUnitSize(1024), which can lead to suboptimal behaviour, if the input is know to be bigger.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Create">
@@ -102,9 +110,9 @@
         <Parameter Name="size" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
+        <param name="size">The initial size of the buffer.</param>
+        <summary>Creates a buffer using the default buffer implementation.</summary>
+        <returns>A new instance of the default buffer implementation.</returns>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -122,10 +130,10 @@
         <Parameter Name="size" Type="System.Int64" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="size">The initial size of the buffer.</param>
+        <summary>Creates a buffer using the default buffer implementation.</summary>
+        <returns>A new instance of the default buffer implementation.</returns>
+        <remarks>Using values greater than 32bit on 32bit machines will result in errorneous program behaviour.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Create">
@@ -142,10 +150,10 @@
         <Parameter Name="size" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="size">The initial size of the buffer.</param>
+        <summary>Creates a buffer using the default buffer implementation.</summary>
+        <returns>A new instance of the default buffer implementation.</returns>
+        <remarks>Using values greater than 32bit on 32bit machines will result in errorneous program behaviour.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Data">
@@ -159,8 +167,8 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>Buffer allocation pointer.</summary>
+        <value>A pointer to the allocated buffer.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -175,7 +183,7 @@
         <ReturnType>System.Int32</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The default unit size.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -191,8 +199,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Releases the allocated buffer.</summary>
+        <remarks>Using this on NativeBuffer will release the allocated memory immediately, while on ClrBuffer it will just release the pinhandle and wait for the byte array to be collected by the GC.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Dispose">
@@ -209,9 +217,9 @@
         <Parameter Name="disposing" Type="System.Boolean" />
       </Parameters>
       <Docs>
-        <param name="disposing">To be added.</param>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <param name="disposing">true if the user called Dispose, false if the garbage collector initiated the dispose method.</param>
+        <summary>The Dispose(bool) pattern.</summary>
+        <remarks>Override this in your sublcasses if you want to have specific release behaviour.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Encoding">
@@ -225,7 +233,7 @@
         <ReturnType>System.Text.Encoding</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>Default encoding to use for when serializing between strings and the buffer.</summary>
         <value>To be added.</value>
         <remarks>To be added.</remarks>
       </Docs>
@@ -260,10 +268,10 @@
         <Parameter Name="ptr" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="ptr">To be added.</param>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <param name="ptr">Pointer pointing to the buf handle.</param>
+        <summary>Creates an instance of the default buffer implementation from a pointer pointing to a buf handle.</summary>
+        <returns>A new instance of the default buffer implementation.</returns>
+        <remarks>Don't cross over ClrBuffer buf handles and NativeBuffer handles, because the allocated memory is allocated by GCHandle/byte[] and malloc accordingly.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetBufferStream">
@@ -278,9 +286,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Wraps the current Buffer in a BufferStream.</summary>
+        <returns>A BufferStream which wraps the current Buffer.</returns>
+        <remarks>The BufferStream let's you only write.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetBytes">
@@ -295,9 +303,9 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Copies the content of the buffer into a newly allocated clr array.</summary>
+        <returns>A CLR byte array containing all the information of the buffer.</returns>
+        <remarks>The size is equal to the content size and not the buffer size. The entire content of the buffer gets copied and not just reused.</remarks>
       </Docs>
     </Member>
     <Member MemberName="GetStream">
@@ -312,9 +320,10 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <returns>To be added.</returns>
-        <remarks>To be added.</remarks>
+        <summary>Creates an UnmanagedStream.</summary>
+        <returns>An UnmanagedStream pointing to the allocated buffer memory.</returns>
+        <remarks>If you call this method and then call Grow on the buffer, the pointer to which the UnamangedStream is pointing might become invalid.
+Always drop the last Stream you got with this function if you are doing operations on the buffer which might increase the buffer(resize/realloc the memory).</remarks>
       </Docs>
     </Member>
     <Member MemberName="Grow">
@@ -331,9 +340,9 @@
         <Parameter Name="size" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
+        <param name="size">The amount of bytes which to grow.</param>
         <summary>Grow the buffer size.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>Growing passed 16MB will result in OutOfMemoryException. This is a sundown limitation.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Grow">
@@ -350,9 +359,9 @@
         <Parameter Name="size" Type="System.Int64" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
+        <param name="size">The amount of bytes which to grow.</param>
         <summary>Grow the buffer size.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>Growing passed 16MB will result in OutOfMemoryException. This is a sundown limitation.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Grow">
@@ -369,9 +378,9 @@
         <Parameter Name="size" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
+        <param name="size">The amount of bytes which to grow.</param>
         <summary>Grow the buffer size.</summary>
-        <remarks>To be added.</remarks>
+        <remarks>Growing passed 16MB will result in OutOfMemoryException. This is a sundown limitation.</remarks>
       </Docs>
     </Member>
     <Member MemberName="NativeHandle">
@@ -385,8 +394,8 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
-        <value>To be added.</value>
+        <summary>The native buffer handle which is used by the sundown library.</summary>
+        <value>Pointer to the native buffer handle.</value>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -750,8 +759,8 @@
       </ReturnValue>
       <Parameters />
       <Docs>
-        <summary>To be added.</summary>
-        <remarks>To be added.</remarks>
+        <summary>Clears the buffer.</summary>
+        <remarks>Doesn't release the memory, it only sets the seek pointer to 0.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Size">
@@ -765,9 +774,9 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The currently used size of the buffer.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>This returns how much content the buffer contains.</remarks>
       </Docs>
     </Member>
     <Member MemberName="Slurp">
@@ -784,8 +793,9 @@
         <Parameter Name="size" Type="System.Int32" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="size">Number of bytes to remove.</param>
+        <summary>Removes a given number of bytes from the head of the buffer.
+</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -803,8 +813,8 @@
         <Parameter Name="size" Type="System.Int64" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="size">Number of bytes to remove.</param>
+        <summary>Removes a given number of bytes from the head of the buffer.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -822,8 +832,8 @@
         <Parameter Name="size" Type="System.IntPtr" />
       </Parameters>
       <Docs>
-        <param name="size">To be added.</param>
-        <summary>To be added.</summary>
+        <param name="size">Number of bytes to remove.</param>
+        <summary>Removes a given number of bytes from the head of the buffer.</summary>
         <remarks>To be added.</remarks>
       </Docs>
     </Member>
@@ -838,9 +848,10 @@
         <ReturnType>System.IntPtr</ReturnType>
       </ReturnValue>
       <Docs>
-        <summary>To be added.</summary>
+        <summary>The unit size of the particular buffer.</summary>
         <value>To be added.</value>
-        <remarks>To be added.</remarks>
+        <remarks>The bigger the default unit size is the more memory is allocated when growing the buffer when the size is not sufficient to hold the entire content, but less allocations are needed.
+The best way is to allocate immediately a sufficiently big enough buffer.</remarks>
       </Docs>
     </Member>
   </Members>
