@@ -47,7 +47,6 @@
       <Type Name="Renderer" Kind="Class" />
       <Type Name="TableFlags" Kind="Enumeration" />
       <Type Name="TableOfContentRenderer" Kind="Class" />
-      <Type Name="Version" Kind="Class" />
     </Namespace>
   </Types>
   <Title>SundownNet</Title>

@@ -26,19 +26,16 @@
         <summary>The only constructor of the Options class.</summary>
         <remarks>It will initialize the class with default values.
 
-<example>
-  <code lang="C#">
+<example><code lang="C#">
 DefaultHeaderSize = 10;
 HeaderSize = new Dictionary&lt;int, int&gt;() {
   { 1, 16 },
   { 2, 14 },
   { 3, 12 },
 };
-  </code>
-</example>
+  </code></example>
 Custom option setting is possible like this:
-<example>
-  <code lang="C#">
+<example><code lang="C#">
 DefaultHeaderSize = 10;
 var options = new BBCodeOptions() {
   DefaultHeaderSize = 16,
@@ -47,9 +44,7 @@ var options = new BBCodeOptions() {
     { 2, 20 },
   }
 }
-  </code>
-</example>
-</remarks>
+  </code></example></remarks>
       </Docs>
     </Member>
     <Member MemberName="DefaultHeaderSize">

@@ -472,14 +472,14 @@
       </Docs>
     </Member>
     <Member MemberName="Version">
-      <MemberSignature Language="C#" Value="public static Sundown.Version Version { get; }" />
-      <MemberSignature Language="ILAsm" Value=".property class Sundown.Version Version" />
+      <MemberSignature Language="C#" Value="public static Version Version { get; }" />
+      <MemberSignature Language="ILAsm" Value=".property class System.Version Version" />
       <MemberType>Property</MemberType>
       <AssemblyInfo>
         <AssemblyVersion>1.15.12.0</AssemblyVersion>
       </AssemblyInfo>
       <ReturnValue>
-        <ReturnType>Sundown.Version</ReturnType>
+        <ReturnType>System.Version</ReturnType>
       </ReturnValue>
       <Docs>
         <summary>Returns the version of the underlying sundown library.</summary>
