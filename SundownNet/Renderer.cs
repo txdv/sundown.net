@@ -178,7 +178,12 @@ namespace Sundown
 
 		bool IsOverriden(string name)
 		{
-			for (Type type = this.GetType(); type != typeof(Renderer); type = type.BaseType) {
+			return IsOverriden(name, typeof(Renderer));
+		}
+
+		protected bool IsOverriden(string name, Type baseType)
+		{
+			for (Type type = this.GetType(); type != baseType; type = type.BaseType) {
 				if (IsOverriden(type, name)) {
 					return true;
 				}
@@ -186,7 +191,7 @@ namespace Sundown
 			return false;
 		}
 
-		bool IsOverriden(Type type, string name)
+		protected bool IsOverriden(Type type, string name)
 		{
 			return type.GetMethod(name, BindingFlags.NonPublic|BindingFlags.Instance|BindingFlags.DeclaredOnly) != null;
 		}
