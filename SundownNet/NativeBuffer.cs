@@ -9,7 +9,7 @@ namespace Sundown
 {
 	public class NativeBuffer : Buffer
 	{
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern IntPtr bufnew(IntPtr size);
 
 		public NativeBuffer()
