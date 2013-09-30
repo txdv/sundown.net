@@ -220,13 +220,13 @@ namespace Sundown
 			bufputc(NativeHandle, c);
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern void bufput(IntPtr buf, IntPtr buffer, IntPtr size);
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern void bufputs(IntPtr buf, IntPtr size);
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern void bufputc(IntPtr buf, byte c);
 
 		#endregion
@@ -247,7 +247,7 @@ namespace Sundown
 			bufgrow(NativeHandle, size);
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern int bufgrow(IntPtr buf, IntPtr size);
 		#endregion
 
@@ -257,7 +257,7 @@ namespace Sundown
 			bufreset(NativeHandle);
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern void bufreset(IntPtr buf);
 		#endregion
 
@@ -270,7 +270,7 @@ namespace Sundown
 			}
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern void bufrelease(IntPtr buf);
 		#endregion
 
@@ -290,7 +290,7 @@ namespace Sundown
 			Slurp(new IntPtr(size));
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern void bufslurp(IntPtr buf, IntPtr size);
 		#endregion
 	}

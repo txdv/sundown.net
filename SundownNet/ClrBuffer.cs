@@ -71,7 +71,7 @@ namespace Sundown
 		{
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		private static extern IntPtr bufnewcb(IntPtr size, IntPtr malloc, IntPtr realloc, IntPtr free);
 
 		protected override void Alloc(IntPtr size)
