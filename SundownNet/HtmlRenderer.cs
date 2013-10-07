@@ -1,6 +1,7 @@
 using System;
 using System.Runtime.InteropServices;
 
+
 namespace Sundown
 {
 	struct html_renderopt
@@ -42,7 +43,7 @@ namespace Sundown
 			}
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void sdhtml_renderer(ref md_callbacks callbacks, IntPtr options, uint render_flags);
 
 		protected override void Initialize()

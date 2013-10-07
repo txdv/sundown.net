@@ -20,7 +20,7 @@ namespace Sundown
 			}
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void sdhtml_toc_renderer(ref md_callbacks callbacks, IntPtr options, uint render_flags);
 
 		protected override void Initialize()

@@ -6,7 +6,7 @@ namespace Sundown
 {
 	public sealed class Markdown : IDisposable
 	{
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void sd_version(out int major, out int minor, out int revision);
 
 		public static Version Version {
@@ -22,7 +22,7 @@ namespace Sundown
 		IntPtr ptr;
 		Renderer renderer;
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern IntPtr sd_markdown_new(uint extensions, IntPtr max_nesting, IntPtr callbacks, IntPtr opaque);
 
 		public Markdown(Renderer renderer)
@@ -58,7 +58,7 @@ namespace Sundown
 			Dispose(true);
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void sd_markdown_free(IntPtr ptr);
 
 		void Dispose(bool disposing)
@@ -109,7 +109,7 @@ namespace Sundown
 			Render(@out, array, (IntPtr)length);
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void sd_markdown_render(IntPtr buf, IntPtr document, IntPtr documentSize, IntPtr md);
 
 		public void Render(Buffer @out, byte[] array, IntPtr length)
@@ -167,7 +167,7 @@ namespace Sundown
 			SmartyPants(@out, array, (IntPtr)length);
 		}
 
-		[DllImport("sundown")]
+		[DllImport("sundown", CallingConvention=CallingConvention.Cdecl)]
 		internal static extern void sdhtml_smartypants(IntPtr buf, IntPtr text, IntPtr size);
 
 		public static void SmartyPants(Buffer @out, byte[] array, IntPtr length)
