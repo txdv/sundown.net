@@ -12,6 +12,13 @@ It is ridicolously fast compared to pure .NET/Regex implementations.
 
 More information on the [official website](http://txdv.github.com/sundown.net).
 
+Building
+========
+
+The harder part is to compile the native markdown library on windows. I used the 'Developer Command Prompt for VS2012'. 
+
+Open the visual studio  command line tool and type `nmake -f Makefile.win` 
+
 License
 =======
 The wrapper is available under the [MIT license](http://en.wikipedia.org/wiki/MIT_License).
